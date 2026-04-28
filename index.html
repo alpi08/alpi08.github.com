@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme Servisi (Tam Yönetim Panelli)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme Servisi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -13,13 +13,13 @@
             box-sizing: border-box;
         }
 
-        /* ========= SABİT TEMA (değişmez, ama canlı renkler) ========= */
+        /* ========= SABİT TEMA (CANLI RENKLER) ========= */
         :root {
             --bg-gradient: linear-gradient(145deg, #FFF0DF 0%, #FFE2D4 30%, #DCF2FF 70%, #F2E6FF 100%);
             --card-bg: rgba(255, 248, 240, 0.96);
             --text-primary: #1E293B;
             --text-secondary: #334155;
-            --navbar-bg: rgba(255, 245, 235, 0.98);
+            --navbar-bg: rgba(255, 245, 235, 0.96);
             --footer-bg: #0f172a;
             --footer-text: #FFEDD6;
             --accent-orange: #EA580C;
@@ -35,7 +35,10 @@
             background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.5;
+            transition: background 0.3s ease, color 0.2s ease;
         }
+
+        /* Koyu Tema */
         body.dark {
             --bg-gradient: linear-gradient(145deg, #0f172a 0%, #1e293b 40%, #2d1f3a 70%, #0a0f1f 100%);
             --card-bg: rgba(30, 41, 59, 0.96);
@@ -47,7 +50,7 @@
             --border-light: rgba(255,255,255,0.1);
         }
 
-        /* Hareketli arka plan */
+        /* Hareketli arka plan blobları */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -84,6 +87,32 @@
             z-index: 2;
         }
 
+        /* Dark Mode Butonu (sol üst) */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 200;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            background: var(--accent-orange);
+        }
+
         /* Navbar - tavana yapışık */
         .navbar {
             background: var(--navbar-bg);
@@ -105,8 +134,18 @@
             max-width: 1280px;
             margin: 0 auto;
         }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 12px;
+        }
         .logo h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             background: linear-gradient(135deg, #DC2F02, #EA580C, #F59E0B);
             background-clip: text;
@@ -115,11 +154,11 @@
         }
         .logo span {
             background: #FFE500;
-            padding: 0.2rem 1rem;
+            padding: 0.2rem 0.9rem;
             border-radius: 60px;
             font-size: 0.7rem;
             font-weight: 800;
-            margin-left: 0.5rem;
+            margin-left: 0.3rem;
             color: #1e1a2f;
         }
         .nav-links a {
@@ -217,29 +256,23 @@
             font-weight: 700;
             text-decoration: none;
         }
-        .hero-media {
+        .hero-image {
             flex: 0.8;
             text-align: center;
             animation: gentleBounce 3s infinite alternate;
-            position: relative;
         }
         @keyframes gentleBounce {
             0% { transform: translateY(0px);}
             100% { transform: translateY(-8px);}
         }
-        .hero-video {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 32px;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
-            background: #000;
+        .hero-image i {
+            font-size: 7rem;
+            background: linear-gradient(145deg, #EA580C, #F59E0B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
-        .custom-logo {
-            max-width: 220px;
-            max-height: 180px;
-            object-fit: contain;
-            border-radius: 24px;
-        }
+
         /* Kartlar */
         .cards-grid {
             display: grid;
@@ -255,9 +288,6 @@
             transition: transform 0.2s;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-light);
-            background-size: cover;
-            background-position: center;
-            position: relative;
         }
         .info-card:hover { transform: translateY(-6px); }
         .info-icon {
@@ -273,33 +303,31 @@
             color: white;
         }
 
-        /* Dinamik Kartlar (Hizmetler ve Ekip) */
-        .services, .team-section {
+        /* Hizmetler */
+        .services {
             background: var(--card-bg);
             border-radius: 70px;
             margin: 2rem 0;
             padding: 2.5rem 1rem;
             backdrop-filter: blur(4px);
         }
-        .services-grid, .team-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.8rem;
         }
-        .service-card, .team-card {
+        .service-item {
             background: rgba(255,255,245,0.7);
             backdrop-filter: blur(4px);
             border-radius: 40px;
             padding: 1.4rem;
             text-align: center;
             border-bottom: 3px solid var(--accent-orange);
-            position: relative;
-            transition: 0.2s;
         }
-        body.dark .service-card, body.dark .team-card {
+        body.dark .service-item {
             background: rgba(0,0,0,0.3);
         }
-        .service-card i, .team-card i {
+        .service-item i {
             font-size: 2.5rem;
             background: linear-gradient(145deg, #DC2F02, #EA580C);
             background-clip: text;
@@ -307,92 +335,41 @@
             color: transparent;
             margin-bottom: 0.5rem;
         }
-        .team-card img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin: 0 auto 0.8rem;
-            display: block;
-            border: 3px solid var(--accent-gold);
+        .service-item h4 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
         }
-        .edit-btn {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: #facc15;
-            color: #1e293b;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.8rem;
-            opacity: 0;
-            transition: 0.2s;
-            z-index: 10;
-        }
-        .info-card:hover .edit-btn,
-        .service-card:hover .edit-btn,
-        .team-card:hover .edit-btn,
-        .hero-media:hover .edit-btn,
-        .logo:hover .edit-btn {
-            opacity: 1;
-        }
-        .add-new-btn {
-            background: var(--accent-orange);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 40px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-        /* Galeri */
-        .gallery-section {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: var(--card-bg);
-            border-radius: 48px;
-        }
-        .gallery-grid {
+
+        /* Saatler ve harita */
+        .two-columns {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 1 / 1;
-            background: #0001;
+        .hours-table, .map-card {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
         }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.2s;
-        }
-        .gallery-item .delete-gallery-img {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
+        .day-row {
+            background: rgba(0,0,0,0.05);
+            margin: 0.7rem 0;
+            padding: 0.7rem 1rem;
+            border-radius: 60px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
+            justify-content: space-between;
+            font-weight: 500;
         }
-        .gallery-item:hover .delete-gallery-img { opacity: 1; }
+        body.dark .day-row {
+            background: rgba(255,255,255,0.05);
+        }
+        .today-highlight {
+            background: linear-gradient(90deg, #FFD966, #FFAA33);
+            color: #2d1b00;
+            font-weight: 700;
+        }
+
         .footer {
             background: var(--footer-bg);
             color: var(--footer-text);
@@ -423,75 +400,55 @@
             25%{ transform: rotate(6deg); }
             75%{ transform: rotate(-6deg); }
         }
-        .admin-toggle {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: #2d3748;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #F59E0B;
-            cursor: pointer;
-            z-index: 200;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            border: 2px solid #F59E0B;
-        }
-        .reset-all-btn {
-            background: #475569;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 40px;
-            cursor: pointer;
-            margin-top: 1rem;
-            font-size: 0.8rem;
-        }
+
         @media (max-width: 780px) {
             .hero-content h1 { font-size: 2rem; }
+            .two-columns { grid-template-columns: 1fr; }
             .nav-links a { margin-left: 1rem; font-size: 0.85rem; }
+            .logo img { height: 40px; }
+            .logo h1 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="animated-bg">
-    <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div><div class="blob blob4"></div>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="blob blob4"></div>
 </div>
 
-<div class="theme-toggle" id="darkmodeToggle" style="position:fixed; top:20px; left:20px; z-index:200; background:rgba(0,0,0,0.5); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; color:white;">
+<div class="theme-toggle" id="darkmodeToggle">
     <i class="fas fa-moon"></i>
 </div>
 
 <nav class="navbar">
     <div class="nav-container">
-        <div class="logo" id="logoArea">
+        <div class="logo">
+            <!-- Kullanıcının eklediği GECgaraj.png logosu -->
+            <img src="GECgaraj.png" alt="GEÇ GARAJ Logo" onerror="this.style.display='none'">
             <h1>GEÇ GARAJ <span>teknik iş oto servis</span></h1>
         </div>
         <div class="nav-links">
             <a href="#services">Hizmetler</a>
-            <a href="#team">Ekibimiz</a>
-            <a href="#gallery">Sergi</a>
             <a href="#hours">Saatler</a>
             <a href="#iletisim">İletişim</a>
         </div>
     </div>
 </nav>
 
-<!-- Hero Bölümü -->
 <section class="hero">
     <div class="container hero-grid">
         <div class="hero-content">
-            <div class="rating-badge"><i class="fas fa-star"></i> 4,9 puan (8 değerlendirme)</div>
+            <div class="rating-badge">
+                <i class="fas fa-star" style="color:#F59E0B;"></i> 4,9 puan (8 değerlendirme)
+            </div>
             <h1>Oto Kaporta Düzeltme Servisi</h1>
             <div class="hero-tagline">GEÇ GARAJ — Profesyonel & güvenilir çözümler</div>
             <div class="specialty"><i class="fas fa-tools"></i> Uzman: Kaporta Düzeltme & Çekme</div>
-            <div class="status-card" id="liveStatus">
-                <div><i class="fas fa-circle" id="statusIcon"></i> <span id="statusText">Yükleniyor...</span></div>
+            <div class="status-card" id="liveStatusCard">
+                <div><i class="fas fa-circle" id="statusIcon" style="font-size:0.7rem;"></i> <span id="statusText">Yükleniyor...</span></div>
                 <div id="nextOpenText"></div>
             </div>
             <div class="hero-buttons">
@@ -500,33 +457,28 @@
                 <a href="https://maps.google.com/?q=Tokatköy+Sultan+Aziz+Cd+95/A+Beykoz/İstanbul" class="btn-outline"><i class="fas fa-location-dot"></i> Yol Tarifi</a>
             </div>
         </div>
-        <div class="hero-media" id="heroMedia">
-            <div id="heroDefaultIcon">
-                <i class="fas fa-car-side" style="font-size:7rem; color:#EA580C;"></i>
-                <p>⭐ profesyonel ekipman ⭐</p>
-            </div>
-            <div id="heroVideoContainer" style="display:none;">
-                <video id="heroVideo" class="hero-video" autoplay muted loop playsinline></video>
-            </div>
+        <div class="hero-image">
+            <i class="fas fa-car-side"></i>
+            <p style="margin-top: 8px; font-weight:500;">⭐ profesyonel ekipman ⭐</p>
         </div>
     </div>
 </section>
 
 <div class="container">
-    <div class="cards-grid" id="staticCards">
-        <div class="info-card" id="card1">
+    <div class="cards-grid">
+        <div class="info-card">
             <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
             <h3>📍 Adres</h3>
             <p>Tokatköy, Sultan Aziz Cd. 95/A, 34825 Beykoz/İstanbul</p>
             <p><span style="background:#FFE500; padding:2px 12px; border-radius:30px;">533V+68 Beykoz</span></p>
         </div>
-        <div class="info-card" id="card2">
+        <div class="info-card">
             <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
             <h3>📞 İletişim</h3>
             <p><strong><a href="tel:05322641501" style="color:inherit;">0532 264 15 01</a></strong></p>
             <p><i class="fab fa-whatsapp"></i> 7/24 WhatsApp hattı</p>
         </div>
-        <div class="info-card" id="card3">
+        <div class="info-card">
             <div class="info-icon"><i class="fas fa-chalkboard-user"></i></div>
             <h3>🔧 Yetenekler</h3>
             <p>✓ Kaporta Düzeltme<br>✓ Çekme & Şasi<br>✓ Boya & Rötüş</p>
@@ -534,45 +486,28 @@
     </div>
 </div>
 
-<!-- Hizmetler (Dinamik) -->
-<section class="services" id="servicesSection">
+<section class="services" id="services">
     <div class="container">
         <div style="font-size:2rem; font-weight:800; text-align:center;">✨ PROFESYONEL HİZMETLER ✨</div>
-        <div id="dynamicServicesGrid" class="services-grid"></div>
-        <div id="addServiceBtnContainer" style="text-align:center;"></div>
-    </div>
-</section>
-
-<!-- Biz Kimleriz (Ekip) -->
-<section class="team-section" id="teamSection">
-    <div class="container">
-        <div style="font-size:2rem; font-weight:800; text-align:center;">👥 BİZ KİMİLERİZ</div>
-        <div id="teamGrid" class="team-grid"></div>
-        <div id="addTeamBtnContainer" style="text-align:center;"></div>
-    </div>
-</section>
-
-<!-- Görsel Sergi -->
-<section id="gallery" class="gallery-section" style="display:none;">
-    <div class="container">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-            <h2><i class="fas fa-images"></i> Görsel Sergi</h2>
-            <div id="galleryAdminBtn"></div>
+        <div class="services-grid">
+            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Kaporta Düzeltme</h4><p>Eziksiz tamir</p></div>
+            <div class="service-item"><i class="fas fa-paint-roller"></i><h4>Oto Boya</h4><p>Renk uyumu garantili</p></div>
+            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi</h4><p>Hidrolik sistem</p></div>
+            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Ekspertiz raporu</p></div>
         </div>
-        <div id="galleryGrid" class="gallery-grid"></div>
     </div>
 </section>
 
-<!-- Saatler ve Harita -->
 <section id="hours" style="padding:2rem 0;">
-    <div class="container two-columns" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
-        <div class="hours-table" style="background:var(--card-bg); border-radius:2rem; padding:1.5rem;">
-            <h3><i class="fas fa-calendar-alt"></i> Çalışma Saatleri <span id="hoursEditIcon" style="font-size:0.9rem; cursor:pointer; margin-left:10px;"></span></h3>
+    <div class="container two-columns">
+        <div class="hours-table">
+            <h3><i class="fas fa-calendar-alt"></i> Çalışma Saatleri</h3>
             <div id="dynamicHoursList"></div>
+            <div style="margin-top:1rem; background:#FFF1C1; padding:8px; border-radius:30px; text-align:center; color:#1e1a2f;">Pazartesi & Pazar: KAPALI</div>
         </div>
-        <div class="map-card" style="background:var(--card-bg); border-radius:2rem; overflow:hidden;">
-            <h3 style="padding:1rem;">📍 Konum - Beykoz</h3>
-            <iframe src="https://maps.google.com/maps?q=Tokatköy+Sultan+Aziz+Cd.+95%2FA+Beykoz%2Fİstanbul&t=&z=16&output=embed" width="100%" height="220" style="border:0;"></iframe>
+        <div class="map-card">
+            <h3><i class="fas fa-map"></i> Konum - Beykoz</h3>
+            <iframe src="https://maps.google.com/maps?q=Tokatköy+Sultan+Aziz+Cd.+95%2FA+Beykoz%2Fİstanbul&t=&z=16&output=embed" width="100%" height="220" style="border:0; border-radius: 16px;"></iframe>
             <div style="padding:0.8rem;"><i class="fas fa-location-arrow"></i> Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul</div>
         </div>
     </div>
@@ -584,21 +519,26 @@
             <div class="info-icon" style="margin:0 auto 1rem auto;"><i class="fas fa-headset"></i></div>
             <h3>7/24 Randevu & Destek Hattı</h3>
             <p style="font-size:1.6rem; font-weight:800;"><i class="fas fa-phone"></i> 0532 264 15 01</p>
-            <div class="hero-buttons" style="justify-content:center; display:flex; gap:1rem;"><a href="tel:05322641501" class="btn-primary">Tıkla Ara</a><a href="https://wa.me/905322641501" class="btn-outline">WhatsApp Randevu</a></div>
+            <div class="hero-buttons" style="justify-content:center; display:flex; gap:1rem;">
+                <a href="tel:05322641501" class="btn-primary">Tıkla Ara</a>
+                <a href="https://wa.me/905322641501" class="btn-outline">WhatsApp Randevu</a>
+            </div>
         </div>
     </div>
 </section>
 
 <footer class="footer">
-    <div class="container"><p>© 2025 GEÇ GARAJ – Kaporta, boya ve çekme merkezi</p><p>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul | <a href="tel:05322641501" style="color:#FFBA08;">0532 264 15 01</a></p></div>
+    <div class="container">
+        <p>© 2025 GEÇ GARAJ – Kaporta, boya ve çekme merkezi</p>
+        <p>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul | <a href="tel:05322641501" style="color:#FFBA08;">0532 264 15 01</a></p>
+    </div>
 </footer>
 
 <a href="https://wa.me/905322641501" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<div class="admin-toggle" id="adminToggleBtn"><i class="fas fa-cog"></i></div>
 
 <script>
-    // ======================== ÇALIŞMA SAATLERİ (Dinamik) ========================
-    let workingHours = [
+    // ======================== ÇALIŞMA SAATLERİ (Statik) ========================
+    const schedule = [
         { day: "Pazartesi", dayIndex: 1, isClosed: true, open: "09:00", close: "18:00" },
         { day: "Salı", dayIndex: 2, isClosed: false, open: "09:00", close: "18:00" },
         { day: "Çarşamba", dayIndex: 3, isClosed: false, open: "09:00", close: "18:00" },
@@ -607,16 +547,18 @@
         { day: "Cumartesi", dayIndex: 6, isClosed: false, open: "09:00", close: "15:00" },
         { day: "Pazar", dayIndex: 0, isClosed: true, open: "09:00", close: "18:00" }
     ];
+
     function updateStatusUI() {
         const now = new Date();
         const idx = now.getDay();
-        const today = workingHours.find(h => h.dayIndex === idx);
+        const today = schedule.find(h => h.dayIndex === idx);
         let openNow = false;
         if (today && !today.isClosed) {
             const [openH, openM] = today.open.split(':').map(Number);
             const [closeH, closeM] = today.close.split(':').map(Number);
             const curTotal = now.getHours() * 60 + now.getMinutes();
-            const openTotal = openH * 60 + openM, closeTotal = closeH * 60 + closeM;
+            const openTotal = openH * 60 + openM;
+            const closeTotal = closeH * 60 + closeM;
             openNow = (curTotal >= openTotal && curTotal <= closeTotal);
         }
         const statusSpan = document.getElementById('statusText');
@@ -626,384 +568,60 @@
             statusSpan.innerHTML = '<span style="background:#22C55E; padding:2px 12px; border-radius:40px;"> AÇIK · Hizmet veriyoruz</span>';
             iconSpan.style.color = "#22C55E";
             if (today && !today.isClosed) nextSpan.innerHTML = `Kapanış: ${today.close}`;
+            else nextSpan.innerHTML = "";
         } else {
             statusSpan.innerHTML = '<span style="background:#EF4444; padding:2px 12px; border-radius:40px;"> KAPALI · Şu anda kapalıyız</span>';
             iconSpan.style.color = "#EF4444";
             let next = null;
             for (let i = 1; i <= 7; i++) {
-                let d = new Date(now); d.setDate(now.getDate() + i);
-                let sch = workingHours.find(h => h.dayIndex === d.getDay());
+                let d = new Date(now);
+                d.setDate(now.getDate() + i);
+                let sch = schedule.find(h => h.dayIndex === d.getDay());
                 if (sch && !sch.isClosed) { next = sch; break; }
             }
             if (next) nextSpan.innerHTML = `Açılış: ${next.day} ${next.open}`;
+            else nextSpan.innerHTML = "";
         }
     }
+
     function renderHoursTable() {
         const container = document.getElementById('dynamicHoursList');
         const todayIdx = new Date().getDay();
         let html = '';
-        workingHours.forEach(h => {
+        schedule.forEach(h => {
             const isToday = h.dayIndex === todayIdx;
             const text = h.isClosed ? '🔴 Kapalı' : `${h.open} - ${h.close}`;
-            html += `<div class="day-row ${isToday ? 'today-highlight' : ''}"><span><b>${h.day}</b></span><span>${text}</span></div>`;
+            html += `<div class="day-row ${isToday ? 'today-highlight' : ''}">
+                        <span><b>${h.day}</b></span>
+                        <span>${text}</span>
+                     </div>`;
         });
         container.innerHTML = html;
     }
 
-    // ======================== ANA VERİLER ========================
-    let appData = {
-        heroVideo: null,
-        heroLogo: null,
-        cardBgs: {1: null, 2: null, 3: null},
-        services: [
-            { icon: "fas fa-car-crash", title: "Kaporta Düzeltme", desc: "Eziksiz tamir" },
-            { icon: "fas fa-paint-roller", title: "Oto Boya", desc: "Renk uyumu" },
-            { icon: "fas fa-draw-polygon", title: "Çekme & Şasi", desc: "Hidrolik sistem" },
-            { icon: "fas fa-microscope", title: "Hasar Tespiti", desc: "Ekspertiz" }
-        ],
-        team: [
-            { name: "Ahmet", surname: "Yılmaz", role: "Usta Kaportacı", photo: null },
-            { name: "Mehmet", surname: "Kaya", role: "Boya Uzmanı", photo: null }
-        ],
-        gallery: []  // base64 resim listesi
-    };
-
-    let isAdminMode = false;
-
-    // Load/Save
-    function loadData() {
-        const saved = localStorage.getItem("gecGarajFullData");
-        if (saved) {
-            const parsed = JSON.parse(saved);
-            if (parsed.heroVideo !== undefined) appData.heroVideo = parsed.heroVideo;
-            if (parsed.heroLogo !== undefined) appData.heroLogo = parsed.heroLogo;
-            if (parsed.cardBgs) appData.cardBgs = parsed.cardBgs;
-            if (parsed.services) appData.services = parsed.services;
-            if (parsed.team) appData.team = parsed.team;
-            if (parsed.gallery) appData.gallery = parsed.gallery;
-            if (parsed.workingHours) workingHours = parsed.workingHours;
-        }
-        applyDataToUI();
-        renderHoursTable();
-        updateStatusUI();
-    }
-    function saveData() {
-        const toStore = {
-            heroVideo: appData.heroVideo,
-            heroLogo: appData.heroLogo,
-            cardBgs: appData.cardBgs,
-            services: appData.services,
-            team: appData.team,
-            gallery: appData.gallery,
-            workingHours: workingHours
-        };
-        localStorage.setItem("gecGarajFullData", JSON.stringify(toStore));
-    }
-    function resetToDefault() {
-        if (confirm("Tüm veriler sıfırlanacak (görseller, hizmetler, ekip, galeri, saatler). Emin misiniz?")) {
-            localStorage.removeItem("gecGarajFullData");
-            location.reload();
-        }
-    }
-
-    // UI Uygulama
-    function applyDataToUI() {
-        // Hero video / logo
-        const defaultDiv = document.getElementById("heroDefaultIcon");
-        const videoContainer = document.getElementById("heroVideoContainer");
-        const videoEl = document.getElementById("heroVideo");
-        if (appData.heroVideo && appData.heroVideo.trim() !== "") {
-            defaultDiv.style.display = "none";
-            videoContainer.style.display = "block";
-            let videoUrl = appData.heroVideo;
-            if (videoUrl.includes("youtube.com/embed") || videoUrl.includes("youtu.be")) {
-                if (!videoUrl.includes("autoplay=1")) videoUrl += (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1&mute=1&loop=1&playlist=' + (videoUrl.split('/embed/')[1]?.split('?')[0] || '');
-                videoEl.setAttribute("src", videoUrl);
-            } else {
-                videoEl.src = videoUrl;
-                videoEl.loop = true;
-            }
-            videoEl.muted = true; videoEl.autoplay = true; videoEl.play().catch(e=>{});
-        } else {
-            defaultDiv.style.display = "block";
-            videoContainer.style.display = "none";
-            videoEl.src = "";
-        }
-        // Logo
-        const heroIconDiv = document.getElementById("heroDefaultIcon");
-        let existingLogo = document.getElementById("customLogoImg");
-        if (appData.heroLogo) {
-            if (!existingLogo) {
-                existingLogo = document.createElement("img");
-                existingLogo.id = "customLogoImg";
-                existingLogo.className = "custom-logo";
-                heroIconDiv.insertBefore(existingLogo, heroIconDiv.firstChild);
-            }
-            existingLogo.src = appData.heroLogo;
-            existingLogo.style.display = "block";
-            const iconElem = heroIconDiv.querySelector("i");
-            if (iconElem) iconElem.style.display = "none";
-        } else {
-            if (existingLogo) existingLogo.style.display = "none";
-            const iconElem = heroIconDiv.querySelector("i");
-            if (iconElem) iconElem.style.display = "inline-block";
-        }
-        // Kart arka planları
-        for (let i=1;i<=3;i++) {
-            const card = document.getElementById(`card${i}`);
-            if (appData.cardBgs[i]) card.style.backgroundImage = `url(${appData.cardBgs[i]})`;
-            else card.style.backgroundImage = "";
-        }
-        // Hizmetler ve Ekip gridleri
-        renderServicesGrid();
-        renderTeamGrid();
-        renderGallery();
-    }
-
-    function renderServicesGrid() {
-        const container = document.getElementById("dynamicServicesGrid");
-        container.innerHTML = "";
-        appData.services.forEach((s, idx) => {
-            const card = document.createElement("div");
-            card.className = "service-card";
-            card.innerHTML = `<i class="${s.icon}"></i><h4>${escapeHtml(s.title)}</h4><p>${escapeHtml(s.desc)}</p>`;
-            if (isAdminMode) {
-                const editBtn = document.createElement("div"); editBtn.className = "edit-btn"; editBtn.innerHTML = '<i class="fas fa-pen"></i>';
-                editBtn.onclick = () => editService(idx);
-                const delBtn = document.createElement("div"); delBtn.className = "edit-btn"; delBtn.innerHTML = '<i class="fas fa-trash"></i>';
-                delBtn.style.top = "45px"; delBtn.style.background = "#ef4444";
-                delBtn.onclick = () => { if(confirm("Sil?")){ appData.services.splice(idx,1); saveData(); renderServicesGrid(); } };
-                card.appendChild(editBtn); card.appendChild(delBtn);
-            }
-            container.appendChild(card);
-        });
-        const addContainer = document.getElementById("addServiceBtnContainer");
-        if (isAdminMode) {
-            addContainer.innerHTML = `<button class="add-new-btn" id="addServiceBtn"><i class="fas fa-plus"></i> Yeni Hizmet Kartı Ekle</button>`;
-            document.getElementById("addServiceBtn")?.addEventListener("click", () => addNewService());
-        } else addContainer.innerHTML = "";
-    }
-    function addNewService() {
-        const title = prompt("Hizmet başlığı:"); if(!title) return;
-        const desc = prompt("Açıklama:"); if(!desc) return;
-        const icon = prompt("Icon sınıfı (fas fa-...):", "fas fa-tools");
-        appData.services.push({ icon: icon || "fas fa-tools", title, desc });
-        saveData();
-        renderServicesGrid();
-    }
-    function editService(idx) {
-        const s = appData.services[idx];
-        const newTitle = prompt("Başlık:", s.title); if(newTitle !== null) s.title = newTitle;
-        const newDesc = prompt("Açıklama:", s.desc); if(newDesc !== null) s.desc = newDesc;
-        const newIcon = prompt("Icon:", s.icon); if(newIcon !== null) s.icon = newIcon;
-        saveData(); renderServicesGrid();
-    }
-
-    function renderTeamGrid() {
-        const container = document.getElementById("teamGrid");
-        container.innerHTML = "";
-        appData.team.forEach((m, idx) => {
-            const card = document.createElement("div");
-            card.className = "team-card";
-            const photoHtml = m.photo ? `<img src="${m.photo}" alt="foto">` : `<i class="fas fa-user-circle" style="font-size:4rem; color:var(--accent-orange);"></i>`;
-            card.innerHTML = `${photoHtml}<h4>${escapeHtml(m.name)} ${escapeHtml(m.surname)}</h4><p>${escapeHtml(m.role)}</p>`;
-            if (isAdminMode) {
-                const editBtn = document.createElement("div"); editBtn.className = "edit-btn"; editBtn.innerHTML = '<i class="fas fa-pen"></i>';
-                editBtn.onclick = () => editTeamMember(idx);
-                const delBtn = document.createElement("div"); delBtn.className = "edit-btn"; delBtn.innerHTML = '<i class="fas fa-trash"></i>';
-                delBtn.style.top = "45px"; delBtn.style.background = "#ef4444";
-                delBtn.onclick = () => { if(confirm("Sil?")){ appData.team.splice(idx,1); saveData(); renderTeamGrid(); } };
-                card.appendChild(editBtn); card.appendChild(delBtn);
-            }
-            container.appendChild(card);
-        });
-        const addContainer = document.getElementById("addTeamBtnContainer");
-        if (isAdminMode) {
-            addContainer.innerHTML = `<button class="add-new-btn" id="addTeamBtn"><i class="fas fa-plus"></i> Ekip Üyesi Ekle</button>`;
-            document.getElementById("addTeamBtn")?.addEventListener("click", () => addTeamMember());
-        } else addContainer.innerHTML = "";
-    }
-    function addTeamMember() {
-        const name = prompt("Ad:"); if(!name) return;
-        const surname = prompt("Soyad:"); if(!surname) return;
-        const role = prompt("Rütbe/Unvan:"); if(!role) return;
-        const fileInput = document.createElement("input"); fileInput.type = "file"; fileInput.accept = "image/*";
-        fileInput.onchange = (e) => {
-            const file = e.target.files[0];
-            if(file){
-                const reader = new FileReader();
-                reader.onload = ev => {
-                    appData.team.push({ name, surname, role, photo: ev.target.result });
-                    saveData(); renderTeamGrid();
-                };
-                reader.readAsDataURL(file);
-            } else {
-                appData.team.push({ name, surname, role, photo: null });
-                saveData(); renderTeamGrid();
-            }
-        };
-        fileInput.click();
-    }
-    function editTeamMember(idx) {
-        const m = appData.team[idx];
-        const newName = prompt("Ad:", m.name); if(newName !== null) m.name = newName;
-        const newSurname = prompt("Soyad:", m.surname); if(newSurname !== null) m.surname = newSurname;
-        const newRole = prompt("Rütbe:", m.role); if(newRole !== null) m.role = newRole;
-        const changePhoto = confirm("Fotoğraf değiştirmek ister misiniz?");
-        if(changePhoto){
-            const fileInput = document.createElement("input"); fileInput.type = "file"; fileInput.accept = "image/*";
-            fileInput.onchange = (e) => {
-                const file = e.target.files[0];
-                if(file){
-                    const reader = new FileReader();
-                    reader.onload = ev => { m.photo = ev.target.result; saveData(); renderTeamGrid(); };
-                    reader.readAsDataURL(file);
-                } else { saveData(); renderTeamGrid(); }
-            };
-            fileInput.click();
-        } else { saveData(); renderTeamGrid(); }
-    }
-
-    function renderGallery() {
-        const gallerySection = document.getElementById("gallery");
-        const container = document.getElementById("galleryGrid");
-        if (!appData.gallery.length) {
-            gallerySection.style.display = "none";
-            return;
-        }
-        gallerySection.style.display = "block";
-        container.innerHTML = "";
-        appData.gallery.forEach((img, idx) => {
-            const div = document.createElement("div"); div.className = "gallery-item";
-            div.innerHTML = `<img src="${img}" alt="galeri">`;
-            if (isAdminMode) {
-                const delBtn = document.createElement("div"); delBtn.className = "delete-gallery-img"; delBtn.innerHTML = '<i class="fas fa-times-circle"></i>';
-                delBtn.onclick = () => { appData.gallery.splice(idx,1); saveData(); renderGallery(); };
-                div.appendChild(delBtn);
-            }
-            container.appendChild(div);
-        });
-        const adminBtnDiv = document.getElementById("galleryAdminBtn");
-        if (isAdminMode) {
-            adminBtnDiv.innerHTML = `<button class="add-new-btn" id="addGalleryBtn"><i class="fas fa-plus"></i> Sergiye Fotoğraf Ekle</button>`;
-            document.getElementById("addGalleryBtn")?.addEventListener("click", () => {
-                const fileInput = document.createElement("input"); fileInput.type = "file"; fileInput.accept = "image/*";
-                fileInput.onchange = (e) => {
-                    const file = e.target.files[0];
-                    if(file){
-                        const reader = new FileReader();
-                        reader.onload = ev => { appData.gallery.push(ev.target.result); saveData(); renderGallery(); };
-                        reader.readAsDataURL(file);
-                    }
-                };
-                fileInput.click();
-            });
-        } else adminBtnDiv.innerHTML = "";
-    }
-
-    // Admin Mod arayüzü
-    function enableAdminMode(enable) {
-        isAdminMode = enable;
-        if(enable){
-            // Kartlara düzenleme butonları
-            for(let i=1;i<=3;i++){
-                const card = document.getElementById(`card${i}`);
-                if(!card.querySelector(".admin-card-edit")){
-                    const btn = document.createElement("div"); btn.className = "edit-btn admin-card-edit"; btn.innerHTML = '<i class="fas fa-image"></i>';
-                    btn.onclick = () => editCardBg(i);
-                    card.appendChild(btn);
-                }
-            }
-            // Hero video düzenle
-            const heroMedia = document.getElementById("heroMedia");
-            if(!heroMedia.querySelector(".admin-hero-edit")){
-                const btn = document.createElement("div"); btn.className = "edit-btn admin-hero-edit"; btn.innerHTML = '<i class="fas fa-video"></i>';
-                btn.style.top = "10px"; btn.style.right = "10px";
-                btn.onclick = () => { const url = prompt("Video URL (YouTube embed veya mp4):", appData.heroVideo || ""); if(url !== null){ appData.heroVideo = url.trim() || null; saveData(); applyDataToUI(); } };
-                heroMedia.appendChild(btn);
-            }
-            // Logo düzenle
-            const logoArea = document.getElementById("logoArea");
-            if(!logoArea.querySelector(".admin-logo-edit")){
-                const btn = document.createElement("div"); btn.className = "edit-btn admin-logo-edit"; btn.innerHTML = '<i class="fas fa-image"></i>';
-                btn.onclick = () => { const fileInput = document.createElement("input"); fileInput.type="file"; fileInput.accept="image/*"; fileInput.onchange=(e)=>{ const f=e.target.files[0]; if(f){ const r=new FileReader(); r.onload=ev=>{ appData.heroLogo=ev.target.result; saveData(); applyDataToUI(); }; r.readAsDataURL(f); } }; fileInput.click(); };
-                logoArea.appendChild(btn);
-            }
-            // Saatleri düzenleme butonu
-            const hoursEdit = document.getElementById("hoursEditIcon");
-            hoursEdit.innerHTML = '<i class="fas fa-edit" style="cursor:pointer;"></i>';
-            hoursEdit.onclick = () => editWorkingHours();
-            // Sıfırlama butonu ekle
-            const resetBtn = document.createElement("button"); resetBtn.className = "reset-all-btn"; resetBtn.innerHTML = "<i class='fas fa-undo'></i> Tüm Ayarları Sıfırla";
-            resetBtn.onclick = () => resetToDefault();
-            document.querySelector(".footer .container").appendChild(resetBtn);
-        } else {
-            document.querySelectorAll(".admin-card-edit, .admin-hero-edit, .admin-logo-edit").forEach(el => el.remove());
-            document.getElementById("hoursEditIcon").innerHTML = "";
-            const resetBtn = document.querySelector(".reset-all-btn"); if(resetBtn) resetBtn.remove();
-        }
-        renderServicesGrid(); renderTeamGrid(); renderGallery();
-    }
-    function editCardBg(cardNum) {
-        const fileInput = document.createElement("input"); fileInput.type="file"; fileInput.accept="image/*";
-        fileInput.onchange = (e) => {
-            const file = e.target.files[0];
-            if(file){
-                const reader = new FileReader();
-                reader.onload = ev => { appData.cardBgs[cardNum] = ev.target.result; saveData(); applyDataToUI(); };
-                reader.readAsDataURL(file);
-            }
-        };
-        fileInput.click();
-    }
-    function editWorkingHours() {
-        let newHours = [];
-        for(let h of workingHours){
-            let newIsClosed = !confirm(`${h.day} için KAPALI olarak işaretlemek ister misiniz? (Tamam=Kapalı, İptal=Açık)`);
-            let newOpen = h.open, newClose = h.close;
-            if(!newIsClosed){
-                newOpen = prompt(`${h.day} açılış saati (HH:MM):`, h.open);
-                newClose = prompt(`${h.day} kapanış saati (HH:MM):`, h.close);
-                if(!newOpen || !newClose) continue;
-            }
-            newHours.push({ ...h, isClosed: newIsClosed, open: newOpen || "09:00", close: newClose || "18:00" });
-        }
-        workingHours = newHours;
-        saveData();
-        renderHoursTable();
-        updateStatusUI();
-    }
-
-    // Dark mode
+    // Dark Mode
     const darkToggle = document.getElementById("darkmodeToggle");
-    darkToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("gecTheme", document.body.classList.contains("dark") ? "dark" : "light");
-    });
-    if(localStorage.getItem("gecTheme") === "dark") document.body.classList.add("dark");
-
-    // Admin şifre kontrolü
-    const adminBtn = document.getElementById("adminToggleBtn");
-    let adminActive = false;
-    adminBtn.addEventListener("click", () => {
-        if(!adminActive){
-            const pass = prompt("Admin paneline erişim şifresi:");
-            if(pass === "gecadmin2025"){
-                adminActive = true;
-                enableAdminMode(true);
-                alert("Admin modu aktif. Düzenleme butonları görünüyor.");
-            } else if(pass !== null) alert("Şifre hatalı!");
+    const themeIcon = darkToggle.querySelector("i");
+    function setDarkMode(isDark) {
+        if (isDark) {
+            document.body.classList.add("dark");
+            themeIcon.className = "fas fa-sun";
         } else {
-            adminActive = false;
-            enableAdminMode(false);
-            alert("Admin modu kapatıldı.");
+            document.body.classList.remove("dark");
+            themeIcon.className = "fas fa-moon";
         }
+        localStorage.setItem("gecTheme", isDark ? "dark" : "light");
+    }
+    const savedTheme = localStorage.getItem("gecTheme");
+    if (savedTheme === "dark") setDarkMode(true);
+    darkToggle.addEventListener("click", () => {
+        setDarkMode(!document.body.classList.contains("dark"));
     });
 
-    function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-
+    // Başlat
+    renderHoursTable();
+    updateStatusUI();
     setInterval(updateStatusUI, 30000);
-    loadData();
 </script>
 </body>
 </html>
