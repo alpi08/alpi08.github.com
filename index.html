@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme Servisi</title>
+    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme Servisi (Yönetici Panelli)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -13,7 +13,7 @@
             box-sizing: border-box;
         }
 
-        /* ========= SABİT ARKA PLAN & RENK PALETİ (değişmez) ========= */
+        /* SABİT TEMA (değişmeyecek) */
         :root {
             --bg-gradient: linear-gradient(145deg, #FFF0DF 0%, #FFE2D4 30%, #DCF2FF 70%, #F2E6FF 100%);
             --card-bg: rgba(255, 248, 240, 0.92);
@@ -35,8 +35,17 @@
             color: var(--text-primary);
             line-height: 1.5;
         }
+        body.dark {
+            --bg-gradient: linear-gradient(145deg, #0f172a 0%, #1e293b 40%, #2d1f3a 70%, #0a0f1f 100%);
+            --card-bg: rgba(30, 41, 59, 0.92);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --navbar-bg: rgba(15, 23, 42, 0.9);
+            --footer-bg: #020617;
+            --footer-text: #cbd5e1;
+        }
 
-        /* Hareketli arka plan blobları (sabit renkler) */
+        /* Hareketli arka plan blobları */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -73,7 +82,7 @@
             z-index: 2;
         }
 
-        /* Dark Mode Butonu (sol üst) */
+        /* Tema butonu */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -99,16 +108,6 @@
             background: var(--accent-orange);
             color: white;
         }
-        body.dark {
-            --bg-gradient: linear-gradient(145deg, #0f172a 0%, #1e293b 40%, #2d1f3a 70%, #0a0f1f 100%);
-            --card-bg: rgba(30, 41, 59, 0.92);
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --navbar-bg: rgba(15, 23, 42, 0.9);
-            --footer-bg: #020617;
-            --footer-text: #cbd5e1;
-            --shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
-        }
 
         /* Navbar */
         .navbar {
@@ -123,7 +122,6 @@
             width: 95%;
             margin-left: auto;
             margin-right: auto;
-            transition: background 0.2s;
         }
         .nav-container {
             display: flex;
@@ -244,7 +242,7 @@
             font-weight: 700;
             text-decoration: none;
         }
-        .hero-image {
+        .hero-media {
             flex: 0.8;
             text-align: center;
             animation: gentleBounce 3s infinite alternate;
@@ -253,13 +251,21 @@
             0% { transform: translateY(0px);}
             100% { transform: translateY(-8px);}
         }
+        .hero-video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 32px;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+            background: #000;
+        }
         .custom-logo {
             max-width: 220px;
             max-height: 180px;
             object-fit: contain;
             border-radius: 24px;
         }
-        /* Kartlar */
+
+        /* Kartlar grid */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -277,6 +283,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            position: relative;
         }
         .info-card:hover {
             transform: translateY(-6px);
@@ -293,7 +300,8 @@
             font-size: 1.8rem;
             color: white;
         }
-        /* Hizmetler */
+
+        /* Hizmetler (dinamik kartlar) */
         .services {
             background: var(--card-bg);
             border-radius: 70px;
@@ -303,52 +311,76 @@
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
         }
-        .service-item {
+        .service-card {
             background: rgba(255,255,245,0.7);
             backdrop-filter: blur(4px);
             border-radius: 40px;
             padding: 1.4rem;
             text-align: center;
             border-bottom: 3px solid var(--accent-orange);
+            position: relative;
+            transition: 0.2s;
         }
-        body.dark .service-item {
+        body.dark .service-card {
             background: rgba(0,0,0,0.3);
         }
-        .service-item i {
+        .service-card i {
             font-size: 2.5rem;
             background: linear-gradient(145deg, #DC2F02, #E85D04);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            margin-bottom: 0.5rem;
         }
-        /* Saatler ve harita */
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        .service-card h4 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
         }
-        .day-row {
-            background: var(--card-bg);
-            margin: 0.6rem 0;
-            padding: 0.7rem 1rem;
-            border-radius: 50px;
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .edit-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #facc15;
+            color: #1e293b;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
             display: flex;
-            justify-content: space-between;
-            border: 1px solid rgba(0,0,0,0.05);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: 0.2s;
+            z-index: 10;
         }
-        .today-highlight {
-            background: linear-gradient(90deg, #FFE0A3, #FFC971);
-            color: #3b2e1e;
-            font-weight: 700;
+        .info-card:hover .edit-btn,
+        .service-card:hover .edit-btn,
+        .hero-media:hover .edit-btn,
+        .logo:hover .edit-btn {
+            opacity: 1;
         }
-        .hours-table, .map-card {
-            background: var(--card-bg);
-            border-radius: 2rem;
-            overflow: hidden;
-            padding: 1rem;
+        .add-new-btn {
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: 0.2s;
+        }
+        .add-new-btn:hover {
+            background: var(--accent-red);
+            transform: scale(1.02);
         }
         .footer {
             background: var(--footer-bg);
@@ -376,13 +408,11 @@
             color: white;
         }
         @keyframes shake {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(6deg); }
-            75% { transform: rotate(-6deg); }
-            100% { transform: rotate(0deg); }
+            0%,100%{ transform: rotate(0deg); }
+            25%{ transform: rotate(6deg); }
+            75%{ transform: rotate(-6deg); }
         }
-        /* Admin butonu (dişli) */
-        .edit-toggle-btn {
+        .admin-toggle {
             position: fixed;
             bottom: 25px;
             left: 25px;
@@ -399,81 +429,19 @@
             z-index: 200;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             border: 2px solid #FFBA08;
-            transition: 0.2s;
         }
-        .edit-toggle-btn:hover {
-            transform: scale(1.05);
-            background: #FFBA08;
-            color: #1e293b;
+        .placeholder-text {
+            color: #999;
+            font-style: italic;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.05);
+            padding: 4px 8px;
+            border-radius: 20px;
+            display: inline-block;
         }
-        /* Admin panel overlay */
-        .admin-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px);
-            z-index: 300;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.2s;
-        }
-        .admin-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
-        .admin-panel {
-            background: #0f172a;
-            border-radius: 48px;
-            padding: 2rem;
-            max-width: 750px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            color: #e2e8f0;
-            border: 1px solid #FFBA08;
-        }
-        .admin-panel h2 { color: #FFBA08; margin-bottom: 1rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; }
-        .image-preview {
-            max-width: 100px;
-            max-height: 70px;
-            border-radius: 12px;
-            margin-top: 8px;
-            object-fit: cover;
-            background: #334155;
-        }
-        .admin-panel input, .admin-panel button {
-            padding: 8px 14px;
-            border-radius: 40px;
-            border: none;
-            font-weight: 500;
-            margin-right: 8px;
-        }
-        .admin-panel button {
-            background: #E85D04;
-            color: white;
-            cursor: pointer;
-        }
-        .btn-danger {
-            background: #991b1b !important;
-        }
-        .close-panel {
-            float: right;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #FFBA08;
-        }
-        hr { margin: 1rem 0; border-color: #334155; }
+        /* responsive */
         @media (max-width: 780px) {
             .hero-content h1 { font-size: 2rem; }
-            .two-columns { grid-template-columns: 1fr; }
             .nav-links a { margin-left: 1rem; font-size: 0.85rem; }
         }
     </style>
@@ -485,75 +453,94 @@
 </div>
 
 <div class="theme-toggle" id="darkmodeToggle">
-    <i class="fas fa-moon" id="themeIcon"></i>
+    <i class="fas fa-moon"></i>
 </div>
 
-<div class="navbar">
+<nav class="navbar">
     <div class="nav-container container">
-        <div class="logo"><h1>GEÇ GARAJ <span>teknik iş oto servis</span></h1></div>
+        <div class="logo" id="logoArea">
+            <h1>GEÇ GARAJ <span>teknik iş oto servis</span></h1>
+        </div>
         <div class="nav-links">
             <a href="#services"><i class="fas fa-wrench"></i> Hizmetler</a>
             <a href="#hours"><i class="fas fa-clock"></i> Saatler</a>
             <a href="#iletisim"><i class="fas fa-phone-alt"></i> İletişim</a>
         </div>
     </div>
-</div>
+</nav>
 
 <section class="hero">
     <div class="container hero-grid">
         <div class="hero-content">
-            <div class="rating-badge"><i class="fas fa-star" style="color:#F59E0B;"></i> 4,9 puan (8 değerlendirme)</div>
+            <div class="rating-badge"><i class="fas fa-star"></i> 4,9 puan (8 değerlendirme)</div>
             <h1>Oto Kaporta Düzeltme Servisi</h1>
             <div class="hero-tagline">GEÇ GARAJ — Profesyonel & güvenilir çözümler</div>
             <div class="specialty"><i class="fas fa-tools"></i> Uzman: Kaporta Düzeltme & Çekme</div>
-            <div class="status-card" id="liveStatusCard">
-                <div><i class="fas fa-circle" id="statusIcon" style="font-size:0.7rem;"></i> <span id="statusText">Yükleniyor...</span></div>
-                <div id="nextOpenText" style="font-size:0.8rem;"></div>
+            <div class="status-card" id="liveStatus">
+                <div><i class="fas fa-circle" id="statusIcon"></i> <span id="statusText">Yükleniyor...</span></div>
+                <div id="nextOpenText"></div>
             </div>
-            <div class="hero-buttons" style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <div class="hero-buttons">
                 <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
                 <a href="https://wa.me/905322641501" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="https://maps.google.com/?q=Tokatköy+Sultan+Aziz+Cd+95/A+Beykoz/İstanbul" class="btn-outline"><i class="fas fa-location-dot"></i> Yol Tarifi</a>
             </div>
         </div>
-        <div class="hero-image" id="heroImageArea">
-            <img id="heroLogoImg" class="custom-logo" style="display:none;" alt="logo">
-            <i id="defaultCarIcon" class="fas fa-car-side" style="font-size:7rem; color:#E85D04;"></i>
-            <p style="margin-top: 8px; font-weight:500;">⭐ profesyonel ekipman ⭐</p>
+        <div class="hero-media" id="heroMedia">
+            <div id="heroDefaultIcon">
+                <i class="fas fa-car-side" style="font-size:7rem; color:#E85D04;"></i>
+                <p>⭐ profesyonel ekipman ⭐</p>
+            </div>
+            <div id="heroVideoContainer" style="display:none;">
+                <video id="heroVideo" class="hero-video" autoplay muted loop playsinline></video>
+            </div>
+            <!-- admin edit butonu eklenecek -->
         </div>
     </div>
 </section>
 
 <div class="container">
-    <div class="cards-grid">
-        <div class="info-card" id="card1"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><h3>📍 Adres</h3><p>Tokatköy, Sultan Aziz Cd. 95/A, 34825 Beykoz/İstanbul</p><p><span style="background:#FFE500; padding:2px 12px; border-radius:30px;">533V+68 Beykoz</span></p></div>
-        <div class="info-card" id="card2"><div class="info-icon"><i class="fas fa-phone-alt"></i></div><h3>📞 İletişim</h3><p><strong><a href="tel:05322641501" style="color:inherit;">0532 264 15 01</a></strong></p><p><i class="fab fa-whatsapp"></i> 7/24 WhatsApp hattı</p></div>
-        <div class="info-card" id="card3"><div class="info-icon"><i class="fas fa-chalkboard-user"></i></div><h3>🔧 Yetenekler</h3><p>✓ Kaporta Düzeltme<br>✓ Çekme & Şasi<br>✓ Boya & Rötüş</p></div>
+    <div class="cards-grid" id="staticCards">
+        <div class="info-card" id="card1">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>📍 Adres</h3>
+            <p>Tokatköy, Sultan Aziz Cd. 95/A, 34825 Beykoz/İstanbul</p>
+            <p><span style="background:#FFE500; padding:2px 12px; border-radius:30px;">533V+68 Beykoz</span></p>
+        </div>
+        <div class="info-card" id="card2">
+            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+            <h3>📞 İletişim</h3>
+            <p><strong><a href="tel:05322641501" style="color:inherit;">0532 264 15 01</a></strong></p>
+            <p><i class="fab fa-whatsapp"></i> 7/24 WhatsApp hattı</p>
+        </div>
+        <div class="info-card" id="card3">
+            <div class="info-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>🔧 Yetenekler</h3>
+            <p>✓ Kaporta Düzeltme<br>✓ Çekme & Şasi<br>✓ Boya & Rötüş</p>
+        </div>
     </div>
 </div>
 
-<section class="services" id="services">
+<section class="services" id="servicesSection">
     <div class="container">
-        <div style="font-size:2rem; font-weight:800; text-align:center; margin-bottom:1.5rem;">✨ PROFESYONEL HİZMETLER ✨</div>
-        <div class="services-grid">
-            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Kaporta Düzeltme</h4><p>Eziksiz tamir</p></div>
-            <div class="service-item"><i class="fas fa-paint-roller"></i><h4>Oto Boya</h4><p>Renk uyumu</p></div>
-            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi</h4><p>Hidrolik sistem</p></div>
-            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Ekspertiz</p></div>
+        <div style="font-size:2rem; font-weight:800; text-align:center; margin-bottom:1rem;">✨ PROFESYONEL HİZMETLER ✨</div>
+        <div id="dynamicServicesGrid" class="services-grid">
+            <!-- başlangıçta örnek kartlar js ile eklenecek -->
         </div>
+        <div id="addServiceBtnContainer" style="text-align:center;"></div>
     </div>
 </section>
 
 <section id="hours" style="padding:2rem 0;">
-    <div class="container two-columns">
-        <div class="hours-table">
+    <div class="container two-columns" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+        <div class="hours-table" style="background:var(--card-bg); border-radius:2rem; padding:1.5rem;">
             <h3><i class="fas fa-calendar-alt"></i> Çalışma Saatleri</h3>
             <div id="dynamicHoursList"></div>
             <div style="margin-top:1rem; background:#FFF1C1; padding:8px; border-radius:30px; text-align:center;">Pazartesi & Pazar: KAPALI</div>
         </div>
-        <div class="map-card">
-            <h3>📍 Konum - Beykoz</h3>
-            <iframe src="https://maps.google.com/maps?q=Tokatköy+Sultan+Aziz+Cd.+95%2FA+Beykoz%2Fİstanbul&t=&z=16&output=embed" width="100%" height="220" style="border:0; border-radius: 20px;"></iframe>
+        <div class="map-card" style="background:var(--card-bg); border-radius:2rem; overflow:hidden;">
+            <h3 style="padding:1rem;">📍 Konum - Beykoz</h3>
+            <iframe src="https://maps.google.com/maps?q=Tokatköy+Sultan+Aziz+Cd.+95%2FA+Beykoz%2Fİstanbul&t=&z=16&output=embed" width="100%" height="220" style="border:0;"></iframe>
             <div style="padding:0.8rem;"><i class="fas fa-location-arrow"></i> Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul</div>
         </div>
     </div>
@@ -575,138 +562,380 @@
 </footer>
 
 <a href="https://wa.me/905322641501" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<div class="edit-toggle-btn" id="editBtn"><i class="fas fa-cog"></i></div>
-
-<!-- Admin Panel Overlay (Sadece Görsel Yönetimi) -->
-<div class="admin-overlay" id="adminOverlay">
-    <div class="admin-panel">
-        <span class="close-panel" id="closeAdmin">&times;</span>
-        <h2><i class="fas fa-images"></i> Görsel Özelleştirme Paneli</h2>
-        <p>Sadece logo ve kart arka plan resimlerini değiştirebilirsiniz. Renkler, arka planlar sabittir.</p>
-        <hr>
-        <div class="form-group">
-            <label><i class="fas fa-car"></i> Hero Bölümü Logosu (varsayılan araba ikonu yerine)</label>
-            <input type="file" accept="image/*" id="logoUpload">
-            <button onclick="uploadLogo()">Yükle</button>
-            <div id="logoPreview" class="image-preview" style="margin-top:8px;"></div>
-            <button onclick="deleteLogo()" class="btn-danger" style="background:#991b1b; margin-top:6px;">Logoyu Sil (varsayılana dön)</button>
-        </div>
-        <div class="form-group">
-            <label><i class="fas fa-address-card"></i> Kart 1 (Adres) Arka Plan Resmi</label>
-            <input type="file" accept="image/*" id="cardBg1Upload">
-            <button onclick="uploadCardBg(1)">Yükle</button>
-            <div id="card1Preview" class="image-preview"></div>
-            <button onclick="deleteCardBg(1)" class="btn-danger">Resmi Sil</button>
-        </div>
-        <div class="form-group">
-            <label><i class="fas fa-phone-alt"></i> Kart 2 (İletişim) Arka Plan Resmi</label>
-            <input type="file" accept="image/*" id="cardBg2Upload">
-            <button onclick="uploadCardBg(2)">Yükle</button>
-            <div id="card2Preview" class="image-preview"></div>
-            <button onclick="deleteCardBg(2)" class="btn-danger">Resmi Sil</button>
-        </div>
-        <div class="form-group">
-            <label><i class="fas fa-tools"></i> Kart 3 (Yetenekler) Arka Plan Resmi</label>
-            <input type="file" accept="image/*" id="cardBg3Upload">
-            <button onclick="uploadCardBg(3)">Yükle</button>
-            <div id="card3Preview" class="image-preview"></div>
-            <button onclick="deleteCardBg(3)" class="btn-danger">Resmi Sil</button>
-        </div>
-        <p style="font-size:12px; margin-top:1rem;">Not: Yüklediğiniz görseller otomatik kaydedilir ve ana sayfada anında görünür.</p>
-    </div>
-</div>
+<div class="admin-toggle" id="adminToggleBtn"><i class="fas fa-cog"></i></div>
 
 <script>
-    // ========= ÇALIŞMA SAATLERİ (Statik) =========
+    // ======================== ÇALIŞMA SAATLERİ ========================
     const schedule = [
         { day:"Pazartesi", dayIndex:1, isClosed:true },{ day:"Salı", dayIndex:2, open:"09:00", close:"18:00", isClosed:false },
         { day:"Çarşamba", dayIndex:3, open:"09:00", close:"18:00", isClosed:false },{ day:"Perşembe", dayIndex:4, open:"09:00", close:"18:00", isClosed:false },
         { day:"Cuma", dayIndex:5, open:"09:00", close:"18:00", isClosed:false },{ day:"Cumartesi", dayIndex:6, open:"09:00", close:"15:00", isClosed:false },
         { day:"Pazar", dayIndex:0, isClosed:true }
     ];
-    function parseTime(t){ let [h,m]=t.split(':').map(Number); let d=new Date(); d.setHours(h,m,0,0); return d; }
-    function isCurrentlyOpen(){ let now=new Date(), idx=now.getDay(), s=schedule.find(s=>s.dayIndex===idx); if(!s||s.isClosed) return false; let openT=parseTime(s.open), closeT=parseTime(s.close), cur=new Date(); cur.setHours(now.getHours(),now.getMinutes(),now.getSeconds()); return cur>=openT && cur<=closeT; }
-    function getNextOpening(){ let now=new Date(); for(let i=1;i<=7;i++){ let f=new Date(now); f.setDate(now.getDate()+i); let idx=f.getDay(); let sch=schedule.find(s=>s.dayIndex===idx); if(sch && !sch.isClosed && sch.open) return { dayName:sch.day, openTime:sch.open }; } return { dayName:"Salı", openTime:"09:00"}; }
-    function updateStatusUI(){ let openNow=isCurrentlyOpen(); let statusSpan=document.getElementById('statusText'), nextSpan=document.getElementById('nextOpenText'), iconSpan=document.getElementById('statusIcon'); if(openNow){ statusSpan.innerHTML='<span style="background:#22C55E; padding:2px 12px; border-radius:40px;"> AÇIK · Hizmet veriyoruz</span>'; if(iconSpan) iconSpan.style.color="#22C55E"; let today=schedule.find(s=>s.dayIndex===new Date().getDay()); if(today && !today.isClosed) nextSpan.innerHTML=`Kapanış: ${today.close}`; else { let n=getNextOpening(); nextSpan.innerHTML=`Açılış: ${n.dayName} ${n.openTime}`; } } else { statusSpan.innerHTML='<span style="background:#EF4444; padding:2px 12px; border-radius:40px;"> KAPALI · Şu anda kapalıyız</span>'; if(iconSpan) iconSpan.style.color="#EF4444"; let nxt=getNextOpening(); nextSpan.innerHTML=`Açılış: ${nxt.dayName} ${nxt.openTime}`; } }
-    function renderHoursTable(){ let container=document.getElementById('dynamicHoursList'); let todayIdx=new Date().getDay(); let html=''; schedule.forEach(s=>{ let isToday=s.dayIndex===todayIdx; let text=s.isClosed?'🔴 Kapalı':`${s.open} - ${s.close}`; html+=`<div class="day-row ${isToday?'today-highlight':''}"><span><b>${s.day}</b></span><span>${text}</span></div>`; }); container.innerHTML=html; }
-    updateStatusUI(); renderHoursTable(); setInterval(updateStatusUI,45000);
-
-    // ========= GÖRSEL YÖNETİMİ (SADECE LOGO & KART ARKA PLANLARI) =========
-    let settings = { heroLogo: null, cardBg1: null, cardBg2: null, cardBg3: null };
-    function loadVisualSettings() {
-        const stored = localStorage.getItem("gecGarajVisuals");
-        if(stored) settings = JSON.parse(stored);
-        applyVisuals();
-    }
-    function applyVisuals() {
-        // Hero logosu
-        const logoImg = document.getElementById("heroLogoImg");
-        const defaultIcon = document.getElementById("defaultCarIcon");
-        if(settings.heroLogo && settings.heroLogo !== "") {
-            logoImg.src = settings.heroLogo;
-            logoImg.style.display = "block";
-            defaultIcon.style.display = "none";
+    function updateStatusUI(){
+        const now=new Date();
+        const idx=now.getDay();
+        const today=schedule.find(s=>s.dayIndex===idx);
+        let openNow=false;
+        if(today && !today.isClosed){
+            const [openH,openM]=today.open.split(':').map(Number);
+            const [closeH,closeM]=today.close.split(':').map(Number);
+            const curHour=now.getHours(), curMin=now.getMinutes();
+            const curTotal=curHour*60+curMin;
+            const openTotal=openH*60+openM;
+            const closeTotal=closeH*60+closeM;
+            openNow = (curTotal>=openTotal && curTotal<=closeTotal);
+        }
+        const statusSpan=document.getElementById('statusText');
+        const nextSpan=document.getElementById('nextOpenText');
+        const iconSpan=document.getElementById('statusIcon');
+        if(openNow){
+            statusSpan.innerHTML='<span style="background:#22C55E; padding:2px 12px; border-radius:40px;"> AÇIK · Hizmet veriyoruz</span>';
+            if(iconSpan) iconSpan.style.color="#22C55E";
+            if(today && !today.isClosed) nextSpan.innerHTML=`Kapanış: ${today.close}`;
+            else nextSpan.innerHTML="";
         } else {
-            logoImg.style.display = "none";
-            defaultIcon.style.display = "inline-block";
+            statusSpan.innerHTML='<span style="background:#EF4444; padding:2px 12px; border-radius:40px;"> KAPALI · Şu anda kapalıyız</span>';
+            if(iconSpan) iconSpan.style.color="#EF4444";
+            let next=null;
+            for(let i=1;i<=7;i++){
+                let d=new Date(now); d.setDate(now.getDate()+i);
+                let sch=schedule.find(s=>s.dayIndex===d.getDay());
+                if(sch && !sch.isClosed && sch.open){ next=sch; break; }
+            }
+            if(next) nextSpan.innerHTML=`Açılış: ${next.day} ${next.open}`;
+            else nextSpan.innerHTML="";
+        }
+    }
+    function renderHoursTable(){
+        const container=document.getElementById('dynamicHoursList');
+        const todayIdx=new Date().getDay();
+        let html='';
+        schedule.forEach(s=>{
+            const isToday=s.dayIndex===todayIdx;
+            const text=s.isClosed?'🔴 Kapalı':`${s.open} - ${s.close}`;
+            html+=`<div class="day-row ${isToday?'today-highlight':''}"><span><b>${s.day}</b></span><span>${text}</span></div>`;
+        });
+        container.innerHTML=html;
+    }
+    updateStatusUI(); renderHoursTable(); setInterval(updateStatusUI,30000);
+
+    // ======================== DİNAMİK VERİ YÖNETİMİ (localStorage) ========================
+    let appData = {
+        heroVideo: null,       // video URL (youtube embed veya mp4)
+        heroLogo: null,        // logo resmi base64
+        cardBgs: {1:null, 2:null, 3:null},
+        services: [
+            { icon: "fas fa-car-crash", title: "Kaporta Düzeltme", desc: "Eziksiz tamir" },
+            { icon: "fas fa-paint-roller", title: "Oto Boya", desc: "Renk uyumu" },
+            { icon: "fas fa-draw-polygon", title: "Çekme & Şasi", desc: "Hidrolik sistem" },
+            { icon: "fas fa-microscope", title: "Hasar Tespiti", desc: "Ekspertiz" }
+        ]
+    };
+    let isAdminMode = false;
+
+    function loadData() {
+        const saved = localStorage.getItem("gecGarajData");
+        if(saved) {
+            const parsed = JSON.parse(saved);
+            if(parsed.services) appData.services = parsed.services;
+            if(parsed.heroVideo !== undefined) appData.heroVideo = parsed.heroVideo;
+            if(parsed.heroLogo !== undefined) appData.heroLogo = parsed.heroLogo;
+            if(parsed.cardBgs) appData.cardBgs = parsed.cardBgs;
+        }
+        applyDataToUI();
+    }
+    function saveData() {
+        const toStore = {
+            heroVideo: appData.heroVideo,
+            heroLogo: appData.heroLogo,
+            cardBgs: appData.cardBgs,
+            services: appData.services
+        };
+        localStorage.setItem("gecGarajData", JSON.stringify(toStore));
+    }
+    function applyDataToUI() {
+        // Hero video / logo
+        const heroMediaDiv = document.getElementById("heroMedia");
+        const defaultDiv = document.getElementById("heroDefaultIcon");
+        const videoContainer = document.getElementById("heroVideoContainer");
+        const videoEl = document.getElementById("heroVideo");
+        if(appData.heroVideo && appData.heroVideo.trim() !== "") {
+            defaultDiv.style.display = "none";
+            videoContainer.style.display = "block";
+            // YouTube embed veya direkt mp4
+            let videoUrl = appData.heroVideo;
+            if(videoUrl.includes("youtube.com/embed") || videoUrl.includes("youtu.be")) {
+                // embed linki düzenle: autoplay, mute, loop
+                if(!videoUrl.includes("autoplay=1")) videoUrl += (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1&mute=1&loop=1&playlist=' + (videoUrl.split('/embed/')[1]?.split('?')[0] || '');
+                videoEl.setAttribute("src", videoUrl);
+                videoEl.setAttribute("controls", "false");
+                videoEl.style.pointerEvents = "none";
+            } else {
+                videoEl.src = videoUrl;
+                videoEl.loop = true;
+            }
+            videoEl.muted = true;
+            videoEl.autoplay = true;
+            videoEl.play().catch(e=>console.log("video otoplay engellendi"));
+        } else {
+            defaultDiv.style.display = "block";
+            videoContainer.style.display = "none";
+            videoEl.src = "";
+        }
+        // Logo (hero alanına logo yüklendiyse icon yerine logo göster)
+        const heroIconDiv = document.getElementById("heroDefaultIcon");
+        const existingLogoImg = document.getElementById("customLogoImg");
+        if(appData.heroLogo && appData.heroLogo !== "") {
+            let logoImg = existingLogoImg;
+            if(!logoImg) {
+                logoImg = document.createElement("img");
+                logoImg.id = "customLogoImg";
+                logoImg.className = "custom-logo";
+                heroIconDiv.insertBefore(logoImg, heroIconDiv.firstChild);
+            }
+            logoImg.src = appData.heroLogo;
+            logoImg.style.display = "block";
+            const iconElem = heroIconDiv.querySelector("i");
+            if(iconElem) iconElem.style.display = "none";
+        } else {
+            if(existingLogoImg) existingLogoImg.style.display = "none";
+            const iconElem = heroIconDiv.querySelector("i");
+            if(iconElem) iconElem.style.display = "inline-block";
         }
         // Kart arka planları
-        document.getElementById("card1").style.backgroundImage = settings.cardBg1 ? `url(${settings.cardBg1})` : "";
-        document.getElementById("card2").style.backgroundImage = settings.cardBg2 ? `url(${settings.cardBg2})` : "";
-        document.getElementById("card3").style.backgroundImage = settings.cardBg3 ? `url(${settings.cardBg3})` : "";
-        // Panel önizlemeleri
-        if(document.getElementById("logoPreview")) {
-            document.getElementById("logoPreview").innerHTML = settings.heroLogo ? `<img src="${settings.heroLogo}" style="max-width:100px; max-height:70px; border-radius:12px;">` : "";
-            document.getElementById("card1Preview").innerHTML = settings.cardBg1 ? `<img src="${settings.cardBg1}" style="max-width:100px; max-height:70px; border-radius:12px;">` : "";
-            document.getElementById("card2Preview").innerHTML = settings.cardBg2 ? `<img src="${settings.cardBg2}" style="max-width:100px; max-height:70px; border-radius:12px;">` : "";
-            document.getElementById("card3Preview").innerHTML = settings.cardBg3 ? `<img src="${settings.cardBg3}" style="max-width:100px; max-height:70px; border-radius:12px;">` : "";
+        for(let i=1;i<=3;i++){
+            const card = document.getElementById(`card${i}`);
+            if(appData.cardBgs[i]) card.style.backgroundImage = `url(${appData.cardBgs[i]})`;
+            else card.style.backgroundImage = "";
+            // placeholder uyarısı
+            const placeholder = card.querySelector(".bg-placeholder");
+            if(placeholder) placeholder.remove();
+            if(!appData.cardBgs[i] && isAdminMode){
+                const warn = document.createElement("div");
+                warn.className = "bg-placeholder";
+                warn.innerText = "🔲 Görsel eklenmedi";
+                warn.style.position = "absolute";
+                warn.style.bottom = "8px";
+                warn.style.right = "8px";
+                warn.style.fontSize = "10px";
+                warn.style.background = "rgba(0,0,0,0.5)";
+                warn.style.color = "white";
+                warn.style.padding = "2px 6px";
+                warn.style.borderRadius = "20px";
+                card.style.position = "relative";
+                card.appendChild(warn);
+            }
+        }
+        // Dinamik hizmet kartları
+        renderServicesGrid();
+    }
+    function renderServicesGrid() {
+        const container = document.getElementById("dynamicServicesGrid");
+        container.innerHTML = "";
+        appData.services.forEach((srv, idx) => {
+            const card = document.createElement("div");
+            card.className = "service-card";
+            card.innerHTML = `
+                <i class="${srv.icon}"></i>
+                <h4>${escapeHtml(srv.title)}</h4>
+                <p>${escapeHtml(srv.desc)}</p>
+                ${isAdminMode ? `<div class="edit-btn" data-action="editService" data-index="${idx}"><i class="fas fa-pen"></i></div>
+                                 <div class="edit-btn" data-action="deleteService" data-index="${idx}" style="top:45px; background:#ef4444;"><i class="fas fa-trash"></i></div>` : ""}
+            `;
+            container.appendChild(card);
+        });
+        if(isAdminMode) {
+            const addBtn = document.getElementById("addServiceBtnContainer");
+            addBtn.innerHTML = `<button class="add-new-btn" id="addServiceBtn"><i class="fas fa-plus"></i> Yeni Hizmet Kartı Ekle</button>`;
+            document.getElementById("addServiceBtn")?.addEventListener("click", () => addNewService());
+        } else {
+            document.getElementById("addServiceBtnContainer").innerHTML = "";
+        }
+        // admin butonlarına event bağla
+        if(isAdminMode){
+            document.querySelectorAll("[data-action='editService']").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const idx = btn.getAttribute("data-index");
+                    editService(parseInt(idx));
+                });
+            });
+            document.querySelectorAll("[data-action='deleteService']").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const idx = btn.getAttribute("data-index");
+                    if(confirm("Bu hizmet kartını silmek istediğinize emin misiniz?")){
+                        appData.services.splice(parseInt(idx),1);
+                        saveData();
+                        renderServicesGrid();
+                    }
+                });
+            });
         }
     }
-    function saveVisuals() { localStorage.setItem("gecGarajVisuals", JSON.stringify(settings)); applyVisuals(); }
-    function uploadLogo() {
-        const file = document.getElementById("logoUpload").files[0];
-        if(!file) return;
-        const reader = new FileReader();
-        reader.onload = e => { settings.heroLogo = e.target.result; saveVisuals(); alert("Logo güncellendi!"); };
-        reader.readAsDataURL(file);
+    function addNewService() {
+        const title = prompt("Hizmet başlığı girin:");
+        if(!title) return;
+        const desc = prompt("Açıklama girin:");
+        if(!desc) return;
+        const iconClass = prompt("Font Awesome icon sınıfı (örn: fas fa-wrench):", "fas fa-tools");
+        appData.services.push({ icon: iconClass || "fas fa-tools", title: title, desc: desc });
+        saveData();
+        renderServicesGrid();
     }
-    function deleteLogo() { settings.heroLogo = null; saveVisuals(); alert("Logo kaldırıldı, varsayılan araba ikonu geri geldi."); }
-    function uploadCardBg(cardNum) {
-        const input = document.getElementById(`cardBg${cardNum}Upload`);
-        if(!input.files.length) return;
-        const reader = new FileReader();
-        reader.onload = e => { settings[`cardBg${cardNum}`] = e.target.result; saveVisuals(); alert(`Kart ${cardNum} arka planı güncellendi.`); };
-        reader.readAsDataURL(input.files[0]);
+    function editService(idx) {
+        const srv = appData.services[idx];
+        const newTitle = prompt("Başlık:", srv.title);
+        if(newTitle !== null) srv.title = newTitle;
+        const newDesc = prompt("Açıklama:", srv.desc);
+        if(newDesc !== null) srv.desc = newDesc;
+        const newIcon = prompt("Icon sınıfı:", srv.icon);
+        if(newIcon !== null) srv.icon = newIcon;
+        saveData();
+        renderServicesGrid();
     }
-    function deleteCardBg(cardNum) { settings[`cardBg${cardNum}`] = null; saveVisuals(); alert(`Kart ${cardNum} arka planı silindi.`); }
+    function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
 
-    // ========= DARK MODE (sadece tema) =========
+    // ================ ADMIN MODU: Düzenleme butonlarını ekle ================
+    let adminActive = false;
+    let adminPassword = "gecadmin2025";
+    function enableAdminMode(enable) {
+        isAdminMode = enable;
+        if(enable){
+            // mevcut kartlara düzenleme butonları ekle
+            addAdminButtonsToStaticCards();
+            addAdminButtonsToHero();
+            addAdminButtonsToLogo();
+        } else {
+            removeAdminButtons();
+        }
+        renderServicesGrid(); // yeniden render butonlarla
+        applyDataToUI(); // placeholder ları güncelle
+    }
+    function addAdminButtonsToStaticCards() {
+        for(let i=1;i<=3;i++){
+            const card = document.getElementById(`card${i}`);
+            if(card && !card.querySelector(".admin-card-edit")){
+                const editDiv = document.createElement("div");
+                editDiv.className = "edit-btn admin-card-edit";
+                editDiv.innerHTML = '<i class="fas fa-pen"></i>';
+                editDiv.style.opacity = "1";
+                editDiv.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    editCardBg(i);
+                });
+                card.appendChild(editDiv);
+            }
+        }
+    }
+    function addAdminButtonsToHero() {
+        const heroMedia = document.getElementById("heroMedia");
+        if(!heroMedia.querySelector(".admin-hero-edit")){
+            const editBtn = document.createElement("div");
+            editBtn.className = "edit-btn admin-hero-edit";
+            editBtn.innerHTML = '<i class="fas fa-video"></i>';
+            editBtn.style.opacity = "1";
+            editBtn.style.top = "10px";
+            editBtn.style.right = "10px";
+            editBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                editHeroVideo();
+            });
+            heroMedia.appendChild(editBtn);
+        }
+        const logoArea = document.getElementById("logoArea");
+        if(!logoArea.querySelector(".admin-logo-edit")){
+            const logoEdit = document.createElement("div");
+            logoEdit.className = "edit-btn admin-logo-edit";
+            logoEdit.innerHTML = '<i class="fas fa-image"></i>';
+            logoEdit.style.opacity = "1";
+            logoEdit.style.top = "10px";
+            logoEdit.style.right = "10px";
+            logoEdit.addEventListener("click", (e) => {
+                e.stopPropagation();
+                editLogo();
+            });
+            logoArea.appendChild(logoEdit);
+        }
+    }
+    function addAdminButtonsToLogo() { /* yukarıda yapıldı */ }
+    function removeAdminButtons() {
+        document.querySelectorAll(".admin-card-edit, .admin-hero-edit, .admin-logo-edit").forEach(el => el.remove());
+    }
+    function editCardBg(cardNum) {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if(file){
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    appData.cardBgs[cardNum] = ev.target.result;
+                    saveData();
+                    applyDataToUI();
+                    alert(`Kart ${cardNum} arka planı güncellendi.`);
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        fileInput.click();
+    }
+    function editHeroVideo() {
+        const videoUrl = prompt("Tanıtım videosu URL'sini girin (YouTube embed linki veya .mp4 linki):\nÖrnek: https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1", appData.heroVideo || "");
+        if(videoUrl !== null){
+            appData.heroVideo = videoUrl.trim() === "" ? null : videoUrl.trim();
+            saveData();
+            applyDataToUI();
+            alert("Video ayarlandı. Sessiz otomatik oynar.");
+        }
+    }
+    function editLogo() {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if(file){
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    appData.heroLogo = ev.target.result;
+                    saveData();
+                    applyDataToUI();
+                    alert("Logo güncellendi.");
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        fileInput.click();
+    }
+
+    // Admin modunu aç/kapat (şifre sor)
+    const adminBtn = document.getElementById("adminToggleBtn");
+    adminBtn.addEventListener("click", () => {
+        if(!adminActive){
+            const pass = prompt("Yönetici paneline erişmek için şifre girin:");
+            if(pass === adminPassword){
+                adminActive = true;
+                enableAdminMode(true);
+                alert("Admin modu aktif. Artık her öğenin üzerinde düzenleme butonlarını göreceksiniz.");
+            } else if(pass !== null) alert("Şifre hatalı!");
+        } else {
+            adminActive = false;
+            enableAdminMode(false);
+            alert("Admin modu kapatıldı.");
+        }
+    });
+
+    // Dark mode
     const darkToggle = document.getElementById("darkmodeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-    function setDarkMode(isDark) {
-        if(isDark) { document.body.classList.add("dark"); themeIcon.className = "fas fa-sun"; }
-        else { document.body.classList.remove("dark"); themeIcon.className = "fas fa-moon"; }
-        localStorage.setItem("gecTheme", isDark ? "dark" : "light");
-    }
-    const savedTheme = localStorage.getItem("gecTheme");
-    if(savedTheme === "dark") setDarkMode(true);
-    darkToggle.addEventListener("click", () => setDarkMode(!document.body.classList.contains("dark")));
+    darkToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("gecTheme", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+    if(localStorage.getItem("gecTheme") === "dark") document.body.classList.add("dark");
 
-    // ========= ADMIN PANEL ŞİFRE KONTROLÜ =========
-    const editButton = document.getElementById("editBtn");
-    const overlay = document.getElementById("adminOverlay");
-    const closeAdmin = document.getElementById("closeAdmin");
-    let isAuth = false;
-    editButton.onclick = () => {
-        if(!isAuth) {
-            const pwd = prompt("Yönetici paneline erişmek için şifreyi girin:");
-            if(pwd === "gecadmin2025") { isAuth = true; overlay.classList.add("active"); loadVisualSettings(); }
-            else if(pwd !== null) alert("Şifre hatalı!");
-        } else { overlay.classList.add("active"); loadVisualSettings(); }
-    };
-    closeAdmin.onclick = () => overlay.classList.remove("active");
-    overlay.onclick = (e) => { if(e.target === overlay) overlay.classList.remove("active"); };
-    loadVisualSettings();
+    // Başlangıç
+    loadData();
 </script>
 </body>
 </html>
