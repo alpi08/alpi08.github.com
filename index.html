@@ -40,7 +40,7 @@
             gap: 16px;
         }
         .logo img {
-            height: 60px;
+            height: 65px;
             width: auto;
             display: block;
             background: transparent !important;
@@ -112,11 +112,12 @@
         .hero-image { flex: 0.9; text-align: center; }
         .hero-image img {
             max-width: 100%;
-            max-height: 400px;
+            max-height: 450px;
+            width: auto;
             border-radius: 32px;
             box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
             border: 1px solid #2a2f3a;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         /* STATUS CARD */
@@ -319,7 +320,7 @@
             display: block;
         }
 
-        /* KEDİ - ŞEFFAF ARKA PLAN */
+        /* KEDİ - BÜYÜK VE ŞEFFAF */
         .cat-fixed {
             position: fixed;
             bottom: 100px;
@@ -332,7 +333,7 @@
         }
         .cat-fixed:hover { opacity: 0.9; }
         .cat-fixed img {
-            width: 120px;
+            width: 160px;
             height: auto;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
             display: block;
@@ -381,8 +382,6 @@
             z-index: 99;
         }
 
-        .error-message { display: none; color: #ef8e5e; font-size: 0.7rem; text-align: center; margin-top: 8px; }
-
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .info-grid { grid-template-columns: 1fr; }
@@ -390,17 +389,19 @@
             .hero-grid { flex-direction: column; }
             .map-container iframe { height: 300px; }
             .gallery-grid { grid-template-columns: 1fr; }
-            .cat-fixed img { width: 80px; }
+            .cat-fixed img { width: 100px; }
             .cat-fixed { bottom: 90px; right: 15px; }
             .whatsapp-float { left: 15px; bottom: 20px; width: 48px; height: 48px; font-size: 1.5rem; }
             .logo img { height: 45px; }
             .reviews-section { padding: 20px; }
+            .hero-image img { max-height: 300px; }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.6rem; }
             .services-grid { grid-template-columns: 1fr 1fr; }
             .phone-large { font-size: 1.5rem; }
-            .cat-fixed img { width: 70px; }
+            .cat-fixed img { width: 80px; }
+            .hero-image img { max-height: 250px; }
         }
     </style>
 </head>
@@ -409,7 +410,7 @@
 <header class="site-header">
     <div class="container header-inner">
         <div class="logo">
-            <img src="Logo.png" alt="GEÇ GARAJ Logo" id="logoImg">
+            <img src="GECgaraj-removebg-preview.png" alt="GEÇ GARAJ Logo" id="logoImg">
             <h1>GEÇ GARAJ <span>teknik iş oto servis</span></h1>
         </div>
         <div class="nav-links">
@@ -489,7 +490,7 @@
             <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Detaylı ekspertiz raporu</p></div>
         </div>
 
-        <!-- YORUMLAR BÖLÜMÜ -->
+        <!-- YORUMLAR BÖLÜMÜ - 3 YORUM -->
         <div id="yorumlar" class="reviews-section">
             <div class="review-header">
                 <h3><i class="fas fa-star" style="color:#f5b042;"></i> Müşteri Yorumları</h3>
@@ -523,15 +524,6 @@
                 </div>
                 <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Hızlı ve güvenilir çözüm. Ekip gerçekten uzman. Fiyat performans olarak da çok iyi."</div>
                 <div class="review-date">3 ay önce · Google</div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-name">
-                    <i class="fas fa-user-circle"></i> <strong>Canan Öztürk</strong>
-                    <span class="stars">★★★★★</span>
-                </div>
-                <div class="review-text">"Daha önce başka yerlere gittim ama buradaki işçilik gerçekten farklı. Aracım ilk günkü gibi oldu. Gönül rahatlığıyla güvenebilirsiniz."</div>
-                <div class="review-date">4 ay önce · Google</div>
             </div>
 
             <div style="text-align: center;">
@@ -589,9 +581,9 @@
     </div>
 </footer>
 
-<!-- KEDİ - ŞEFFAF ARKA PLAN -->
+<!-- KEDİ - BÜYÜK, ŞEFFAF ARKA PLAN -->
 <div class="cat-fixed">
-    <img src="kedi.png" alt="Kedi" id="kediImg">
+    <img src="kedi-removebg-preview.png" alt="Kedi" id="kediImg">
 </div>
 
 <!-- WHATSAPP FLOAT -->
@@ -600,15 +592,6 @@
 </a>
 
 <script>
-    // Görsel hata kontrolü (sessizce çalışır)
-    const images = ['logoImg', 'disaridanImg', 'img1', 'img4', 'img5', 'kediImg'];
-    images.forEach(id => {
-        const img = document.getElementById(id);
-        if (img) {
-            img.onerror = function() { console.log(id + ' yüklenemedi'); };
-        }
-    });
-
     // Çalışma saatleri
     const schedule = [
         { day: "Pazartesi", dayIndex: 1, open: "09:00", close: "18:00", isClosed: false },
