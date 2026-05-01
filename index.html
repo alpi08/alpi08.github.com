@@ -82,15 +82,53 @@
         .btn-outline { background: transparent; border: 1px solid #3a3c42; color: #e2e8f0; }
         .btn-outline:hover { border-color: #e67e22; color: #e67e22; }
 
-        /* HERO */
-        .hero { padding: 48px 0 32px; }
-        .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
-        .hero-content { flex: 1; }
+        /* HERO - Arka plan görseli ile */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: rotate(90deg) scale(1.5);
+            filter: brightness(0.35);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            text-align: left;
+            padding: 40px 24px;
+        }
         .rating-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #1c1c20;
+            background: rgba(28, 28, 32, 0.85);
+            backdrop-filter: blur(4px);
             padding: 6px 16px;
             border-radius: 60px;
             font-size: 0.9rem;
@@ -98,26 +136,28 @@
             margin-bottom: 24px;
         }
         .rating-badge i { color: #f5b042; }
-        .hero-content h2 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
-        .hero-tagline { font-size: 1rem; color: #9ca3af; margin-bottom: 20px; }
+        .hero-content h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        }
         .service-tag {
-            background: #1c1c20;
+            background: rgba(28, 28, 32, 0.85);
+            backdrop-filter: blur(4px);
             display: inline-block;
             padding: 6px 18px;
             border-radius: 40px;
             font-size: 0.8rem;
             font-weight: 500;
             color: #e67e22;
-        }
-        .hero-image { flex: 0.9; text-align: center; }
-        .hero-image img {
-            max-width: 100%;
-            max-height: 450px;
-            width: auto;
-            border-radius: 32px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
-            border: 1px solid #2a2f3a;
-            object-fit: contain;
         }
 
         /* STATUS CARD */
@@ -320,27 +360,6 @@
             display: block;
         }
 
-        /* KEDİ - BÜYÜK VE ŞEFFAF */
-        .cat-fixed {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            z-index: 98;
-            transition: opacity 0.3s;
-            cursor: pointer;
-            background: transparent !important;
-            background-color: transparent !important;
-        }
-        .cat-fixed:hover { opacity: 0.9; }
-        .cat-fixed img {
-            width: 160px;
-            height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-            display: block;
-            background: transparent !important;
-            background-color: transparent !important;
-        }
-
         /* CTA */
         .cta-card {
             background: #121215;
@@ -369,7 +388,7 @@
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
-            left: 24px;
+            right: 24px;
             background: #25D366;
             width: 56px;
             height: 56px;
@@ -385,23 +404,19 @@
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .info-grid { grid-template-columns: 1fr; }
-            .hero-content h2 { font-size: 1.9rem; }
-            .hero-grid { flex-direction: column; }
+            .hero-content h2 { font-size: 2rem; }
             .map-container iframe { height: 300px; }
             .gallery-grid { grid-template-columns: 1fr; }
-            .cat-fixed img { width: 100px; }
-            .cat-fixed { bottom: 90px; right: 15px; }
-            .whatsapp-float { left: 15px; bottom: 20px; width: 48px; height: 48px; font-size: 1.5rem; }
-            .logo img { height: 45px; }
             .reviews-section { padding: 20px; }
-            .hero-image img { max-height: 300px; }
+            .logo img { height: 45px; }
+            .hero { min-height: 70vh; }
+            .hero-content { padding: 30px 20px; }
+            .hero-tagline { font-size: 0.95rem; }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.6rem; }
             .services-grid { grid-template-columns: 1fr 1fr; }
             .phone-large { font-size: 1.5rem; }
-            .cat-fixed img { width: 80px; }
-            .hero-image img { max-height: 250px; }
         }
     </style>
 </head>
@@ -424,28 +439,27 @@
 </header>
 
 <main>
-    <div class="container">
-        <!-- HERO -->
-        <div class="hero">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="rating-badge">
-                        <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme
-                        <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
-                    </div>
-                    <h2>Oto Kaporta Düzeltme & Boya</h2>
-                    <div class="hero-tagline">Uzman ekip, modern çekme sistemi, garantili işçilik – Beykoz'un güvenilir garajı.</div>
-                    <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Çekme • Boya • Hasar Tespiti</div>
-                    <div style="margin-top: 24px;">
-                        <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="Dısarıdan.png" alt="GEÇ GARAJ Dış Görünüm" id="disaridanImg">
-                </div>
+    <!-- HERO - Arka plan görseli ile -->
+    <div class="hero">
+        <div class="hero-background">
+            <img src="dısarıdanyan.png" alt="GEÇ GARAJ Dış Görünüm" id="bgImage">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="rating-badge">
+                <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme
+                <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
+            </div>
+            <h2>Oto Kaporta Düzeltme & Boya</h2>
+            <div class="hero-tagline">Uzman ekip, modern çekme sistemi, garantili işçilik – Beykoz'un güvenilir garajı.</div>
+            <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Çekme • Boya • Hasar Tespiti</div>
+            <div style="margin-top: 28px;">
+                <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
             </div>
         </div>
+    </div>
 
+    <div class="container">
         <!-- DURUM KARTI -->
         <div class="status-card">
             <div class="status-row">
@@ -504,7 +518,7 @@
                     <i class="fas fa-user-circle"></i> <strong>Mehmet Demir</strong>
                     <span class="stars">★★★★★</span>
                 </div>
-                <div class="review-text">"Kaporta işi için götürdüm, çok memnun kaldım. İşçilik çok temiz, fiyat da makul. Kesinlikle tavsiye ederim. İlgileri için teşekkürler."</div>
+                <div class="review-text">"Kaporta işi için götürdüm, çok memnun kaldım. İşçilik çok temiz, fiyat da makul. Kesinlikle tavsiye ederim."</div>
                 <div class="review-date">2 hafta önce · Google</div>
             </div>
 
@@ -513,7 +527,7 @@
                     <i class="fas fa-user-circle"></i> <strong>Ayşe Yılmaz</strong>
                     <span class="stars">★★★★★</span>
                 </div>
-                <div class="review-text">"Aracımın tamponu değişti ve boyası yapıldı. Renk farkı yok, işçilik çok profesyonel. Zamanında teslim ettiler. Teşekkürler GEÇ GARAJ."</div>
+                <div class="review-text">"Aracımın tamponu değişti ve boyası yapıldı. Renk farkı yok, işçilik çok profesyonel. Zamanında teslim ettiler."</div>
                 <div class="review-date">1 ay önce · Google</div>
             </div>
 
@@ -522,7 +536,7 @@
                     <i class="fas fa-user-circle"></i> <strong>Emre Kaya</strong>
                     <span class="stars">★★★★★</span>
                 </div>
-                <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Hızlı ve güvenilir çözüm. Ekip gerçekten uzman. Fiyat performans olarak da çok iyi."</div>
+                <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Hızlı ve güvenilir çözüm. Ekip gerçekten uzman."</div>
                 <div class="review-date">3 ay önce · Google</div>
             </div>
 
@@ -580,11 +594,6 @@
         <p style="margin-top: 8px;"><i class="fas fa-star" style="color:#fbbf24;"></i> 4,9 puan (8 müşteri yorumu) – İstanbul'un güvenilir oto servisi</p>
     </div>
 </footer>
-
-<!-- KEDİ - BÜYÜK, ŞEFFAF ARKA PLAN -->
-<div class="cat-fixed">
-    <img src="kedi-removebg-preview.png" alt="Kedi" id="kediImg">
-</div>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20sitenizden%20ulaşıyorum." class="whatsapp-float" target="_blank">
