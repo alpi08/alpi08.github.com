@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
     <title>GEÇ GARAJ | Oto Kaporta & Düzeltme | Beykoz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,7 +18,7 @@
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         a { text-decoration: none; color: inherit; }
 
-        /* HEADER */
+        /* HEADER - logo yok, sadece navigasyon */
         .site-header {
             background-color: #0a0a0c;
             border-bottom: 1px solid #222326;
@@ -29,36 +29,10 @@
         }
         .header-inner {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             flex-wrap: wrap;
             gap: 16px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ffffff, #e67e22);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .logo span {
-            font-size: 0.7rem;
-            background: #1c1c20;
-            color: #cbd5e1;
-            padding: 3px 10px;
-            border-radius: 30px;
-            margin-left: 8px;
-        }
-        .logo-img {
-            height: 55px;
-            width: auto;
-            display: block;
         }
         .nav-links { display: flex; gap: 28px; }
         .nav-links a { font-size: 0.9rem; font-weight: 500; color: #b0b3b8; transition: 0.2s; }
@@ -80,10 +54,10 @@
         .btn-outline { background: transparent; border: 1px solid #3a3c42; color: #e2e8f0; }
         .btn-outline:hover { border-color: #e67e22; color: #e67e22; }
 
-        /* HERO - Arka plan görseli ile (random görseller) */
+        /* HERO - Arka plan random görseller ile (çerçevesiz) */
         .hero {
             position: relative;
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -103,9 +77,9 @@
             width: 50%;
             height: 50%;
             object-fit: cover;
-            opacity: 0.5;
+            opacity: 0.55;
         }
-        /* 4 random görseli konumlandır */
+        /* 4 random görsel konumlandır - çerçeve yok */
         .random1 { top: 0; left: 0; width: 50%; height: 50%; }
         .random2 { top: 0; right: 0; width: 50%; height: 50%; }
         .random3 { bottom: 0; left: 0; width: 50%; height: 50%; }
@@ -117,7 +91,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 100%);
             z-index: 1;
         }
         .hero-content {
@@ -128,7 +102,7 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 50px;
             padding: 40px 24px;
         }
         .hero-text {
@@ -138,14 +112,13 @@
         .hero-logo-area {
             flex: 0.8;
             text-align: center;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.25);
             backdrop-filter: blur(8px);
-            border-radius: 32px;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 48px;
+            padding: 40px 30px;
         }
         .hero-logo-area img {
-            max-width: 280px;
+            max-width: 350px;
             width: 100%;
             height: auto;
             display: block;
@@ -164,18 +137,26 @@
             margin-bottom: 24px;
         }
         .rating-badge i { color: #f5b042; }
-        .hero-text h2 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
+        
+        /* Güzel GEÇ GARAJ başlığı */
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
             margin-bottom: 16px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #ffffff, #f5b042, #e67e22);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: -0.02em;
         }
-        .hero-tagline {
-            font-size: 1.1rem;
+        .hero-subtitle {
+            font-size: 1.2rem;
             color: #e2e8f0;
             margin-bottom: 20px;
             text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+            font-weight: 500;
         }
         .service-tag {
             background: rgba(28, 28, 32, 0.85);
@@ -433,22 +414,22 @@
             .container { padding: 0 20px; }
             .info-grid { grid-template-columns: 1fr; }
             .hero-content { flex-direction: column; text-align: center; }
-            .hero-text h2 { font-size: 2rem; }
+            .hero-text h1 { font-size: 2.5rem; }
             .hero-text { text-align: center; }
+            .hero-subtitle { font-size: 1rem; }
             .map-container iframe { height: 300px; }
             .gallery-grid { grid-template-columns: 1fr; }
             .reviews-section { padding: 20px; }
             .hero { min-height: 70vh; }
             .hero-text { padding: 30px 20px; }
-            .hero-tagline { font-size: 0.95rem; }
-            .hero-logo-area { padding: 20px; }
-            .hero-logo-area img { max-width: 200px; }
+            .hero-logo-area { padding: 25px 20px; }
+            .hero-logo-area img { max-width: 220px; }
         }
         @media (max-width: 480px) {
-            .hero-text h2 { font-size: 1.6rem; }
+            .hero-text h1 { font-size: 1.9rem; }
             .services-grid { grid-template-columns: 1fr 1fr; }
             .phone-large { font-size: 1.5rem; }
-            .hero-logo-area img { max-width: 150px; }
+            .hero-logo-area img { max-width: 180px; }
         }
     </style>
 </head>
@@ -456,9 +437,6 @@
 
 <header class="site-header">
     <div class="container header-inner">
-        <div class="logo">
-            <h1>GEÇ GARAJ <span>teknik iş oto servis</span></h1>
-        </div>
         <div class="nav-links">
             <a href="#hizmetler">Hizmetler</a>
             <a href="#galeri">Galeri</a>
@@ -470,7 +448,7 @@
 </header>
 
 <main>
-    <!-- HERO - Arka plan random görseller ile -->
+    <!-- HERO - Arka plan random görseller ile (çerçevesiz) -->
     <div class="hero">
         <div class="hero-background">
             <img src="random1.png" alt="Garaj" class="random1">
@@ -485,8 +463,9 @@
                     <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme
                     <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
                 </div>
-                <h2>Oto Kaporta Düzeltme & Boya</h2>
-                <div class="hero-tagline">Uzman ekip, modern çekme sistemi, garantili işçilik – Beykoz'un güvenilir garajı.</div>
+                <h1>GEÇ GARAJ</h1>
+                <div class="hero-subtitle">Oto Kaporta Düzeltme & Boya</div>
+                <div class="hero-tagline" style="margin-bottom: 20px;">Uzman ekip, modern çekme sistemi, garantili işçilik – Beykoz'un güvenilir garajı.</div>
                 <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Çekme • Boya • Hasar Tespiti</div>
                 <div style="margin-top: 28px;">
                     <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
@@ -607,7 +586,7 @@
         <!-- HARITA -->
         <div id="harita" class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5:0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
                 allowfullscreen="" 
                 loading="lazy">
             </iframe>
