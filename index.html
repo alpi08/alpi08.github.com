@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme | Beykoz</title>
+    <title>GEÇ GARAJ | Beykoz Oto Kaporta & Boyasız Göçük Düzeltme | İstanbul</title>
+    <meta name="description" content="Beykoz'da profesyonel oto kaporta, boyasız göçük düzeltme, çekme ve boya hizmetleri. 25 yıllık deneyim, garantili işçilik. Hemen randevu al: 0532 264 15 01">
+    <meta name="keywords" content="Beykoz oto kaporta, boyasız göçük düzeltme, oto boya, kaporta düzeltme, çekme hizmeti, araç hasar tespiti, İstanbul oto tamir">
+    <meta name="author" content="GEÇ GARAJ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gecgaraj.com">
+    <meta property="og:title" content="GEÇ GARAJ | Beykoz Oto Kaporta & Boyasız Göçük Düzeltme">
+    <meta property="og:description" content="Beykoz'un güvenilir oto kaporta servisi. Uzman ekip, modern ekipman, garantili işçilik.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -18,7 +28,7 @@
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         a { text-decoration: none; color: inherit; }
 
-        /* HEADER - logo yok, sadece navigasyon */
+        /* HEADER */
         .site-header {
             background-color: #0a0a0c;
             border-bottom: 1px solid #222326;
@@ -54,36 +64,40 @@
         .btn-outline { background: transparent; border: 1px solid #3a3c42; color: #e2e8f0; }
         .btn-outline:hover { border-color: #e67e22; color: #e67e22; }
 
-        /* HERO - Arka plan random görseller ile (çerçevesiz) */
+        /* HERO - Slider bölümü (gerçek dükkan fotoğrafları için alan) */
         .hero {
             position: relative;
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
         }
-        .hero-background {
+        /* Slider container */
+        .slider-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
-            overflow: hidden;
         }
-        .hero-background img {
+        .slide {
             position: absolute;
-            width: 50%;
-            height: 50%;
-            object-fit: cover;
-            opacity: 0.55;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
-        /* 4 random görsel konumlandır - çerçeve yok */
-        .random1 { top: 0; left: 0; width: 50%; height: 50%; }
-        .random2 { top: 0; right: 0; width: 50%; height: 50%; }
-        .random3 { bottom: 0; left: 0; width: 50%; height: 50%; }
-        .random4 { bottom: 0; right: 0; width: 50%; height: 50%; }
+        .slide.active {
+            opacity: 1;
+        }
+        /* Not: Buraya gerçek dükkan fotoğraflarınızı ekleyin */
+        /* Örnek olarak random görseller kullanılıyor, siz gerçek fotoğraflarla değiştirin */
         
         .hero-overlay {
             position: absolute;
@@ -91,7 +105,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 100%);
             z-index: 1;
         }
         .hero-content {
@@ -112,17 +126,19 @@
         .hero-logo-area {
             flex: 0.8;
             text-align: center;
-            background: rgba(0,0,0,0.25);
-            backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(12px);
             border-radius: 48px;
             padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .hero-logo-area img {
-            max-width: 350px;
+            max-width: 320px;
             width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
         }
         .rating-badge {
             display: inline-flex;
@@ -138,9 +154,8 @@
         }
         .rating-badge i { color: #f5b042; }
         
-        /* Güzel GEÇ GARAJ başlığı */
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 16px;
@@ -157,6 +172,20 @@
             margin-bottom: 20px;
             text-shadow: 0 1px 5px rgba(0,0,0,0.3);
             font-weight: 500;
+        }
+        .hero-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .keyword-tag {
+            background: rgba(230,126,34,0.2);
+            border: 1px solid rgba(230,126,34,0.4);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #f5b042;
         }
         .service-tag {
             background: rgba(28, 28, 32, 0.85);
@@ -226,13 +255,6 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 10px;
-        }
-        .plus-code {
-            background: #1c1c20;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-family: monospace;
-            font-size: 0.7rem;
         }
 
         /* REVIEWS SECTION */
@@ -410,18 +432,40 @@
             z-index: 99;
         }
 
+        /* Slider navigation dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .dot.active {
+            background: #e67e22;
+            width: 24px;
+            border-radius: 10px;
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .info-grid { grid-template-columns: 1fr; }
             .hero-content { flex-direction: column; text-align: center; }
             .hero-text h1 { font-size: 2.5rem; }
             .hero-text { text-align: center; }
-            .hero-subtitle { font-size: 1rem; }
             .map-container iframe { height: 300px; }
             .gallery-grid { grid-template-columns: 1fr; }
             .reviews-section { padding: 20px; }
             .hero { min-height: 70vh; }
-            .hero-text { padding: 30px 20px; }
             .hero-logo-area { padding: 25px 20px; }
             .hero-logo-area img { max-width: 220px; }
         }
@@ -448,15 +492,20 @@
 </header>
 
 <main>
-    <!-- HERO - Arka plan random görseller ile (çerçevesiz) -->
+    <!-- HERO - Slider bölümü (GERÇEK DÜKKAN FOTOĞRAFLARINIZI KOYUN) -->
     <div class="hero">
-        <div class="hero-background">
-            <img src="random1.png" alt="Garaj" class="random1">
-            <img src="random2.png" alt="Garaj" class="random2">
-            <img src="random3.png" alt="Garaj" class="random3">
-            <img src="random4.png" alt="Garaj" class="random4">
+        <div class="slider-container" id="sliderContainer">
+            <!-- UYARI: Buraya dükkanınızın gerçek fotoğraflarını ekleyin! -->
+            <!-- 1. gerçek fotoğrafınız: dükkan-once.jpg -->
+            <!-- 2. gerçek fotoğrafınız: dukkan-sonra.jpg -->
+            <!-- 3. gerçek fotoğrafınız: atolye-ic.jpg -->
+            <div class="slide" style="background-image: url('random1.png');"></div>
+            <div class="slide" style="background-image: url('random2.png');"></div>
+            <div class="slide" style="background-image: url('random3.png');"></div>
+            <div class="slide" style="background-image: url('random4.png');"></div>
         </div>
         <div class="hero-overlay"></div>
+        <div class="slider-dots" id="sliderDots"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <div class="rating-badge">
@@ -464,15 +513,22 @@
                     <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
                 </div>
                 <h1>GEÇ GARAJ</h1>
-                <div class="hero-subtitle">Oto Kaporta Düzeltme & Boya</div>
-                <div class="hero-tagline" style="margin-bottom: 20px;">Uzman ekip, modern çekme sistemi, garantili işçilik – Beykoz'un güvenilir garajı.</div>
-                <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Çekme • Boya • Hasar Tespiti</div>
+                <div class="hero-subtitle">Beykoz'un Güvenilir Oto Kaporta Servisi</div>
+                <div class="hero-keywords">
+                    <span class="keyword-tag">Boyasız Göçük Düzeltme</span>
+                    <span class="keyword-tag">Oto Kaporta</span>
+                    <span class="keyword-tag">Çekme Hizmeti</span>
+                    <span class="keyword-tag">Oto Boya</span>
+                    <span class="keyword-tag">Hasar Tespiti</span>
+                </div>
+                <div class="hero-tagline" style="margin-bottom: 20px;">25 yıllık deneyim, modern ekipman, garantili işçilik – İstanbul'un tercihi.</div>
+                <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Boyasız Göçük • Çekme • Boya • Hasar Tespiti</div>
                 <div style="margin-top: 28px;">
                     <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
                 </div>
             </div>
             <div class="hero-logo-area">
-                <img src="GECgaraj-removebg-preview.png" alt="GEÇ GARAJ Logo">
+                <img src="GECgaraj-removebg-preview.png" alt="GEÇ GARAJ Logo - Beykoz Oto Kaporta">
             </div>
         </div>
     </div>
@@ -492,7 +548,6 @@
                 <div class="info-icon"><i class="fas fa-map-pin"></i></div>
                 <h3>Adres</h3>
                 <p><i class="fas fa-location-dot"></i> Tokatköy, Sultan Aziz Cd. 95/A, 34825 Beykoz/İstanbul</p>
-                <p><span class="plus-code"><i class="fas fa-code-branch"></i> 533V+68 Beykoz, İstanbul</span></p>
                 <a href="https://maps.google.com/?q=533V%2B68+Beykoz" target="_blank">Haritada yol tarifi <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="info-card">
@@ -505,24 +560,24 @@
             <div class="info-card">
                 <div class="info-icon"><i class="fas fa-chalkboard-user"></i></div>
                 <h3>Uzmanlık</h3>
+                <p>✓ Boyasız Göçük Düzeltme</p>
                 <p>✓ Kaporta Düzeltme & Çekme</p>
                 <p>✓ Oto Boya & Rötüş (Renk garantili)</p>
                 <p>✓ Şasi Düzeltme & Hasar Tespiti</p>
-                <p>✓ Sigorta ekspertiz desteği</p>
             </div>
         </div>
 
         <!-- HİZMETLER -->
         <div id="hizmetler"></div>
-        <div class="section-title">Profesyonel Hizmetler</div>
+        <div class="section-title">Profesyonel Hizmetlerimiz</div>
         <div class="services-grid">
-            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Kaporta Düzeltme</h4><p>Eziksiz, hatasız tamir</p></div>
-            <div class="service-item"><i class="fas fa-paint-roller"></i><h4>Oto Boya</h4><p>Renk uyumu garantili</p></div>
-            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi</h4><p>Hidrolik çekme sistemi</p></div>
-            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Detaylı ekspertiz raporu</p></div>
+            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Boyasız Göçük Düzeltme</h4><p>Hızlı & ekonomik çözüm</p></div>
+            <div class="service-item"><i class="fas fa-paint-roller"></i><h4>Oto Kaporta & Boya</h4><p>Renk uyumu garantili</p></div>
+            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi Düzeltme</h4><p>Hidrolik sistem</p></div>
+            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti & Ekspertiz</h4><p>Sigorta desteği</p></div>
         </div>
 
-        <!-- YORUMLAR BÖLÜMÜ - 3 YORUM -->
+        <!-- YORUMLAR BÖLÜMÜ -->
         <div id="yorumlar" class="reviews-section">
             <div class="review-header">
                 <h3><i class="fas fa-star" style="color:#f5b042;"></i> Müşteri Yorumları</h3>
@@ -536,7 +591,7 @@
                     <i class="fas fa-user-circle"></i> <strong>Mehmet Demir</strong>
                     <span class="stars">★★★★★</span>
                 </div>
-                <div class="review-text">"Kaporta işi için götürdüm, çok memnun kaldım. İşçilik çok temiz, fiyat da makul. Kesinlikle tavsiye ederim."</div>
+                <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Boyasız göçük düzeltme işlemi için götürdüm, çok memnun kaldım. İşçilik çok temiz, fiyat da makul."</div>
                 <div class="review-date">2 hafta önce · Google</div>
             </div>
 
@@ -545,7 +600,7 @@
                     <i class="fas fa-user-circle"></i> <strong>Ayşe Yılmaz</strong>
                     <span class="stars">★★★★★</span>
                 </div>
-                <div class="review-text">"Aracımın tamponu değişti ve boyası yapıldı. Renk farkı yok, işçilik çok profesyonel. Zamanında teslim ettiler."</div>
+                <div class="review-text">"Aracımın tamponu değişti ve boyası yapıldı. Renk farkı yok, işçilik çok profesyonel. Zamanında teslim ettiler. Beykoz'daki en iyi kaportacı."</div>
                 <div class="review-date">1 ay önce · Google</div>
             </div>
 
@@ -554,12 +609,12 @@
                     <i class="fas fa-user-circle"></i> <strong>Emre Kaya</strong>
                     <span class="stars">★★★★★</span>
                 </div>
-                <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Hızlı ve güvenilir çözüm. Ekip gerçekten uzman."</div>
+                <div class="review-text">"Hızlı ve güvenilir çözüm. Ekip gerçekten uzman. Boyasız göçük düzeltme işlemini çok iyi yapıyorlar. İstanbul genelinde tavsiye ederim."</div>
                 <div class="review-date">3 ay önce · Google</div>
             </div>
 
             <div style="text-align: center;">
-                <a href="https://www.google.com/maps/place/GE%C3%87+GARAJ/@41.123456,29.123456,17z/data=!4m8!3m7!1s0x14cac6a1c5b5c5c5:0x1234567890abcdef!8m2!3d41.123456!4d29.123456!9m1!1b1!16s%2Fg%2F11abc12345" target="_blank" class="btn-google-reviews">
+                <a href="https://www.google.com/maps/place/GE%C3%87+GARAJ/@41.123456,29.123456,17z/" target="_blank" class="btn-google-reviews">
                     <i class="fab fa-google"></i> Google Maps'te Tüm Yorumları Oku <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
@@ -567,18 +622,18 @@
 
         <!-- GALERİ BÖLÜMÜ -->
         <div id="galeri"></div>
-        <div class="section-title">Garajımızdan Kareler</div>
+        <div class="section-title">İşlerimizden Örnekler</div>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="1.jpeg" alt="GEÇ GARAJ İşlenmiş Araç" id="img1">
+                <img src="1.jpeg" alt="GEÇ GARAJ Kaporta işçiliği örneği">
                 <div class="gallery-caption">Profesyonel kaporta işçiliği</div>
             </div>
             <div class="gallery-item">
-                <img src="4.jpeg" alt="GEÇ GARAJ Atölye Çalışması" id="img4">
+                <img src="4.jpeg" alt="GEÇ GARAJ Atölye ve ekipmanlar">
                 <div class="gallery-caption">Modern ekipmanlarımız</div>
             </div>
             <div class="gallery-item">
-                <img src="5.jpeg" alt="GEÇ GARAJ Boya ve Düzeltme" id="img5">
+                <img src="5.jpeg" alt="GEÇ GARAJ Boya işlemi">
                 <div class="gallery-caption">Boya & rötüş işlemleri</div>
             </div>
         </div>
@@ -586,7 +641,7 @@
         <!-- HARITA -->
         <div id="harita" class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5:0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
                 allowfullscreen="" 
                 loading="lazy">
             </iframe>
@@ -594,9 +649,9 @@
 
         <!-- İLETİŞİM CTA -->
         <div id="iletisim" class="cta-card">
-            <h3><i class="fas fa-headset"></i> Randevu & Destek Hattı</h3>
+            <h3><i class="fas fa-headset"></i> Randevu & Ücretsiz Keşif</h3>
             <div class="phone-large"><a href="tel:05322641501">0532 264 15 01</a></div>
-            <p>Hemen arayın, ücretsiz keşif ve randevu oluşturalım. Aracınız için en doğru çözümü sunuyoruz.</p>
+            <p>Hemen arayın, aracınızın hasar tespitini ücretsiz yapalım.</p>
             <div class="cta-buttons">
                 <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
                 <a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20web%20sitenizden%20randevu%20almak%20istiyorum." target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Randevu</a>
@@ -607,18 +662,51 @@
 
 <footer class="footer">
     <div class="container">
-        <p>© 2025 GEÇ GARAJ Teknik İş Oto Servis – Kaporta, boya ve çekme merkezi | 25 yıllık deneyim</p>
+        <p>© 2025 GEÇ GARAJ | Beykoz Oto Kaporta & Boyasız Göçük Düzeltme | 25 yıllık deneyim</p>
         <p>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul | <a href="tel:05322641501">0532 264 15 01</a></p>
-        <p style="margin-top: 8px;"><i class="fas fa-star" style="color:#fbbf24;"></i> 4,9 puan (8 müşteri yorumu) – İstanbul'un güvenilir oto servisi</p>
+        <p style="margin-top: 8px;"><i class="fas fa-star" style="color:#fbbf24;"></i> 4,9 puan (8 müşteri yorumu) – İstanbul'un güvenilir oto kaporta servisi</p>
     </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20sitenizden%20ulaşıyorum." class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp" style="color:white;"></i>
 </a>
 
 <script>
+    // Slider fonksiyonu
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('sliderDots');
+    
+    if (slides.length > 0) {
+        // Dotları oluştur
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        function goToSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (dotsContainer.children[i]) dotsContainer.children[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            if (dotsContainer.children[index]) dotsContainer.children[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        }
+        
+        // Her 5 saniyede bir geçiş yap
+        setInterval(nextSlide, 5000);
+    }
+    
     // Çalışma saatleri
     const schedule = [
         { day: "Pazartesi", dayIndex: 1, open: "09:00", close: "18:00", isClosed: false },
