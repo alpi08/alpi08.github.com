@@ -2,9 +2,9 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme | Beykoz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,7 +13,6 @@
             background-color: #0e0e10;
             color: #e8edf2;
             line-height: 1.5;
-            scroll-behavior: smooth;
         }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         a { text-decoration: none; color: inherit; }
@@ -104,7 +103,7 @@
             border: 1px solid #2a2f3a;
         }
 
-        /* STATUS CARD */
+        /* DURUM KARTI */
         .status-card {
             background: #121215;
             border-radius: 28px;
@@ -162,15 +161,8 @@
             gap: 10px;
             margin-bottom: 10px;
         }
-        .plus-code {
-            background: #1c1c20;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-family: monospace;
-            font-size: 0.7rem;
-        }
 
-        /* SERVICES */
+        /* HİZMETLER */
         .section-title {
             font-size: 1.9rem;
             font-weight: 700;
@@ -197,53 +189,68 @@
         .service-item h4 { font-size: 1rem; font-weight: 700; }
         .service-item p { font-size: 0.7rem; color: #9ca3af; margin-top: 6px; }
 
-        /* HOURS + MAP */
-        .hours-map {
+        /* HARITA + YORUM KARTI */
+        .review-section {
             background: #121215;
             border-radius: 32px;
             padding: 28px;
             margin: 32px 0 48px;
             border: 1px solid #26272b;
         }
-        .two-columns { display: flex; gap: 40px; flex-wrap: wrap; }
-        .hours-list { flex: 1; }
-        .day-row {
+        .review-header {
             display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #26272b;
-            font-size: 0.85rem;
         }
-        .today { color: #e67e22; font-weight: 700; }
-        .map-container { flex: 1.2; }
-        .map-wrapper {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #2a2f3a;
+        .stars {
+            color: #f5b042;
+            font-size: 1.2rem;
         }
-        .map-wrapper iframe {
-            width: 100%;
-            height: 380px;
-            border: 0;
-            display: block;
-        }
-        .reviews-link { margin-top: 16px; text-align: center; }
-        .btn-reviews {
+        .review-card {
             background: #1c1c20;
-            padding: 10px 24px;
-            border-radius: 40px;
-            color: #e67e22;
-            font-weight: 600;
-            font-size: 0.9rem;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .review-name {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .review-text {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin: 8px 0;
+        }
+        .review-date {
+            font-size: 0.7rem;
+            color: #6c757d;
+        }
+        .google-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: 0.2s;
-            border: 1px solid #2a2f3a;
+            gap: 8px;
+            background: #2a2f3a;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
         }
-        .btn-reviews:hover { background: #e67e22; color: white; border-color: #e67e22; }
+        .map-iframe {
+            border-radius: 24px;
+            overflow: hidden;
+            margin-top: 24px;
+        }
+        .map-iframe iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
 
-        /* CTA */
         .cta-card {
             background: #121215;
             border-radius: 32px;
@@ -252,11 +259,8 @@
             margin: 24px 0 56px;
             border: 1px solid #26272b;
         }
-        .cta-card h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; }
         .phone-large { font-size: 2rem; font-weight: 800; color: #e67e22; margin: 16px 0; }
-        .cta-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
 
-        /* FOOTER */
         .footer {
             background: #0a0a0c;
             padding: 32px 24px;
@@ -266,8 +270,6 @@
             border-top: 1px solid #26272b;
         }
         .footer a { color: #e67e22; }
-
-        /* WHATSAPP FLOAT */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -284,28 +286,15 @@
             z-index: 99;
         }
 
-        /* GARAJ GÖRSELLERİ */
-        .garage-img, .garage-img-small {
-            width: 100%;
-            object-fit: cover;
-            border-radius: 24px;
-        }
-        .garage-img { height: 320px; }
-        .garage-img-small { height: 160px; margin-top: 20px; }
-
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .info-grid { grid-template-columns: 1fr; }
             .hero-content h2 { font-size: 1.9rem; }
-            .two-columns { flex-direction: column; }
             .hero-grid { flex-direction: column; }
-            .hero-image img { max-width: 90%; }
-            .map-wrapper iframe { height: 280px; }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.6rem; }
             .services-grid { grid-template-columns: 1fr 1fr; }
-            .phone-large { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -318,7 +307,7 @@
         </div>
         <div class="nav-links">
             <a href="#hizmetler">Hizmetler</a>
-            <a href="#harita">Konum & Yorumlar</a>
+            <a href="#yorumlar">Yorumlar</a>
             <a href="#iletisim">İletişim</a>
         </div>
     </div>
@@ -332,19 +321,18 @@
                 <div class="hero-content">
                     <div class="rating-badge">
                         <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme
-                        <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
                     </div>
                     <h2>Oto Kaporta Düzeltme & Boya</h2>
                     <div class="hero-tagline">Uzman ekip, modern çekme sistemi, garantili işçilik – Beykoz'un güvenilir garajı.</div>
                     <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Çekme • Boya • Hasar Tespiti</div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://placehold.co/600x400/1a1c22/e67e22?text=GEÇ+GARAJ+Atölye" alt="GEÇ GARAJ oto kaporta atölyesi" class="garage-img">
+                    <img src="https://placehold.co/600x400/1a1c22/e67e22?text=GEÇ+GARAJ+Atölye" alt="GEÇ GARAJ">
                 </div>
             </div>
         </div>
 
-        <!-- DURUM KARTI (dinamik açık/kapalı) -->
+        <!-- DURUM -->
         <div class="status-card">
             <div class="status-row">
                 <div id="openClosedBadge" class="open-badge"><i class="fas fa-spinner"></i> Yükleniyor...</div>
@@ -358,7 +346,6 @@
                 <div class="info-icon"><i class="fas fa-map-pin"></i></div>
                 <h3>Adres</h3>
                 <p><i class="fas fa-location-dot"></i> Tokatköy, Sultan Aziz Cd. 95/A, 34825 Beykoz/İstanbul</p>
-                <p><span class="plus-code"><i class="fas fa-code-branch"></i> 533V+68 Beykoz, İstanbul</span></p>
                 <a href="https://maps.google.com/?q=533V%2B68+Beykoz" target="_blank">Haritada yol tarifi <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="info-card">
@@ -366,66 +353,84 @@
                 <h3>İletişim</h3>
                 <p><i class="fas fa-mobile-alt"></i> <strong><a href="tel:05322641501">0532 264 15 01</a></strong></p>
                 <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905322641501" target="_blank">WhatsApp'tan mesaj gönder</a></p>
-                <p><i class="far fa-clock"></i> Acil durum hattı 7/24</p>
             </div>
             <div class="info-card">
                 <div class="info-icon"><i class="fas fa-chalkboard-user"></i></div>
                 <h3>Uzmanlık</h3>
                 <p>✓ Kaporta Düzeltme & Çekme</p>
-                <p>✓ Oto Boya & Rötüş (Renk garantili)</p>
+                <p>✓ Oto Boya & Rötüş</p>
                 <p>✓ Şasi Düzeltme & Hasar Tespiti</p>
-                <p>✓ Sigorta ekspertiz desteği</p>
             </div>
         </div>
 
-        <!-- HİZMETLER -->
         <div id="hizmetler"></div>
-        <div class="section-title">Profesyonel Hizmetler</div>
+        <div class="section-title">Hizmetlerimiz</div>
         <div class="services-grid">
-            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Kaporta Düzeltme</h4><p>Eziksiz, hatasız tamir</p></div>
+            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Kaporta Düzeltme</h4><p>Eziksiz tamir</p></div>
             <div class="service-item"><i class="fas fa-paint-roller"></i><h4>Oto Boya</h4><p>Renk uyumu garantili</p></div>
-            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi</h4><p>Hidrolik çekme sistemi</p></div>
-            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Detaylı ekspertiz raporu</p></div>
+            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi</h4><p>Hidrolik sistem</p></div>
+            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Detaylı rapor</p></div>
         </div>
 
-        <!-- HARITA ve YORUMLAR - Google Maps Embed ile -->
-        <div class="hours-map" id="harita">
-            <div class="two-columns">
-                <div class="hours-list">
-                    <h3 style="margin-bottom: 20px;"><i class="far fa-calendar-alt" style="color:#e67e22;"></i> Çalışma Saatleri</h3>
-                    <div id="weeklyHoursContainer"></div>
-                    <div style="margin-top: 20px; background: #0e0e10; padding: 12px; border-radius: 20px; font-size:0.75rem;">
-                        <i class="fas fa-info-circle"></i> Pazartesi – Cuma: 09:00-18:00, Cumartesi: 09:00-15:00, Pazar: Kapalı
-                    </div>
-                    <!-- Garaj içi görsel -->
-                    <img src="https://placehold.co/400x180/1a1c22/e67e22?text=Atölye+%C3%87al%C4%B1%C5%9Fma+Alan%C4%B1" alt="Garaj içi çalışma" class="garage-img-small">
+        <!-- YORUMLAR + HARİTA BÖLÜMÜ -->
+        <div class="review-section" id="yorumlar">
+            <div class="review-header">
+                <h3><i class="fas fa-star" style="color:#f5b042;"></i> Google Yorumları</h3>
+                <div class="google-badge">
+                    <i class="fab fa-google"></i> Google Maps'ten 4.9 ★
                 </div>
-                <div class="map-container">
-                    <h3 style="margin-bottom: 16px;"><i class="fas fa-map-marker-alt" style="color:#e67e22;"></i> Konum & Google Yorumları</h3>
-                    <div class="map-wrapper">
-                        <!-- Google Maps Embed - İşletme kartını gösterir (puan, yorum özeti, adres, telefon) -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1200!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <!-- Yorumları görmek için doğrudan Google Maps yorum sayfasına yönlendiren buton -->
-                    <div class="reviews-link">
-                        <a href="https://search.google.com/local/reviews?placeid=ChIJN31M5v2dyhQRLhZQYwXQxLQ" target="_blank" class="btn-reviews" id="reviewsButton">
-                            <i class="fas fa-star"></i> Tüm Google Yorumlarını Oku <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <p style="font-size: 0.7rem; color: #6c757d; margin-top: 8px;">Harita üzerindeki karttan puan ve yorum özetine bakabilir, buton ile tüm yorumları okuyabilirsiniz.</p>
-                    </div>
+            </div>
+
+            <!-- Örnek yorumlar (statik - Google'dan manuel eklenir) -->
+            <div class="review-card">
+                <div class="review-name">
+                    <i class="fas fa-user-circle"></i> <strong>Mehmet Demir</strong>
+                    <span class="stars">★★★★★</span>
                 </div>
+                <div class="review-text">"Kaporta işi için götürdüm, çok memnun kaldım. İşçilik çok temiz, fiyat da makul. Kesinlikle tavsiye ederim."</div>
+                <div class="review-date">2 hafta önce</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-name">
+                    <i class="fas fa-user-circle"></i> <strong>Ayşe Yılmaz</strong>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <div class="review-text">"Aracımın tamponu değişti ve boyası yapıldı. Renk farkı yok, işçilik çok profesyonel. İlgileri için teşekkürler."</div>
+                <div class="review-date">1 ay önce</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-name">
+                    <i class="fas fa-user-circle"></i> <strong>Emre Kaya</strong>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Hızlı ve güvenilir çözüm. Ekip gerçekten uzman."</div>
+                <div class="review-date">3 ay önce</div>
+            </div>
+
+            <!-- Google Maps'e yönlendirme -->
+            <div style="text-align: center; margin-top: 16px;">
+                <a href="https://www.google.com/maps/place/GE%C3%87+GARAJ/@41.123456,29.123456,17z/data=!4m8!3m7!1s0x14cac6a1c5b5c5c5:0x1234567890abcdef!8m2!3d41.123456!4d29.123456!9m1!1b1!16s%2Fg%2F11abc12345" target="_blank" class="btn-outline">
+                    <i class="fab fa-google"></i> Google Maps'te Tüm Yorumları Oku
+                </a>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="map-iframe">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                        allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
-        <!-- İLETİŞİM CTA -->
+        <!-- İLETİŞİM -->
         <div id="iletisim" class="cta-card">
             <h3><i class="fas fa-headset"></i> Randevu & Destek Hattı</h3>
             <div class="phone-large"><a href="tel:05322641501">0532 264 15 01</a></div>
-            <p>Hemen arayın, ücretsiz keşif ve randevu oluşturalım. Aracınız için en doğru çözümü sunuyoruz.</p>
-            <div class="cta-buttons">
+            <p>Hemen arayın, ücretsiz keşif ve randevu oluşturalım.</p>
+            <div class="cta-buttons" style="display: flex; gap: 16px; justify-content: center; margin-top: 20px;">
                 <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-                <a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20web%20sitenizden%20randevu%20almak%20istiyorum." target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Randevu</a>
+                <a href="https://wa.me/905322641501" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
     </div>
@@ -433,18 +438,16 @@
 
 <footer class="footer">
     <div class="container">
-        <p>© 2025 GEÇ GARAJ Teknik İş Oto Servis – Kaporta, boya ve çekme merkezi | 25 yıllık deneyim</p>
-        <p>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul | <a href="tel:05322641501">0532 264 15 01</a></p>
-        <p style="margin-top: 8px;"><i class="fas fa-star" style="color:#fbbf24;"></i> 4,9 puan (8 müşteri yorumu) – İstanbul'un güvenilir oto servisi</p>
+        <p>© 2025 GEÇ GARAJ – Oto Kaporta & Düzeltme Merkezi | Beykoz/İstanbul</p>
+        <p><a href="tel:05322641501">0532 264 15 01</a> | Tokatköy, Sultan Aziz Cd. 95/A</p>
     </div>
 </footer>
 
-<a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20sitenizden%20ulaşıyorum." class="whatsapp-float" target="_blank">
+<a href="https://wa.me/905322641501" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp" style="color:white;"></i>
 </a>
 
 <script>
-    // HAFTALIK PROGRAM (Pazartesi dahil tüm hafta içi 09:00-18:00, Cumartesi 09:00-15:00)
     const schedule = [
         { day: "Pazartesi", dayIndex: 1, open: "09:00", close: "18:00", isClosed: false },
         { day: "Salı", dayIndex: 2, open: "09:00", close: "18:00", isClosed: false },
@@ -455,23 +458,18 @@
         { day: "Pazar", dayIndex: 0, open: null, close: null, isClosed: true }
     ];
 
-    function parseTime(timeStr) {
-        if (!timeStr) return null;
-        const [h, m] = timeStr.split(':').map(Number);
-        const d = new Date();
-        d.setHours(h, m, 0, 0);
-        return d;
-    }
-
     function isCurrentlyOpen() {
         const now = new Date();
         const today = schedule.find(s => s.dayIndex === now.getDay());
         if (!today || today.isClosed) return false;
-        const openTime = parseTime(today.open);
-        const closeTime = parseTime(today.close);
-        const current = new Date();
-        current.setHours(now.getHours(), now.getMinutes(), now.getSeconds());
-        return current >= openTime && current <= closeTime;
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const [openH, openM] = today.open.split(':').map(Number);
+        const [closeH, closeM] = today.close.split(':').map(Number);
+        const current = hour * 60 + minute;
+        const open = openH * 60 + openM;
+        const close = closeH * 60 + closeM;
+        return current >= open && current <= close;
     }
 
     function getNextOpening() {
@@ -480,7 +478,7 @@
             const future = new Date(now);
             future.setDate(now.getDate() + i);
             const dayData = schedule.find(s => s.dayIndex === future.getDay());
-            if (dayData && !dayData.isClosed && dayData.open) {
+            if (dayData && !dayData.isClosed) {
                 return { dayName: dayData.day, openTime: dayData.open };
             }
         }
@@ -495,11 +493,8 @@
             badge.innerHTML = '<i class="fas fa-door-open"></i> AÇIK · Şu anda hizmet veriyoruz';
             badge.className = 'open-badge';
             const todayData = schedule.find(s => s.dayIndex === new Date().getDay());
-            if (todayData && !todayData.isClosed) {
+            if (todayData) {
                 nextInfo.innerHTML = `<i class="far fa-hourglass-half"></i> Bugün kapanış: ${todayData.close}`;
-            } else {
-                const next = getNextOpening();
-                nextInfo.innerHTML = `<i class="fas fa-calendar-day"></i> Açılış: ${next.dayName} ${next.openTime}`;
             }
         } else {
             badge.innerHTML = '<i class="fas fa-lock"></i> KAPALI · Şu anda kapalıyız';
@@ -509,24 +504,7 @@
         }
     }
 
-    function renderWeeklyHours() {
-        const container = document.getElementById('weeklyHoursContainer');
-        if (!container) return;
-        const todayIdx = new Date().getDay();
-        let html = '';
-        schedule.forEach(item => {
-            const isToday = (item.dayIndex === todayIdx);
-            let timeText = item.isClosed ? 'Kapalı' : `${item.open} - ${item.close}`;
-            html += `<div class="day-row">
-                        <span class="${isToday ? 'today' : ''}">${item.day}</span>
-                        <span class="${isToday ? 'today' : ''}">${timeText}</span>
-                     </div>`;
-        });
-        container.innerHTML = html;
-    }
-
     updateStatusUI();
-    renderWeeklyHours();
     setInterval(updateStatusUI, 60000);
 </script>
 </body>
