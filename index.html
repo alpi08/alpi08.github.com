@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme | Profesyonel Oto Servis</title>
-    <!-- Google Fonts & Font Awesome -->
+    <title>GEÇ GARAJ | Oto Kaporta & Düzeltme | Beykoz</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0e0e10;
@@ -21,17 +15,8 @@
             line-height: 1.5;
             scroll-behavior: smooth;
         }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; }
 
         /* HEADER */
         .site-header {
@@ -41,7 +26,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(8px);
         }
         .header-inner {
             display: flex;
@@ -53,7 +37,6 @@
         .logo h1 {
             font-size: 1.7rem;
             font-weight: 700;
-            letter-spacing: -0.3px;
             background: linear-gradient(135deg, #ffffff, #e67e22);
             background-clip: text;
             -webkit-background-clip: text;
@@ -61,28 +44,16 @@
         }
         .logo span {
             font-size: 0.7rem;
-            font-weight: 500;
             background: #1c1c20;
             color: #cbd5e1;
             padding: 3px 10px;
             border-radius: 30px;
             margin-left: 8px;
         }
-        .nav-links {
-            display: flex;
-            gap: 28px;
-        }
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #b0b3b8;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: #e67e22;
-        }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: #b0b3b8; transition: 0.2s; }
+        .nav-links a:hover { color: #e67e22; }
 
-        /* BUTTONS */
         .btn-primary, .btn-outline {
             display: inline-flex;
             align-items: center;
@@ -91,41 +62,17 @@
             border-radius: 40px;
             font-weight: 600;
             font-size: 0.85rem;
-            transition: all 0.2s;
-            cursor: pointer;
+            transition: 0.2s;
         }
-        .btn-primary {
-            background: #e67e22;
-            color: white;
-            border: none;
-        }
-        .btn-primary:hover {
-            background: #cf711f;
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #3a3c42;
-            color: #e2e8f0;
-        }
-        .btn-outline:hover {
-            border-color: #e67e22;
-            color: #e67e22;
-        }
+        .btn-primary { background: #e67e22; color: white; border: none; }
+        .btn-primary:hover { background: #cf711f; transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 1px solid #3a3c42; color: #e2e8f0; }
+        .btn-outline:hover { border-color: #e67e22; color: #e67e22; }
 
-        /* HERO SECTION with image */
-        .hero {
-            padding: 48px 0 32px;
-        }
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-        }
-        .hero-content {
-            flex: 1;
-        }
+        /* HERO */
+        .hero { padding: 48px 0 32px; }
+        .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+        .hero-content { flex: 1; }
         .rating-badge {
             display: inline-flex;
             align-items: center;
@@ -137,20 +84,9 @@
             font-weight: 600;
             margin-bottom: 24px;
         }
-        .rating-badge i {
-            color: #f5b042;
-        }
-        .hero-content h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-        .hero-tagline {
-            font-size: 1rem;
-            color: #9ca3af;
-            margin-bottom: 20px;
-        }
+        .rating-badge i { color: #f5b042; }
+        .hero-content h2 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+        .hero-tagline { font-size: 1rem; color: #9ca3af; margin-bottom: 20px; }
         .service-tag {
             background: #1c1c20;
             display: inline-block;
@@ -160,10 +96,7 @@
             font-weight: 500;
             color: #e67e22;
         }
-        .hero-image {
-            flex: 0.9;
-            text-align: center;
-        }
+        .hero-image { flex: 0.9; text-align: center; }
         .hero-image img {
             max-width: 100%;
             border-radius: 32px;
@@ -179,13 +112,7 @@
             margin: 32px 0 40px;
             border: 1px solid #26272b;
         }
-        .status-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+        .status-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
         .open-badge, .closed-badge {
             display: inline-flex;
             align-items: center;
@@ -195,18 +122,9 @@
             padding: 8px 20px;
             border-radius: 60px;
         }
-        .open-badge {
-            background: #1a3a2a;
-            color: #6fcf97;
-        }
-        .closed-badge {
-            background: #3a2424;
-            color: #ef8e5e;
-        }
-        .next-open {
-            font-size: 0.85rem;
-            color: #9ca3af;
-        }
+        .open-badge { background: #1a3a2a; color: #6fcf97; }
+        .closed-badge { background: #3a2424; color: #ef8e5e; }
+        .next-open { font-size: 0.85rem; color: #9ca3af; }
 
         /* INFO CARDS */
         .info-grid {
@@ -222,9 +140,7 @@
             border: 1px solid #26272b;
             transition: border 0.2s;
         }
-        .info-card:hover {
-            border-color: #e67e2240;
-        }
+        .info-card:hover { border-color: #e67e2240; }
         .info-icon {
             width: 52px;
             height: 52px;
@@ -237,11 +153,7 @@
             color: #e67e22;
             font-size: 1.5rem;
         }
-        .info-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
+        .info-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
         .info-card p, .info-card a {
             font-size: 0.85rem;
             color: #b9bec6;
@@ -280,32 +192,12 @@
             border: 1px solid #26272b;
             transition: transform 0.2s;
         }
-        .service-item:hover {
-            transform: translateY(-4px);
-            border-color: #e67e2240;
-        }
-        .service-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 16px;
-            filter: brightness(0) invert(1) opacity(0.8);
-        }
-        .service-item i {
-            font-size: 2.2rem;
-            color: #e67e22;
-            margin-bottom: 12px;
-        }
-        .service-item h4 {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        .service-item p {
-            font-size: 0.7rem;
-            color: #9ca3af;
-            margin-top: 6px;
-        }
+        .service-item:hover { transform: translateY(-4px); border-color: #e67e2240; }
+        .service-item i { font-size: 2.2rem; color: #e67e22; margin-bottom: 12px; }
+        .service-item h4 { font-size: 1rem; font-weight: 700; }
+        .service-item p { font-size: 0.7rem; color: #9ca3af; margin-top: 6px; }
 
-        /* HOURS + MAP (Embed ile yorumlar görünür) */
+        /* HOURS + MAP */
         .hours-map {
             background: #121215;
             border-radius: 32px;
@@ -313,14 +205,8 @@
             margin: 32px 0 48px;
             border: 1px solid #26272b;
         }
-        .two-columns {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .hours-list {
-            flex: 1;
-        }
+        .two-columns { display: flex; gap: 40px; flex-wrap: wrap; }
+        .hours-list { flex: 1; }
         .day-row {
             display: flex;
             justify-content: space-between;
@@ -328,13 +214,8 @@
             border-bottom: 1px solid #26272b;
             font-size: 0.85rem;
         }
-        .today {
-            color: #e67e22;
-            font-weight: 700;
-        }
-        .map-container {
-            flex: 1.2;
-        }
+        .today { color: #e67e22; font-weight: 700; }
+        .map-container { flex: 1.2; }
         .map-wrapper {
             border-radius: 24px;
             overflow: hidden;
@@ -342,32 +223,25 @@
         }
         .map-wrapper iframe {
             width: 100%;
-            height: 320px;
+            height: 380px;
             border: 0;
             display: block;
         }
-        .reviews-link {
-            margin-top: 16px;
-            text-align: center;
-        }
+        .reviews-link { margin-top: 16px; text-align: center; }
         .btn-reviews {
             background: #1c1c20;
-            padding: 10px 20px;
+            padding: 10px 24px;
             border-radius: 40px;
             color: #e67e22;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: 0.2s;
             border: 1px solid #2a2f3a;
         }
-        .btn-reviews:hover {
-            background: #e67e22;
-            color: white;
-            border-color: #e67e22;
-        }
+        .btn-reviews:hover { background: #e67e22; color: white; border-color: #e67e22; }
 
         /* CTA */
         .cta-card {
@@ -378,24 +252,9 @@
             margin: 24px 0 56px;
             border: 1px solid #26272b;
         }
-        .cta-card h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        .phone-large {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #e67e22;
-            margin: 16px 0;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+        .cta-card h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; }
+        .phone-large { font-size: 2rem; font-weight: 800; color: #e67e22; margin: 16px 0; }
+        .cta-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
 
         /* FOOTER */
         .footer {
@@ -406,9 +265,7 @@
             color: #6b7280;
             border-top: 1px solid #26272b;
         }
-        .footer a {
-            color: #e67e22;
-        }
+        .footer a { color: #e67e22; }
 
         /* WHATSAPP FLOAT */
         .whatsapp-float {
@@ -424,28 +281,26 @@
             justify-content: center;
             font-size: 1.8rem;
             box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-            transition: 0.1s;
             z-index: 99;
         }
-        .whatsapp-float:active {
-            transform: scale(0.95);
-        }
 
-        /* GARAJ GÖRSELLERİ İÇİN */
-        .garage-img {
+        /* GARAJ GÖRSELLERİ */
+        .garage-img, .garage-img-small {
             width: 100%;
-            max-height: 280px;
             object-fit: cover;
             border-radius: 24px;
         }
+        .garage-img { height: 320px; }
+        .garage-img-small { height: 160px; margin-top: 20px; }
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .info-grid { grid-template-columns: 1fr; gap: 16px; }
+            .info-grid { grid-template-columns: 1fr; }
             .hero-content h2 { font-size: 1.9rem; }
             .two-columns { flex-direction: column; }
             .hero-grid { flex-direction: column; }
             .hero-image img { max-width: 90%; }
+            .map-wrapper iframe { height: 280px; }
         }
         @media (max-width: 480px) {
             .hero-content h2 { font-size: 1.6rem; }
@@ -471,12 +326,12 @@
 
 <main>
     <div class="container">
-        <!-- HERO with image -->
+        <!-- HERO -->
         <div class="hero">
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="rating-badge">
-                        <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme 
+                        <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme
                         <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
                     </div>
                     <h2>Oto Kaporta Düzeltme & Boya</h2>
@@ -533,31 +388,31 @@
             <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti</h4><p>Detaylı ekspertiz raporu</p></div>
         </div>
 
-        <!-- HARITA ve YORUMLAR (Google Maps embed ile birlikte) -->
+        <!-- HARITA ve YORUMLAR - Google Maps Embed ile -->
         <div class="hours-map" id="harita">
             <div class="two-columns">
                 <div class="hours-list">
-                    <h3 style="margin-bottom: 20px; display: flex; gap: 10px;"><i class="far fa-calendar-alt" style="color:#e67e22;"></i> Çalışma Saatleri</h3>
+                    <h3 style="margin-bottom: 20px;"><i class="far fa-calendar-alt" style="color:#e67e22;"></i> Çalışma Saatleri</h3>
                     <div id="weeklyHoursContainer"></div>
                     <div style="margin-top: 20px; background: #0e0e10; padding: 12px; border-radius: 20px; font-size:0.75rem;">
                         <i class="fas fa-info-circle"></i> Pazartesi – Cuma: 09:00-18:00, Cumartesi: 09:00-15:00, Pazar: Kapalı
                     </div>
-                    <!-- Görsel eklendi: garaj içi çalışma -->
-                    <img src="https://placehold.co/400x180/1a1c22/e67e22?text=Atölye+%26+Ekipman" alt="Garaj içi" style="width:100%; border-radius: 24px; margin-top: 20px;">
+                    <!-- Garaj içi görsel -->
+                    <img src="https://placehold.co/400x180/1a1c22/e67e22?text=Atölye+%C3%87al%C4%B1%C5%9Fma+Alan%C4%B1" alt="Garaj içi çalışma" class="garage-img-small">
                 </div>
                 <div class="map-container">
-                    <h3 style="margin-bottom: 16px;"><i class="fas fa-map-marker-alt" style="color:#e67e22;"></i> Konum & Google Maps Yorumları</h3>
+                    <h3 style="margin-bottom: 16px;"><i class="fas fa-map-marker-alt" style="color:#e67e22;"></i> Konum & Google Yorumları</h3>
                     <div class="map-wrapper">
-                        <!-- Google Maps Embed - Tam interaktif harita ve işletme kartı (puan ve yorumları gösterir) -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                        <!-- Google Maps Embed - İşletme kartını gösterir (puan, yorum özeti, adres, telefon) -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1200!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
                                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <!-- Direkt yorumları göstermek için buton: Google Maps üzerindeki işletme sayfasına yönlendirir -->
+                    <!-- Yorumları görmek için doğrudan Google Maps yorum sayfasına yönlendiren buton -->
                     <div class="reviews-link">
-                        <a href="https://search.google.com/local/reviews?placeid=ChIJN...kendi_place_id" target="_blank" class="btn-reviews" id="reviewsButton">
+                        <a href="https://search.google.com/local/reviews?placeid=ChIJN31M5v2dyhQRLhZQYwXQxLQ" target="_blank" class="btn-reviews" id="reviewsButton">
                             <i class="fas fa-star"></i> Tüm Google Yorumlarını Oku <i class="fas fa-external-link-alt"></i>
                         </a>
-                        <p style="font-size: 0.7rem; color: #6c757d; margin-top: 8px;">Harita üzerinden puan ve yorumları görebilir, detaylar için tıklayabilirsiniz.</p>
+                        <p style="font-size: 0.7rem; color: #6c757d; margin-top: 8px;">Harita üzerindeki karttan puan ve yorum özetine bakabilir, buton ile tüm yorumları okuyabilirsiniz.</p>
                     </div>
                 </div>
             </div>
@@ -584,7 +439,7 @@
     </div>
 </footer>
 
-<a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20profesyonel%20sitenizden%20ulaşıyorum." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+<a href="https://wa.me/905322641501?text=Merhaba,%20GE%C3%87%20GARAJ%20sitenizden%20ulaşıyorum." class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp" style="color:white;"></i>
 </a>
 
