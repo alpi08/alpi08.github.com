@@ -3,56 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>3 Farklı Site Tasarımı | Basic · Modern · Pro</title>
+    <title>Tasarım Showcase | Basic · Medium · Pro</title>
+    <!-- FONTLAR -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #0a0c12;
-            font-family: system-ui, -apple-system, 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif;
             padding: 2rem 1.5rem;
         }
 
-        /* Kontrol Paneli */
-        .design-studio {
+        /* SELECTION PANEL */
+        .selection-dashboard {
             max-width: 1400px;
             margin: 0 auto 2rem auto;
-            background: rgba(18, 22, 35, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(15, 20, 30, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 2rem;
             padding: 1.5rem 2rem;
             border: 1px solid rgba(255,255,255,0.06);
         }
-        .label-group {
+        .badge-title {
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 1px;
-            color: #f0b27a;
+            color: #f5a623;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .btn-bar {
+        .flex-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
-        .mode-btn, .pack-btn {
-            background: #191e2c;
-            border: 1px solid #2a3042;
-            padding: 10px 26px;
-            border-radius: 100px;
-            font-weight: 550;
+        .design-trigger, .pack-trigger {
+            background: #1a1f2c;
+            border: 1px solid #2c3445;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 500;
             font-size: 0.85rem;
             cursor: pointer;
             transition: 0.2s;
@@ -60,446 +56,388 @@
             align-items: center;
             gap: 8px;
         }
-        .mode-btn.active, .pack-btn.active {
-            background: #f39c12;
-            border-color: #f39c12;
+        .design-trigger.active, .pack-trigger.active {
+            background: #f5a623;
+            border-color: #f5a623;
             color: #0a0c12;
-            box-shadow: 0 0 12px rgba(243,156,18,0.6);
+            box-shadow: 0 0 12px rgba(245,166,35,0.6);
         }
-        /* canlı önizleme alanı */
-        .live-frame {
+
+        /* PREVIEW ALANI */
+        .preview-stage {
             max-width: 1400px;
             margin: 0 auto;
-            background: #05070c;
+            background: #05080f;
             border-radius: 2rem;
             padding: 1rem;
             border: 1px solid #202433;
         }
 
-        /* ---------- TEMA 1: BASIC ---------- */
-        .theme-basic {
-            --bg: #f4f7fc;
-            --surface: white;
-            --text: #1e293b;
-            --text-light: #475569;
-            --primary: #2563eb;
-            --border: #e2e8f0;
-            --radius: 1rem;
-            --shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .theme-basic .mockup {
-            background: var(--bg);
-            color: var(--text);
+        /* ============================================ */
+        /* TEMA 1: BASIT (sade, kartlar, sol frame)    */
+        /* ============================================ */
+        .theme-basic .mock-website {
+            background: #f4f7fc;
+            color: #1e2a3a;
             font-family: 'Inter', sans-serif;
-            border-radius: 1.5rem;
+            border-radius: 24px;
             overflow: hidden;
         }
-        .theme-basic .top-header {
-            background: var(--surface);
+        .theme-basic .head {
+            background: white;
             padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid #e2e8f0;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
         .theme-basic .hero-block {
-            background: #eef2ff;
+            background: #eef2f8;
             padding: 2rem 2rem;
             text-align: center;
         }
-        .theme-basic .card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 1rem;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-        .theme-basic .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-            gap: 1rem;
+        .theme-basic .card-item {
+            background: white;
+            border-radius: 20px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f8;
         }
         .theme-basic .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 1rem;
         }
-        .theme-basic .gallery-item {
-            background: #f1f5f9;
-            border-radius: 1rem;
-            padding: 1rem;
-            text-align: center;
-        }
-        .theme-basic .contact-area {
-            background: var(--surface);
-            margin-top: 1rem;
-            padding: 1rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-        /* ---------- TEMA 2: MODERN ---------- */
-        .theme-modern {
-            --bg: #0b0f19;
-            --surface: #141c2c;
-            --text: #f0f3fa;
-            --text-light: #a0abc0;
-            --primary: #f97316;
-            --border: #273143;
-            --radius: 1.5rem;
-            --shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        .theme-modern .mockup {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Outfit', sans-serif;
-            border-radius: 1.8rem;
-            overflow: hidden;
-        }
-        .theme-modern .top-header {
-            background: var(--surface);
-            padding: 1.2rem 2rem;
-            border-bottom: 2px solid var(--primary);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .theme-modern .hero-block {
-            background: linear-gradient(125deg, #111822, #0a0e16);
-            padding: 2.5rem 2rem;
-            text-align: center;
-        }
-        .theme-modern .card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 1.2rem;
-            border: 1px solid var(--border);
-            transition: all 0.2s;
-        }
-        .theme-modern .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-        .theme-modern .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-            gap: 1.2rem;
-        }
-        .theme-modern .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 1.2rem;
-        }
-        .theme-modern .gallery-item {
-            background: #1f283e;
-            border-radius: 1.2rem;
-            padding: 1rem;
-            transition: 0.2s;
-        }
-        .theme-modern .contact-area {
-            background: var(--surface);
-            margin-top: 2rem;
-            padding: 1.2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-        /* ---------- TEMA 3: PREMIUM ---------- */
-        .theme-premium {
-            --bg: #03050a;
-            --surface: rgba(25, 33, 55, 0.6);
-            --text: #fff6e8;
-            --text-light: #cbcbcb;
-            --primary: #ffb347;
-            --border: rgba(255,255,255,0.08);
-            --radius: 2rem;
-            --shadow: 0 18px 28px -12px black;
-        }
-        .theme-premium .mockup {
-            background: var(--bg);
-            color: var(--text);
+
+        /* ============================================ */
+        /* TEMA 2: SIRADAN/MODERN (sağ sidebar, modern) */
+        /* ============================================ */
+        .theme-medium .mock-website {
+            background: #0e121f;
+            color: #edf2ff;
             font-family: 'Space Grotesk', monospace;
-            backdrop-filter: blur(6px);
-            border-radius: 2.5rem;
-            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 32px;
             overflow: hidden;
         }
-        .theme-premium .top-header {
-            background: rgba(15, 20, 32, 0.7);
-            backdrop-filter: blur(20px);
-            padding: 1.2rem 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .theme-medium .head {
+            background: #141b2c;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #e63946;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        .theme-premium .hero-block {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: radial-gradient(ellipse at 30% 40%, rgba(255,180,70,0.12), transparent);
+        .theme-medium .hero-block {
+            background: radial-gradient(circle at 20% 30%, #1e2a44, #0a0f1c);
+            padding: 3rem 2rem;
+            text-align: left;
         }
-        .theme-premium .card {
-            background: var(--surface);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            padding: 1.4rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.2);
+        .theme-medium .card-item {
+            background: #17202f;
+            border-radius: 28px;
+            padding: 1.3rem;
+            transition: all 0.2s;
+            border: 1px solid #253045;
         }
-        .theme-premium .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-        .theme-premium .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-            gap: 1.5rem;
-        }
-        .theme-premium .gallery-grid {
+        .theme-medium .card-item:hover { transform: translateY(-4px); border-color: #e63946; }
+        .theme-medium .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3,1fr);
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
-        .theme-premium .gallery-item {
-            background: rgba(40, 50, 78, 0.6);
-            border-radius: 1.5rem;
-            padding: 1rem;
-            transition: 0.2s;
+
+        /* ============================================ */
+        /* TEMA 3: PROFESYONEL (arka plan video/görsel akışı, sticky, glam) */
+        /* ============================================ */
+        .theme-pro .mock-website {
+            background: #03060c;
+            color: #fff5e6;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            overflow: hidden;
+            border-radius: 48px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .theme-premium .contact-area {
-            background: rgba(0,0,0,0.5);
-            margin-top: 2rem;
-            padding: 1.5rem;
+        /* Arka plan slider efekti */
+        .theme-pro .bg-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            display: flex;
+        }
+        .theme-pro .bg-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+        .theme-pro .bg-slide.active { opacity: 0.25; }
+        .theme-pro .content-relative {
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+        }
+        .theme-pro .head {
+            background: rgba(10, 15, 25, 0.7);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .theme-pro .hero-block {
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 5rem 2rem;
+            background: radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.1), transparent);
         }
-        /* ortak yardımcılar */
-        .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 1rem; }
-        .chip { background: rgba(255,255,255,0.05); border-radius: 60px; padding: 4px 12px; font-size: 0.7rem; display: inline-block; }
-        .section-padding { padding: 1.8rem; }
-        hr { border-color: #2f3548; margin: 1rem 0; }
-        .btn-wa, .btn-call {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 18px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .theme-pro .card-item {
+            background: rgba(25, 35, 55, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 36px;
+            padding: 1.6rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.2,0.9,0.4,1.2);
         }
+        .theme-pro .card-item:hover {
+            transform: translateY(-12px);
+            border-color: #ffb347;
+            box-shadow: 0 30px 40px -20px black;
+        }
+        .theme-pro .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1.8rem;
+        }
+
+        /* ortak */
+        .flex-spread { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .grid-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 1rem; }
+        .pill-tag { background: rgba(255,255,255,0.08); border-radius: 60px; padding: 4px 14px; font-size: 0.7rem; }
+        .inner-pad { padding: 1.8rem; }
+        hr { border-color: #2f3a4e; margin: 8px 0; }
+        .contact-foot { margin-top: 1.2rem; text-align: center; font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
-<div class="design-studio">
-    <div class="label-group"><i class="fas fa-crown"></i> 1. SİTE TASARIM STİLİ</div>
-    <div class="btn-bar" id="designBar">
-        <button class="mode-btn" data-design="basic">📘 BASIC · Kurumsal Sade</button>
-        <button class="mode-btn active" data-design="modern">✨ MODERN · Dinamik Neon</button>
-        <button class="mode-btn" data-design="premium">💎 PREMIUM · Lüks Pro</button>
+<div class="selection-dashboard">
+    <div class="badge-title"><i class="fas fa-bezier-curve"></i> 1. TASARIM KİMLİĞİ</div>
+    <div class="flex-buttons" id="designGroup">
+        <button class="design-trigger" data-design="basic">📘 Basit · Sade Düzen</button>
+        <button class="design-trigger active" data-design="medium">🔥 Sıradan · Modern Akıcı</button>
+        <button class="design-trigger" data-design="pro">💎 Profesyonel · Arka plan akan görsel</button>
     </div>
 
-    <div class="label-group"><i class="fas fa-cubes"></i> 2. PAKET (İçerik Kapsamı)</div>
-    <div class="btn-bar" id="packBar">
-        <button class="pack-btn" data-pack="starter">🚀 Başlangıç</button>
-        <button class="pack-btn active" data-pack="business">🏪 Küçük İşletme</button>
-        <button class="pack-btn" data-pack="enterprise">🏢 Büyük İşletme</button>
-        <button class="pack-btn" data-pack="pro">💼 Profesyonel</button>
+    <div class="badge-title"><i class="fas fa-cubes"></i> 2. PAKET (Özellik skalası)</div>
+    <div class="flex-buttons" id="packageGroup">
+        <button class="pack-trigger" data-pack="starter">🚀 Başlangıç</button>
+        <button class="pack-trigger active" data-pack="business">🏪 Küçük İşletme</button>
+        <button class="pack-trigger" data-pack="enterprise">🏢 Büyük İşletme</button>
+        <button class="pack-trigger" data-pack="prosite">💼 Profesyonel Site</button>
     </div>
 </div>
 
-<div class="live-frame" id="renderHere">
-    <div id="siteRoot">Yükleniyor...</div>
+<div class="preview-stage" id="previewHolder">
+    <div id="liveRender">Yükleniyor...</div>
 </div>
 
 <script>
-    let currentDesign = "modern";
+    let currentDesign = "medium";
     let currentPack = "business";
 
-    const packSpec = {
-        starter: {
-            whatsapp: true, call: true, contactInfo: true, contactForm: false,
-            simpleGallery: true, advancedGallery: false, services: true,
-            team: false, reviews: false, map: true, extraGallery: false
-        },
-        business: {
-            whatsapp: true, call: true, contactInfo: true, contactForm: true,
-            simpleGallery: true, advancedGallery: false, services: true,
-            team: true, reviews: false, map: true, extraGallery: false
-        },
-        enterprise: {
-            whatsapp: true, call: true, contactInfo: true, contactForm: true,
-            simpleGallery: false, advancedGallery: true, services: true,
-            team: true, reviews: true, map: true, extraGallery: false
-        },
-        pro: {
-            whatsapp: true, call: true, contactInfo: true, contactForm: true,
-            simpleGallery: false, advancedGallery: false, services: true,
-            team: true, reviews: true, map: true, extraGallery: true
-        }
+    const packProps = {
+        starter: { whatsapp:true,call:true,info:true,form:false,simpleGallery:true,advGallery:false,services:true,team:false,reviews:false,map:true,extraGallery:false },
+        business: { whatsapp:true,call:true,info:true,form:true,simpleGallery:true,advGallery:false,services:true,team:true,reviews:false,map:true,extraGallery:false },
+        enterprise: { whatsapp:true,call:true,info:true,form:true,simpleGallery:false,advGallery:true,services:true,team:true,reviews:true,map:true,extraGallery:false },
+        prosite: { whatsapp:true,call:true,info:true,form:true,simpleGallery:false,advGallery:false,services:true,team:true,reviews:true,map:true,extraGallery:true }
     };
 
-    function buildCompleteSite() {
-        const f = packSpec[currentPack];
-        const container = document.getElementById("siteRoot");
+    // Arka plan slider (Profesyonel tema için)
+    let bgInterval = null;
+    function startProBackground() {
+        if (currentDesign !== "pro") return;
+        const slides = document.querySelectorAll('.bg-slide');
+        if (!slides.length) return;
+        let active = 0;
+        if (bgInterval) clearInterval(bgInterval);
+        const activate = (idx) => {
+            slides.forEach((s, i) => {
+                if (i === idx) s.classList.add('active');
+                else s.classList.remove('active');
+            });
+        };
+        activate(0);
+        bgInterval = setInterval(() => {
+            active = (active + 1) % slides.length;
+            activate(active);
+        }, 4500);
+    }
+
+    function stopProBackground() {
+        if (bgInterval) { clearInterval(bgInterval); bgInterval = null; }
+    }
+
+    function renderSite() {
+        const f = packProps[currentPack];
+        const container = document.getElementById("liveRender");
         let themeClass = "";
         if (currentDesign === "basic") themeClass = "theme-basic";
-        else if (currentDesign === "modern") themeClass = "theme-modern";
-        else themeClass = "theme-premium";
+        else if (currentDesign === "medium") themeClass = "theme-medium";
+        else themeClass = "theme-pro";
 
-        // HEADER ve HERO her temada farklı
-        let headerHtml = "", heroHtml = "", brand = "";
+        // HER TASARIM FARKLI HEADER, HERO, BUTON YERLEŞİMİ
+        let headerHtml = "", heroHtml = "", brand = "", extraBg = "";
+        
         if (currentDesign === "basic") {
-            brand = "📌 BasicWorks";
-            headerHtml = `<div class="top-header"><div style="font-weight:700;">${brand}</div><div style="display:flex; gap:1rem;"><span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span></div></div>`;
-            heroHtml = `<div class="hero-block"><h2 style="font-size:1.8rem;">Net, güvenilir hizmet</h2><p>İşletmeniz için temel çözümler</p></div>`;
-        } else if (currentDesign === "modern") {
-            brand = "◉ NEO DIGITAL";
-            headerHtml = `<div class="top-header"><div style="font-weight:800; font-size:1.3rem;">${brand}</div><div style="display:flex; gap:1.5rem;"><i class="fas fa-chart-line"></i><span>Portfolyo</span><span>Ekip</span><span>Bize Ulaş</span></div></div>`;
-            heroHtml = `<div class="hero-block"><h1 style="font-size:2.5rem;">Yaratıcı Güç</h1><p>Modern web ile fark yaratın.</p><button style="background:var(--primary); border:none; border-radius:60px; padding:8px 28px; margin-top:1rem;">Keşfet</button></div>`;
-        } else {
-            brand = "⭐ AURORA PREMIUM";
-            headerHtml = `<div class="top-header"><div style="font-weight:800; font-size:1.5rem; letter-spacing:-1px;">${brand}</div><div style="display:flex; gap:2rem;"><span>Ana Sayfa</span><span>Lüks Galeri</span><span>İletişim</span></div></div>`;
-            heroHtml = `<div class="hero-block"><h1 style="font-size:3.8rem; font-weight:800;">Zirveye Hazır mısın?</h1><p>Premium deneyim, sınırsız kalite.</p><button style="background:linear-gradient(95deg,#ffb347,#e67e22); border:none; border-radius:80px; padding:12px 32px; margin-top:1rem;">İncele</button></div>`;
+            brand = "📁 BasicCo";
+            headerHtml = `<div class="head"><div style="font-weight:700;">${brand}</div><div style="display:flex; gap:1rem;"><span>Ana Sayfa</span><span>Servisler</span><span>İletişim</span></div></div>`;
+            heroHtml = `<div class="hero-block"><h2 style="font-size:1.9rem;">Güvenilir & Sade Çözümler</h2><p style="color:#4a627a;">Hızlı erişim, net hizmetler.</p></div>`;
+        } else if (currentDesign === "medium") {
+            brand = "◉ NEXUS STUDIO";
+            headerHtml = `<div class="head"><div style="font-weight:800;">${brand}</div><div style="display:flex; gap:1.3rem;"><i class="fas fa-th-large"></i><span>Projeler</span><span>Ekip</span><span>İletişim</span></div></div>`;
+            heroHtml = `<div class="hero-block"><h1 style="font-size:2.6rem;">Yaratıcılığını Konuştur</h1><p style="font-size:1rem;">Modern web deneyimi, akıcı arayüz.</p><button style="background:#e63946; border:none; border-radius:60px; padding:8px 28px; margin-top:1rem;">Keşfet</button></div>`;
+        } else { // PRO
+            brand = "✦ AURORA PREMIUM";
+            headerHtml = `<div class="head"><div style="font-weight:800; font-size:1.4rem;">${brand}</div><div style="display:flex; gap:2rem;"><span>Ana Sayfa</span><span>Lüks Galeri</span><span>VIP Destek</span></div></div>`;
+            heroHtml = `<div class="hero-block"><h1 style="font-size:4rem; font-weight:800;">Zirve Tasarım</h1><p>Premium kalite, benzersiz deneyim.</p><button style="background:linear-gradient(95deg,#ffb347,#e67e22); border:none; border-radius:80px; padding:12px 36px; margin-top:1.2rem;">İncele</button></div>`;
+            // Arka plan görselleri (4 farklı, döngü)
+            extraBg = `<div class="bg-slider">
+                        <div class="bg-slide active" style="background-image: url('https://placehold.co/1920x1080/2c3e50/ffffff?text=Görsel+1');"></div>
+                        <div class="bg-slide" style="background-image: url('https://placehold.co/1920x1080/34495e/ffffff?text=Görsel+2');"></div>
+                        <div class="bg-slide" style="background-image: url('https://placehold.co/1920x1080/1a252f/ffffff?text=Görsel+3');"></div>
+                        <div class="bg-slide" style="background-image: url('https://placehold.co/1920x1080/2c3e50/ffffff?text=Görsel+4');"></div>
+                    </div>`;
         }
 
-        let content = `<div class="mockup ${themeClass}">`;
+        let content = `<div class="mock-website ${themeClass}">`;
+        if (currentDesign === "pro") content += extraBg + `<div class="content-relative">`;
         content += headerHtml;
         content += heroHtml;
-        content += `<div class="section-padding">`;
+        content += `<div class="inner-pad">`;
 
-        // İletişim buton ve bilgi (pakete göre)
-        if (f.whatsapp || f.call || f.contactInfo) {
-            let btnStyle = "";
-            if (currentDesign === "basic") btnStyle = "background:#eef2f9; border-radius:40px; padding:5px 16px;";
-            else if (currentDesign === "modern") btnStyle = "background:var(--primary); border-radius:40px; padding:6px 20px; color:#0b0e17;";
-            else btnStyle = "background:rgba(255,180,70,0.2); backdrop-filter:blur(4px); border-radius:60px; padding:8px 24px; border:1px solid rgba(255,180,70,0.4);";
+        // İLETİŞİM BUTON BLOĞU (farklı tasarımlarda farklı yerlerde olabilir)
+        if (f.whatsapp || f.call || f.info) {
+            let btnFlex = "";
+            if (currentDesign === "basic") btnFlex = "background:#eef2fa; border-radius: 60px; padding:5px 18px; display:inline-flex; gap:6px;";
+            else if (currentDesign === "medium") btnFlex = "background:#e63946; border-radius: 60px; padding:6px 20px; display:inline-flex; gap:8px; font-weight:500;";
+            else btnFlex = "background:rgba(255,180,70,0.2); backdrop-filter:blur(10px); border-radius: 80px; padding:10px 28px; border:1px solid rgba(255,180,70,0.5);";
             
-            content += `<div class="card" style="margin-bottom:1.5rem;">
-                            <div class="flex-between">
-                                <div style="display: flex; gap: 12px;">`;
-            if (f.whatsapp) content += `<span style="${btnStyle}"><i class="fab fa-whatsapp"></i> WhatsApp</span>`;
-            if (f.call) content += `<span style="${btnStyle}"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>`;
-            content += `</div>`;
-            if (f.contactInfo) content += `<div style="font-size:0.7rem;"><i class="fas fa-envelope"></i> info@tasarim.co | 📍 İstanbul</div>`;
-            content += `</div></div>`;
-        }
-
-        // İletişim formu
-        if (f.contactForm) {
-            content += `<div class="card" style="margin-bottom:1.5rem;">
-                            <div style="font-weight:600; margin-bottom:12px;">📋 İletişim Formu</div>
-                            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                                <input placeholder="Adınız" style="background: #1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
-                                <input placeholder="Email" style="background: #1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
-                                <button style="background: ${currentDesign === 'premium' ? '#ffb347' : '#2563eb'}; border: none; border-radius:60px; padding:8px 20px;">Gönder</button>
+            content += `<div class="card-item" style="margin-bottom:1.5rem;">
+                            <div class="flex-spread">
+                                <div style="display: flex; gap: 14px; flex-wrap:wrap;">
+                                    ${f.whatsapp ? `<span style="${btnFlex}"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}
+                                    ${f.call ? `<span style="${btnFlex}"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>` : ''}
+                                </div>
+                                ${f.info ? `<div style="font-size:0.7rem;"><i class="fas fa-envelope"></i> info@tasarim.co | 📍 İstanbul</div>` : ''}
                             </div>
                         </div>`;
         }
 
-        // Harita
+        // İLETİŞİM FORMU (pakete göre)
+        if (f.form) {
+            content += `<div class="card-item" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">📋 Hızlı İletişim</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                                <input placeholder="Adınız" style="background:#1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
+                                <input placeholder="Email" style="background:#1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
+                                <button style="background: ${currentDesign === 'pro' ? '#ffb347' : '#2c7da0'}; border: none; border-radius:60px; padding:8px 20px;">Gönder</button>
+                            </div>
+                        </div>`;
+        }
+
+        // HARİTA
         if (f.map) {
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📍 Konum</div><div style="background:#1e2535; height:120px; border-radius:24px; display:flex; align-items:center; justify-content:center;">🗺️ Google Maps önizlemesi</div></div>`;
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📍 Konum</div><div style="background:#1e2535; height:130px; border-radius:24px; display:flex; align-items:center; justify-content:center;">🗺️ Google Maps Gösterimi</div></div>`;
         }
 
-        // Hizmetler bloğu (her tasarımda farklı grid yapısı)
+        // HİZMETLER BÖLÜMÜ
         if (f.services) {
-            let servicesTitle = "🛠️ Hizmetlerimiz";
-            if (currentDesign === "premium") servicesTitle = "✨ Özel Hizmetler";
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">${servicesTitle}</div><div class="service-grid" style="margin-top:12px;">`;
-            const servList = ["Kaporta Düzeltme", "Boyasız Göçük", "Çekme & Şasi"];
-            servList.forEach(s => { content += `<div class="chip" style="font-size:0.8rem; padding:8px 16px;">${s}</div>`; });
-            content += `</div></div>`;
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;">🛠️ Hizmetler</div><div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;"><span class="pill-tag">Kaporta</span><span class="pill-tag">Boyasız Göçük</span><span class="pill-tag">Çekme & Şasi</span></div></div>`;
         }
 
-        // GALERİ bölümleri (paketlere göre)
+        // GALERİ
         if (f.simpleGallery) {
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📸 Görsel Galeri</div><div class="gallery-grid">`;
-            for (let i=1;i<=3;i++) content += `<div class="gallery-item">Görsel ${i}</div>`;
-            content += `</div></div>`;
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📸 Galeri</div><div class="gallery-grid"><div class="gallery-item" style="background:#1e2535; border-radius: 20px; padding:1rem; text-align:center;">Görsel 1</div><div class="gallery-item" style="background:#1e2535; border-radius: 20px; padding:1rem; text-align:center;">Görsel 2</div><div class="gallery-item" style="background:#1e2535; border-radius: 20px; padding:1rem; text-align:center;">Görsel 3</div></div></div>`;
         }
-        if (f.advancedGallery) {
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">✨ Gelişmiş Galeri</div><div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);">`;
-            for (let i=1;i<=4;i++) content += `<div class="gallery-item">Proje ${String.fromCharCode(64+i)}</div>`;
-            content += `</div></div>`;
+        if (f.advGallery) {
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;">🎯 Gelişmiş Galeri</div><div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);"><div class="gallery-item">Proje A</div><div class="gallery-item">Proje B</div><div class="gallery-item">Proje C</div><div class="gallery-item">Proje D</div></div></div>`;
         }
         if (f.extraGallery) {
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">💎 Premium Ultra HD</div><div class="gallery-grid" style="grid-template-columns:repeat(3,1fr);">`;
-            for (let i=1;i<=3;i++) content += `<div class="gallery-item">Ultra ${i}</div>`;
-            content += `</div></div>`;
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;">💎 Ultra HD Premium</div><div class="gallery-grid"><div class="gallery-item">Ultra 1</div><div class="gallery-item">Ultra 2</div><div class="gallery-item">Ultra 3</div></div></div>`;
         }
 
-        // Ekip
+        // EKİP
         if (f.team) {
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">👥 Profesyonel Ekip</div><div class="grid-2">`;
-            content += `<div style="background:#1b212f; border-radius: 1rem; padding: 1rem; text-align:center;"><i class="fas fa-user-tie fa-2x"></i><br/>Ahmet Usta<br/><span style="font-size:0.7rem;">Teknik Lider</span></div>`;
-            content += `<div style="background:#1b212f; border-radius: 1rem; padding: 1rem; text-align:center;"><i class="fas fa-user-graduate fa-2x"></i><br/>Elif H.<br/><span style="font-size:0.7rem;">Tasarım</span></div>`;
-            if (currentDesign === "premium") content += `<div style="background:#1b212f; border-radius: 1rem; padding: 1rem; text-align:center;"><i class="fas fa-user-astronaut fa-2x"></i><br/>Can Bey<br/><span style="font-size:0.7rem;">Proje Yön.</span></div>`;
-            content += `</div></div>`;
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;">👥 Ekibimiz</div><div class="grid-two"><div style="background:#1b212f; border-radius: 24px; padding: 1rem; text-align:center;"><i class="fas fa-user-tie fa-2x"></i><br/>Ahmet Usta</div><div style="background:#1b212f; border-radius: 24px; padding: 1rem; text-align:center;"><i class="fas fa-user-graduate fa-2x"></i><br/>Elif H.</div><div style="background:#1b212f; border-radius: 24px; padding: 1rem; text-align:center;"><i class="fas fa-user-astronaut fa-2x"></i><br/>Can Bey</div></div></div>`;
         }
 
-        // Yorumlar
+        // YORUMLAR
         if (f.reviews) {
-            content += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;"><i class="fab fa-google"></i> Müşteri Yorumları</div>`;
-            content += `<div style="background:#1c2335; border-radius: 1.2rem; padding: 12px; margin-bottom: 8px;">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div>`;
-            content += `<div style="background:#1c2335; border-radius: 1.2rem; padding: 12px;">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div>`;
-            content += `<div style="margin-top:8px;">⭐ 4.9 ★ (42 değerlendirme)</div></div>`;
+            content += `<div class="card-item" style="margin-bottom:1.5rem;"><div style="font-weight:600;"><i class="fab fa-google"></i> Müşteri Yorumları</div><div style="background:#1c2335; border-radius: 20px; padding: 12px; margin-bottom: 6px;">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet</div><div style="color:#f5c542;">4.9 ★ (45 değerlendirme)</div></div>`;
         }
 
-        content += `</div>`; // section-padding
+        content += `</div>`; // inner-pad
 
-        // İLETİŞİM ALTI (footer) - Tasarıma göre konumlandırma
-        let contactFooter = "";
-        if (currentDesign === "basic") {
-            contactFooter = `<div class="contact-area"><i class="fas fa-phone-alt"></i> +90 532 264 1501 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> info@basicworks.com</div>`;
-        } else if (currentDesign === "modern") {
-            contactFooter = `<div class="contact-area"><div style="display: flex; justify-content: center; gap: 20px;"><span><i class="fab fa-instagram"></i> Instagram</span><span><i class="fab fa-twitter"></i> Twitter</span><span><i class="fab fa-linkedin"></i> LinkedIn</span></div><div style="margin-top:8px;">📞 0532 264 15 01 | info@neostudio.com</div></div>`;
-        } else {
-            contactFooter = `<div class="contact-area"><div style="font-size:1.2rem;">AURORA PREMIUM</div><div style="margin:0.5rem 0;">✨ VIP Destek Hattı: 0532 264 15 01 ✨</div><div style="opacity:0.7;">hello@aurorapremium.com</div></div>`;
-        }
-        content += contactFooter;
+        // FOOTER - HER TASARIMDA FARKLI YERDE VE FARKLI STİLDE
+        if (currentDesign === "basic") content += `<div class="contact-foot" style="padding:1rem; border-top:1px solid #e2e8f0;">© BasicCo · İletişim: 0532 264 15 01</div>`;
+        else if (currentDesign === "medium") content += `<div style="padding:1rem; text-align:center; background:#0c1120; border-top:1px solid #253045;"><i class="fas fa-rocket"></i> Nexus Studio · Dijital çözümler</div>`;
+        else content += `<div style="padding:1.2rem; text-align:center; backdrop-filter:blur(12px); border-top:1px solid rgba(255,255,255,0.1);"><i class="fas fa-crown"></i> AURORA PREMIUM · 7/24 Özel Destek</div>`;
 
-        content += `</div>`; // mockup kapat
+        if (currentDesign === "pro") content += `</div>`; // content-relative kapat
+        content += `</div>`;
         container.innerHTML = content;
 
-        // Animasyonlar: premium ekstra hover efektlerini tekrar tanımla (dinamik)
-        if (currentDesign === "premium") {
-            document.querySelectorAll('.theme-premium .card').forEach(card => {
-                card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-8px)');
-                card.addEventListener('mouseleave', () => card.style.transform = '');
+        // Background slider başlat (Pro)
+        if (currentDesign === "pro") startProBackground();
+        else stopProBackground();
+
+        // Özel hover efektleri modern için
+        if (currentDesign === "medium") {
+            document.querySelectorAll('.theme-medium .card-item').forEach(c => {
+                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-4px)');
+                c.addEventListener('mouseleave', () => c.style.transform = '');
             });
-        } else if (currentDesign === "modern") {
-            document.querySelectorAll('.theme-modern .card').forEach(card => {
-                card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px)');
-                card.addEventListener('mouseleave', () => card.style.transform = '');
+        } else if (currentDesign === "pro") {
+            document.querySelectorAll('.theme-pro .card-item').forEach(c => {
+                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-12px)');
+                c.addEventListener('mouseleave', () => c.style.transform = '');
             });
         }
     }
 
-    function updateActiveUI() {
-        document.querySelectorAll('.mode-btn').forEach(btn => {
+    function updateButtons() {
+        document.querySelectorAll('.design-trigger').forEach(btn => {
             if (btn.dataset.design === currentDesign) btn.classList.add('active');
             else btn.classList.remove('active');
         });
-        document.querySelectorAll('.pack-btn').forEach(btn => {
+        document.querySelectorAll('.pack-trigger').forEach(btn => {
             if (btn.dataset.pack === currentPack) btn.classList.add('active');
             else btn.classList.remove('active');
         });
     }
 
     function refresh() {
-        buildCompleteSite();
-        updateActiveUI();
+        renderSite();
+        updateButtons();
     }
 
-    document.querySelectorAll('.mode-btn').forEach(btn => {
+    document.querySelectorAll('.design-trigger').forEach(btn => {
         btn.addEventListener('click', () => {
             currentDesign = btn.dataset.design;
             refresh();
         });
     });
-    document.querySelectorAll('.pack-btn').forEach(btn => {
+    document.querySelectorAll('.pack-trigger').forEach(btn => {
         btn.addEventListener('click', () => {
             currentPack = btn.dataset.pack;
             refresh();
