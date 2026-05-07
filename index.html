@@ -2,861 +2,596 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>GEÇ GARAJ | Beykoz Oto Kaporta & Boyasız Göçük Düzeltme | İstanbul</title>
-    <meta name="description" content="Beykoz'da profesyonel oto kaporta, boyasız göçük düzeltme, çekme ve boya hizmetleri. 25 yıllık deneyim, garantili işçilik. Hemen randevu al: 0532 264 15 01">
-    <meta name="keywords" content="Beykoz oto kaporta, boyasız göçük düzeltme, oto boya, kaporta düzeltme, çekme hizmeti, araç hasar tespiti, İstanbul oto tamir">
-    <meta name="author" content="GEÇ GARAJ">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://gecgaraj.com">
-    <meta property="og:title" content="GEÇ GARAJ | Beykoz Oto Kaporta & Boyasız Göçük Düzeltme">
-    <meta property="og:description" content="Beykoz'un güvenilir oto kaporta servisi. Uzman ekip, modern ekipman, garantili işçilik.">
-    <meta property="og:image" content="logo.png">
-    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Web Tasarım Stili ve Paket Demosu | Basit · Normal · Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0e0e10;
-            color: #e8edf2;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+            background: #0a0c10;
+            color: #eef2ff;
+            padding: 2rem 1.5rem;
+            transition: background 0.3s ease;
         }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        a { text-decoration: none; color: inherit; }
 
-        /* HEADER - İYİLEŞTİRİLMİŞ */
-        .site-header {
-            background-color: rgba(10, 10, 12, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(230,126,34,0.3);
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* kontrol panelleri */
+        .control-panel {
+            max-width: 1300px;
+            margin: 0 auto 40px auto;
+            background: #111317;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #2a2e3a;
+            backdrop-filter: blur(4px);
         }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        /* Logo ve isim bölümü */
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-area img {
-            height: 45px;
-            width: auto;
-            display: block;
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        .logo-text .brand {
+
+        .panel-title {
             font-size: 1.1rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, #e67e22);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            line-height: 1.2;
-        }
-        .logo-text .tag {
-            font-size: 0.6rem;
-            color: #9ca3af;
-            letter-spacing: 0.5px;
-        }
-        /* Navigasyon */
-        .nav-links {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e67e22;
+            letter-spacing: -0.2px;
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .button-group {
+            display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
         }
-        .nav-links a {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #b0b3b8;
-            transition: 0.2s;
-            padding: 6px 0;
-            white-space: nowrap;
-        }
-        .nav-links a:hover { color: #e67e22; }
-        /* Mobil menü butonu */
-        .menu-toggle {
-            display: none;
-            background: none;
+
+        .style-btn, .package-btn {
+            background: #1e212a;
             border: none;
-            color: #e67e22;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .btn-primary, .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary { background: #e67e22; color: white; border: none; }
-        .btn-primary:hover { background: #cf711f; transform: translateY(-2px); }
-        .btn-outline { background: transparent; border: 1.5px solid #3a3c42; color: #e2e8f0; }
-        .btn-outline:hover { border-color: #e67e22; color: #e67e22; }
-
-        /* HERO */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .slider-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .slide.active { opacity: 1; }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.45) 100%);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            padding: 40px 24px;
-        }
-        .hero-text { 
-            flex: 1; 
-            max-width: 600px; 
-            text-align: left;
-        }
-        
-        /* LOGO ALANI - KARESEL */
-        .hero-logo-area {
-            flex: 0 0 auto;
-            width: 450px;
-            height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(12px);
-            border-radius: 40px;
-            border: 1px solid rgba(255,255,255,0.15);
-            transition: all 0.3s ease;
-        }
-        .hero-logo-area img {
-            max-width: 340px;
-            width: 90%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
-        }
-        
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(28, 28, 32, 0.85);
-            backdrop-filter: blur(4px);
-            padding: 8px 20px;
+            padding: 10px 24px;
             border-radius: 60px;
-            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 28px;
-        }
-        .rating-badge i { color: #f5b042; font-size: 1rem; }
-        
-        .hero-text h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #f5b042, #e67e22);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.02em;
-        }
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #e2e8f0;
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-        .hero-tagline {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: #cbd5e1;
-            margin: 20px 0;
-            line-height: 1.5;
-        }
-        .hero-keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 24px 0;
-        }
-        .keyword-tag {
-            background: rgba(230,126,34,0.2);
-            border: 1px solid rgba(230,126,34,0.4);
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #f5b042;
-        }
-        .service-tag {
-            background: rgba(28, 28, 32, 0.85);
-            backdrop-filter: blur(4px);
-            display: inline-block;
-            padding: 8px 22px;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #e67e22;
-            margin-top: 8px;
-        }
-
-        /* STATUS CARD */
-        .status-card {
-            background: #121215;
-            border-radius: 28px;
-            padding: 20px 24px;
-            margin: 32px 0 40px;
-            border: 1px solid #26272b;
-        }
-        .status-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-        .open-badge, .closed-badge {
+            cursor: pointer;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 8px 20px;
-            border-radius: 60px;
-        }
-        .open-badge { background: #1a3a2a; color: #6fcf97; }
-        .closed-badge { background: #3a2424; color: #ef8e5e; }
-        .next-open { font-size: 0.9rem; color: #9ca3af; }
-
-        /* INFO CARDS */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin: 40px 0;
-        }
-        .info-card {
-            background: #121215;
-            border-radius: 24px;
-            padding: 24px;
-            border: 1px solid #26272b;
-            transition: border 0.2s;
-        }
-        .info-card:hover { border-color: #e67e2240; }
-        .info-icon {
-            width: 52px;
-            height: 52px;
-            background: #1c1c20;
-            border-radius: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: #e67e22;
-            font-size: 1.5rem;
-        }
-        .info-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
-        .info-card p, .info-card a {
-            font-size: 0.9rem;
-            color: #b9bec6;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
         }
 
-        /* REVIEWS */
-        .reviews-section {
-            background: #121215;
-            border-radius: 32px;
-            padding: 28px;
-            margin: 32px 0 48px;
-            border: 1px solid #26272b;
-        }
-        .review-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .stars { color: #f5b042; font-size: 1rem; letter-spacing: 2px; }
-        .review-card {
-            background: #1c1c20;
-            border-radius: 24px;
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-        .review-name {
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .review-text { font-size: 0.9rem; color: #cbd5e1; margin: 8px 0; line-height: 1.5; }
-        .review-date { font-size: 0.75rem; color: #6c757d; margin-top: 8px; }
-        .google-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #2a2f3a;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-        }
-        .btn-google-reviews {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #1c1c20;
-            padding: 10px 20px;
-            border-radius: 40px;
-            color: #e67e22;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            border: 1px solid #2a2f3a;
-            margin-top: 16px;
-        }
-        .btn-google-reviews:hover {
+        .style-btn.active, .package-btn.active {
             background: #e67e22;
             color: white;
-            border-color: #e67e22;
+            box-shadow: 0 4px 12px rgba(230,126,34,0.4);
         }
 
-        /* GALLERY */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 48px 0 24px;
-            border-left: 5px solid #e67e22;
-            padding-left: 20px;
+        .style-btn:hover, .package-btn:hover {
+            background: #2d3240;
+            transform: translateY(-2px);
         }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 48px;
+
+        /* PREVIEW ALANI – burada tasarım dinamik değişir */
+        .preview-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        .gallery-item {
-            background: #121215;
-            border-radius: 28px;
+
+        /* TEMA DEĞİŞKENLERİ (BASİT) */
+        .design-basit {
+            --bg-surface: #0f1117;
+            --card-bg: #161a22;
+            --border: #2a2e3a;
+            --accent: #e67e22;
+            --accent-glow: none;
+            --radius: 16px;
+            --shadow: 0 2px 6px rgba(0,0,0,0.2);
+            --transition: all 0.1s linear;
+            --font-scale: 0.95rem;
+        }
+
+        /* NORMAL TEMA */
+        .design-normal {
+            --bg-surface: #12161f;
+            --card-bg: #1c212c;
+            --border: #2e3440;
+            --accent: #f39c12;
+            --accent-glow: 0 0 6px rgba(243,156,18,0.3);
+            --radius: 24px;
+            --shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            --transition: all 0.2s ease-out;
+            --font-scale: 1rem;
+        }
+
+        /* PRO TEMA */
+        .design-pro {
+            --bg-surface: #0b0e17;
+            --card-bg: rgba(25, 31, 45, 0.75);
+            --border: rgba(255,255,255,0.08);
+            --accent: #ff8c42;
+            --accent-glow: 0 0 12px #ff8c42;
+            --radius: 32px;
+            --shadow: 0 20px 35px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+            --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+            --font-scale: 1rem;
+            backdrop-filter: blur(2px);
+        }
+
+        /* TASARIM STİLLERİNİN GENEL UYGULAMASI */
+        .design-basit, .design-normal, .design-pro {
+            background: var(--bg-surface);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .mock-site {
+            background: var(--bg-surface);
+            border-radius: var(--radius);
             overflow: hidden;
-            border: 1px solid #26272b;
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
         }
-        .gallery-item:hover { transform: translateY(-5px); border-color: #e67e2240; }
-        .gallery-item img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            display: block;
+
+        .mock-header {
+            padding: 1.2rem 1.8rem;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
-        .gallery-caption {
-            padding: 12px 16px;
+
+        .mock-logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #fff, var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .mock-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .mock-nav span {
             font-size: 0.85rem;
             color: #9ca3af;
-            text-align: center;
         }
 
-        /* SERVICES */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-bottom: 48px;
+        /* Bölüm kartları */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: calc(var(--radius) - 6px);
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
         }
-        .service-item {
-            background: #121215;
-            border-radius: 28px;
-            padding: 28px 16px;
+
+        .flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-simple {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .gallery-advanced {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+        .gallery-placeholder {
+            background: #252a36;
+            padding: 1.2rem 0.5rem;
             text-align: center;
-            border: 1px solid #26272b;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            color: #9ca3af;
             transition: transform 0.2s;
         }
-        .service-item:hover { transform: translateY(-4px); border-color: #e67e2240; }
-        .service-item i { font-size: 2.5rem; color: #e67e22; margin-bottom: 12px; }
-        .service-item h4 { font-size: 1.1rem; font-weight: 700; }
-        .service-item p { font-size: 0.8rem; color: #9ca3af; margin-top: 6px; }
+        .design-pro .gallery-placeholder:hover {
+            transform: scale(1.02);
+            background: #2f3545;
+        }
 
-        /* MAP + CONTACT */
-        .bottom-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 48px 0 56px;
-        }
-        .map-container {
-            border-radius: 32px;
-            overflow: hidden;
-            border: 1px solid #2a2f3a;
-            background: #1a1c22;
-            min-height: 420px;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 420px;
-            border: 0;
-            display: block;
-        }
-        .contact-card {
-            background: #121215;
-            border-radius: 32px;
-            padding: 36px 28px;
-            text-align: center;
-            border: 1px solid #26272b;
+        .team-grid {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-        .contact-card h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; }
-        .contact-card .phone-large { font-size: 2rem; font-weight: 800; color: #e67e22; margin: 16px 0; }
-        .contact-card .small-text { font-size: 0.85rem; color: #9ca3af; margin-bottom: 20px; }
-        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
-
-        .footer {
-            background: #0a0a0c;
-            padding: 32px 24px;
+        .team-card {
+            background: #1e232e;
+            padding: 1rem;
+            border-radius: 20px;
             text-align: center;
-            font-size: 0.8rem;
-            color: #6b7280;
-            border-top: 1px solid #26272b;
+            flex: 1;
         }
-        .footer a { color: #e67e22; }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
+        .google-review {
+            background: #1a1e2a;
+            padding: 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+        }
+
+        .whatsapp-btn {
             background: #25D366;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+        }
+
+        .call-btn {
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            letter-spacing: -0.2px;
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .map-placeholder {
+            background: #1e2533;
+            height: 160px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-            z-index: 99;
+            color: #6c86a3;
+            font-size: 0.8rem;
         }
 
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 3;
+        /* animasyonlar */
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
+
+        .mock-site {
+            animation: fadeSlide 0.4s ease-out;
+        }
+
+        button {
             cursor: pointer;
-            transition: 0.3s;
-        }
-        .dot.active {
-            background: #e67e22;
-            width: 24px;
-            border-radius: 10px;
         }
 
-        /* RESPONSIVE - Mobil menü düzenlemeleri */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                padding: 15px 0 5px 0;
-            }
-            .nav-links.show {
-                display: flex;
-            }
-            .nav-links a {
-                font-size: 0.9rem;
-                padding: 8px 0;
-            }
-            .header-inner {
-                flex-wrap: wrap;
-            }
-            .logo-area img {
-                height: 38px;
-            }
-            .logo-text .brand {
-                font-size: 0.95rem;
-            }
-            .logo-text .tag {
-                font-size: 0.55rem;
-            }
-            .container { padding: 0 20px; }
-            .info-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .reviews-section { padding: 20px; }
-            .bottom-section { grid-template-columns: 1fr; gap: 20px; }
-            .map-container { min-height: 300px; }
-            .map-container iframe { min-height: 300px; }
-            .hero { min-height: auto; padding: 40px 0; }
-            .hero-logo-area { width: 280px; height: 280px; margin: 0 auto; }
-            .hero-logo-area img { max-width: 200px; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.1rem; }
-            .hero-tagline { font-size: 0.9rem; }
-            .keyword-tag { font-size: 0.7rem; padding: 4px 12px; }
-            .service-tag { font-size: 0.75rem; }
-            .btn-primary, .btn-outline { padding: 10px 20px; font-size: 0.85rem; }
-            .section-title { font-size: 1.6rem; }
-            .services-grid { gap: 16px; }
-            .service-item i { font-size: 2rem; }
-            .service-item h4 { font-size: 0.9rem; }
-            .contact-card .phone-large { font-size: 1.5rem; }
+        hr {
+            margin: 5px 0;
+            border-color: var(--border);
         }
 
-        @media (max-width: 480px) {
-            .hero-text h1 { font-size: 2rem; }
-            .hero-logo-area { width: 240px; height: 240px; }
-            .hero-logo-area img { max-width: 170px; }
-            .rating-badge { font-size: 0.75rem; padding: 5px 12px; }
-            .services-grid { grid-template-columns: 1fr 1fr; }
-            .contact-card h3 { font-size: 1.2rem; }
-            .btn-primary, .btn-outline { padding: 8px 16px; font-size: 0.75rem; }
-            .nav-links a { font-size: 0.8rem; }
+        .badge-package {
+            font-size: 0.7rem;
+            background: var(--accent);
+            padding: 2px 8px;
+            border-radius: 30px;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-<header class="site-header">
-    <div class="container header-inner">
-        <div class="logo-area">
-            <img src="GECgaraj-removebg-preview.png" alt="GEÇ GARAJ Logo">
-            <div class="logo-text">
-                <span class="brand">GEÇ GARAJ</span>
-                <span class="tag">Oto Kaporta & Düzeltme</span>
-            </div>
-        </div>
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links" id="navLinks">
-            <a href="#hizmetler">Hizmetler</a>
-            <a href="#galeri">Galeri</a>
-            <a href="#yorumlar">Yorumlar</a>
-            <a href="#harita">Konum</a>
-            <a href="#iletisim">İletişim</a>
-        </div>
-    </div>
-</header>
-
-<main>
-    <!-- HERO -->
-    <div class="hero">
-        <div class="slider-container" id="sliderContainer">
-            <div class="slide active" style="background-image: url('random1.png');"></div>
-            <div class="slide" style="background-image: url('random2.png');"></div>
-            <div class="slide" style="background-image: url('random3.png');"></div>
-            <div class="slide" style="background-image: url('random4.png');"></div>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="slider-dots" id="sliderDots"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="rating-badge">
-                    <i class="fas fa-star"></i> 4,9 puan · 8 değerlendirme
-                    <i class="fas fa-check-circle" style="color:#4ade80; margin-left: 4px;"></i>
-                </div>
-                <h1>GEÇ GARAJ</h1>
-                <div class="hero-subtitle">Beykoz'un Güvenilir Oto Kaporta Servisi</div>
-                <div class="hero-tagline">25 yıllık deneyim, modern ekipman, garantili işçilik – İstanbul'un tercihi.</div>
-                <div class="hero-keywords">
-                    <span class="keyword-tag">Boyasız Göçük Düzeltme</span>
-                    <span class="keyword-tag">Oto Kaporta</span>
-                    <span class="keyword-tag">Çekme Hizmeti</span>
-                    <span class="keyword-tag">Oto Boya</span>
-                    <span class="keyword-tag">Hasar Tespiti</span>
-                </div>
-                <div class="service-tag"><i class="fas fa-tools"></i> Kaporta • Boyasız Göçük • Çekme • Boya • Hasar Tespiti</div>
-                <div style="margin-top: 32px;">
-                    <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-                </div>
-            </div>
-            <div class="hero-logo-area">
-                <img src="GECgaraj-removebg-preview.png" alt="GEÇ GARAJ Logo - Beykoz Oto Kaporta">
-            </div>
-        </div>
+<div class="control-panel">
+    <div class="panel-title"><i class="fas fa-palette"></i> 1. Tasarım stilini seçin</div>
+    <div class="button-group" id="design-buttons">
+        <button class="style-btn active" data-design="basit"><i class="fas fa-square"></i> Basit (Minimal)</button>
+        <button class="style-btn" data-design="normal"><i class="fas fa-chart-line"></i> Normal (Standart)</button>
+        <button class="style-btn" data-design="pro"><i class="fas fa-gem"></i> Pro (Premium)</button>
     </div>
 
-    <div class="container">
-        <!-- DURUM KARTI -->
-        <div class="status-card">
-            <div class="status-row">
-                <div id="openClosedBadge" class="open-badge"><i class="fas fa-spinner"></i> Yükleniyor...</div>
-                <div id="nextOpenInfo" class="next-open"></div>
-            </div>
-        </div>
-
-        <!-- INFO CARDS -->
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="info-icon"><i class="fas fa-map-pin"></i></div>
-                <h3>Adres</h3>
-                <p><i class="fas fa-location-dot"></i> Tokatköy, Sultan Aziz Cd. 95/A, 34825 Beykoz/İstanbul</p>
-                <a href="https://maps.google.com/?q=533V%2B68+Beykoz" target="_blank">Haritada yol tarifi <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="info-card">
-                <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-                <h3>İletişim</h3>
-                <p><i class="fas fa-mobile-alt"></i> <strong><a href="tel:05322641501">0532 264 15 01</a></strong></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905322641501" target="_blank">WhatsApp</a></p>
-                <p><i class="far fa-clock"></i> Acil durum 7/24</p>
-            </div>
-            <div class="info-card">
-                <div class="info-icon"><i class="fas fa-chalkboard-user"></i></div>
-                <h3>Uzmanlık</h3>
-                <p>✓ Boyasız Göçük Düzeltme</p>
-                <p>✓ Kaporta & Çekme</p>
-                <p>✓ Oto Boya & Rötüş</p>
-                <p>✓ Hasar Tespiti & Sigorta</p>
-            </div>
-        </div>
-
-        <!-- HİZMETLER -->
-        <div id="hizmetler"></div>
-        <div class="section-title">Profesyonel Hizmetlerimiz</div>
-        <div class="services-grid">
-            <div class="service-item"><i class="fas fa-car-crash"></i><h4>Boyasız Göçük Düzeltme</h4><p>Hızlı & ekonomik çözüm</p></div>
-            <div class="service-item"><i class="fas fa-paint-roller"></i><h4>Oto Kaporta & Boya</h4><p>Renk uyumu garantili</p></div>
-            <div class="service-item"><i class="fas fa-draw-polygon"></i><h4>Çekme & Şasi Düzeltme</h4><p>Hidrolik sistem</p></div>
-            <div class="service-item"><i class="fas fa-microscope"></i><h4>Hasar Tespiti & Ekspertiz</h4><p>Sigorta desteği</p></div>
-        </div>
-
-        <!-- YORUMLAR -->
-        <div id="yorumlar" class="reviews-section">
-            <div class="review-header">
-                <h3><i class="fas fa-star" style="color:#f5b042;"></i> Müşteri Yorumları</h3>
-                <div class="google-badge"><i class="fab fa-google"></i> Google 4.9 ★</div>
-            </div>
-            <div class="review-card">
-                <div class="review-name"><i class="fas fa-user-circle"></i> <strong>Mehmet Demir</strong> <span class="stars">★★★★★</span></div>
-                <div class="review-text">"Beykoz'da aranılan kaliteli oto kaporta. Boyasız göçük düzeltme işlemi için götürdüm, çok memnun kaldım. İşçilik çok temiz, fiyat da makul."</div>
-                <div class="review-date">2 hafta önce · Google</div>
-            </div>
-            <div class="review-card">
-                <div class="review-name"><i class="fas fa-user-circle"></i> <strong>Ayşe Yılmaz</strong> <span class="stars">★★★★★</span></div>
-                <div class="review-text">"Aracımın tamponu değişti ve boyası yapıldı. Renk farkı yok, işçilik çok profesyonel. Zamanında teslim ettiler."</div>
-                <div class="review-date">1 ay önce · Google</div>
-            </div>
-            <div class="review-card">
-                <div class="review-name"><i class="fas fa-user-circle"></i> <strong>Emre Kaya</strong> <span class="stars">★★★★★</span></div>
-                <div class="review-text">"Hızlı ve güvenilir çözüm. Ekip gerçekten uzman. Boyasız göçük düzeltme işlemini çok iyi yapıyorlar."</div>
-                <div class="review-date">3 ay önce · Google</div>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://www.google.com/maps/place/GE%C3%87+GARAJ/" target="_blank" class="btn-google-reviews">
-                    <i class="fab fa-google"></i> Tüm Yorumları Oku <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- GALERİ -->
-        <div id="galeri"></div>
-        <div class="section-title">İşlerimizden Örnekler</div>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="1.jpeg" alt="GEÇ GARAJ"><div class="gallery-caption">Profesyonel kaporta işçiliği</div></div>
-            <div class="gallery-item"><img src="4.jpeg" alt="GEÇ GARAJ"><div class="gallery-caption">Modern ekipmanlarımız</div></div>
-            <div class="gallery-item"><img src="5.jpeg" alt="GEÇ GARAJ"><div class="gallery-caption">Boya & rötüş işlemleri</div></div>
-        </div>
-
-        <!-- HARİTA + İLETİŞİM -->
-        <div class="bottom-section">
-            <div id="harita" class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.123456789!2d29.123456!3d41.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a1c5b5c5c5%3A0x1234567890abcdef!2zVG9rYXRrw7Z5LCBTdWx0YW4gQXppeiBDZC4gOTUvQSwgMzQ4MjUgQmV5a296L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div id="iletisim" class="contact-card">
-                <h3><i class="fas fa-headset"></i> Randevu & Keşif</h3>
-                <div class="phone-large"><a href="tel:05322641501">0532 264 15 01</a></div>
-                <p class="small-text">Ücretsiz hasar tespiti ve randevu için arayın.</p>
-                <div class="cta-buttons">
-                    <a href="tel:05322641501" class="btn-primary"><i class="fas fa-phone-alt"></i> Hemen Ara</a>
-                    <a href="https://wa.me/905322641501" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                </div>
-            </div>
-        </div>
+    <div class="panel-title" style="margin-top: 20px;"><i class="fas fa-boxes"></i> 2. Paketi seçin (Özellik seti)</div>
+    <div class="button-group" id="package-buttons">
+        <button class="package-btn" data-package="baslangic">Başlangıç</button>
+        <button class="package-btn active" data-package="kucuk">Küçük İşletme</button>
+        <button class="package-btn" data-package="buyuk">Büyük İşletme</button>
+        <button class="package-btn" data-package="prosite">Profesyonel Site</button>
     </div>
-</main>
+    <div style="font-size: 0.75rem; color: #8a8f99; margin-top: 12px; text-align: center;"><i class="fas fa-mouse-pointer"></i> Seçimleriniz anında önizlemeyi değiştirir. Tasarım, pakete göre bileşenleri gösterir.</div>
+</div>
 
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 GEÇ GARAJ | Beykoz Oto Kaporta & Boyasız Göçük Düzeltme</p>
-        <p>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz/İstanbul | <a href="tel:05322641501">0532 264 15 01</a></p>
-        <p style="margin-top: 8px;"><i class="fas fa-star" style="color:#fbbf24;"></i> 4,9 puan (8 yorum)</p>
-    </div>
-</footer>
-
-<a href="https://wa.me/905322641501" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp" style="color:white;"></i>
-</a>
+<div class="preview-container" id="previewContainer">
+    <!-- dinamik mock site buraya render edilecek -->
+</div>
 
 <script>
-    // Mobil menü toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+    // Mevcut seçimler
+    let currentDesign = "basit";
+    let currentPackage = "kucuk";   // küçük işletme varsayılan
+
+    // Tasarım sınıflarını mock-site'e uygula
+    const designClasses = {
+        basit: "design-basit",
+        normal: "design-normal",
+        pro: "design-pro"
+    };
+
+    // --- Paket bazında hangi bölümlerin görüneceğini tanımla ---
+    const packageFeatures = {
+        baslangic: {
+            whatsapp: true,
+            callButton: true,
+            contactInfo: true,
+            map: true,
+            simpleGallery: true,
+            advancedGallery: false,
+            services: true,
+            aboutTeam: false,
+            googleReviews: false,
+            contactForm: false,
+            extendedGallery: false
+        },
+        kucuk: {
+            whatsapp: true,
+            callButton: true,
+            contactInfo: true,
+            map: true,
+            simpleGallery: true,
+            advancedGallery: false,
+            services: true,
+            aboutTeam: true,
+            googleReviews: false,
+            contactForm: true,
+            extendedGallery: false
+        },
+        buyuk: {
+            whatsapp: true,
+            callButton: true,
+            contactInfo: true,
+            map: true,
+            simpleGallery: false,
+            advancedGallery: true,
+            services: true,
+            aboutTeam: true,
+            googleReviews: true,
+            contactForm: true,
+            extendedGallery: false
+        },
+        prosite: {
+            whatsapp: true,
+            callButton: true,
+            contactInfo: true,
+            map: true,
+            simpleGallery: false,
+            advancedGallery: false,
+            services: true,
+            aboutTeam: true,
+            googleReviews: true,
+            contactForm: true,
+            extendedGallery: true
+        }
+    };
+
+    // Bölümleri render eden fonksiyon
+    function renderPreview() {
+        const container = document.getElementById('previewContainer');
+        const features = packageFeatures[currentPackage];
+        const designClass = designClasses[currentDesign];
+        
+        // HTML yapısını oluştur
+        let html = `<div class="mock-site ${designClass}">`;
+        
+        // HEADER
+        html += `<div class="mock-header">
+                    <div class="mock-logo"><i class="fas fa-car"></i> GEÇ GARAJ</div>
+                    <div class="mock-nav">
+                        <span>Hizmetler</span>
+                        <span>Galeri</span>
+                        <span>İletişim</span>
+                    </div>
+                </div>`;
+        
+        // İLETİŞİM & WHATSAPP BUTONLARI
+        html += `<div style="padding: 1.5rem;">`;
+        
+        if (features.whatsapp || features.callButton || features.contactInfo) {
+            html += `<div class="section-card" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; gap: 12px;">`;
+            if (features.whatsapp) html += `<span class="whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</span>`;
+            if (features.callButton) html += `<span class="call-btn"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>`;
+            html += `</div>`;
+            if (features.contactInfo) html += `<div style="font-size: 0.8rem;"><i class="fas fa-envelope"></i> info@gecgaraj.com &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> Beykoz / İstanbul</div>`;
+            html += `</div>`;
+        }
+        
+        // İLETİŞİM FORMU (eğer varsa)
+        if (features.contactForm) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-comment-dots"></i> Hızlı İletişim Formu</div>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <input type="text" placeholder="Adınız" style="background: #252a36; border:1px solid var(--border); padding: 8px 12px; border-radius: 60px; flex:1; color:white;">
+                            <input type="text" placeholder="Telefon" style="background: #252a36; border:1px solid var(--border); padding: 8px 12px; border-radius: 60px; flex:1; color:white;">
+                            <button style="background: var(--accent); border:none; padding: 8px 20px; border-radius: 60px; color:white;">Gönder</button>
+                        </div>
+                    </div>`;
+        }
+        
+        // GOOGLE MAPS
+        if (features.map) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-map-marked-alt"></i> Konum</div>
+                        <div class="map-placeholder"><i class="fas fa-map"></i> Google Maps görünümü · Beykoz/İstanbul</div>
+                    </div>`;
+        }
+        
+        // HİZMETLER
+        if (features.services) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-tools"></i> İşletme Hizmetleri</div>
+                        <div class="flex-grid">
+                            <span style="background: var(--card-bg); padding:6px 16px; border-radius:30px;">Kaporta</span>
+                            <span style="background: var(--card-bg); padding:6px 16px; border-radius:30px;">Boyasız Göçük</span>
+                            <span style="background: var(--card-bg); padding:6px 16px; border-radius:30px;">Çekme</span>
+                            <span style="background: var(--card-bg); padding:6px 16px; border-radius:30px;">Oto Boya</span>
+                        </div>
+                    </div>`;
+        }
+        
+        // GALERİ - BASİT / GELİŞMİŞ / EXTRA
+        if (features.simpleGallery) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-images"></i> Görsel Galeri (Basit)</div>
+                        <div class="gallery-simple">
+                            <div class="gallery-placeholder">Görsel 1</div>
+                            <div class="gallery-placeholder">Görsel 2</div>
+                            <div class="gallery-placeholder">Görsel 3</div>
+                        </div>
+                    </div>`;
+        }
+        if (features.advancedGallery) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-star-of-life"></i> Gelişmiş Galeri (Büyük İşletme)</div>
+                        <div class="gallery-advanced">
+                            <div class="gallery-placeholder">📸 Proje 1</div>
+                            <div class="gallery-placeholder">📸 Proje 2</div>
+                            <div class="gallery-placeholder">📸 Proje 3</div>
+                            <div class="gallery-placeholder">📸 Proje 4</div>
+                        </div>
+                    </div>`;
+        }
+        if (features.extendedGallery) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-crown"></i> Ekstra Gelişmiş Galeri (Profesyonel)</div>
+                        <div class="gallery-advanced" style="grid-template-columns: repeat(auto-fit, minmax(120px,1fr));">
+                            <div class="gallery-placeholder">✨ Görsel A</div>
+                            <div class="gallery-placeholder">✨ Görsel B</div>
+                            <div class="gallery-placeholder">✨ Görsel C</div>
+                            <div class="gallery-placeholder">✨ Görsel D</div>
+                            <div class="gallery-placeholder">✨ Görsel E</div>
+                        </div>
+                    </div>`;
+        }
+        
+        // HAKKIMIZDA & EKİP
+        if (features.aboutTeam) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fas fa-users"></i> Hakkımızda & Ekip</div>
+                        <div style="margin-bottom: 16px;">20 yıllık tecrübe, profesyonel ekip, kaliteli hizmet anlayışı.</div>
+                        <div class="team-grid">
+                            <div class="team-card"><i class="fas fa-user-circle fa-2x"></i><br><strong>Ahmet Usta</strong><br>Kaporta Uzmanı</div>
+                            <div class="team-card"><i class="fas fa-user-circle fa-2x"></i><br><strong>Mehmet Bey</strong><br>Boya Ustası</div>
+                        </div>
+                    </div>`;
+        }
+        
+        // GOOGLE YORUMLARI
+        if (features.googleReviews) {
+            html += `<div class="section-card">
+                        <div class="section-title"><i class="fab fa-google"></i> Google Yorumları</div>
+                        <div class="google-review"><i class="fas fa-star" style="color: #f5b042;"></i> 4.9 ★ (45 yorum) - "Harika işçilik, hızlı servis"</div>
+                        <div class="google-review"><i class="fas fa-star" style="color: #f5b042;"></i> 5.0 ★ (12 yorum) - "Beykoz'un en iyisi"</div>
+                        <div class="reviews-link" style="font-size:0.7rem; margin-top:8px;"><i class="fab fa-google"></i> Tüm yorumları oku</div>
+                    </div>`;
+        }
+        
+        html += `</div></div>`; // kapat padding ve mock-site
+        
+        container.innerHTML = html;
+        
+        // Tasarıma özel ekstra animasyon / efekler (opsiyonel)
+        if (currentDesign === "pro") {
+            const cards = document.querySelectorAll('.section-card');
+            cards.forEach(card => {
+                card.style.transition = "transform 0.2s, box-shadow 0.2s";
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = "translateY(-4px)";
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = "translateY(0)";
+                });
+            });
+        } else if (currentDesign === "normal") {
+            // hafif gölge
+        } else {
+            // minimal
+        }
+    }
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-            const icon = menuToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+    // Tasarım stilini değiştir (sadece preview'un kapsayıcı class'ını değil, aynı zamanda dinamik olarak mock-site sınıfları güncellenir)
+    function applyDesignToPreview(design) {
+        const mockElement = document.querySelector('.mock-site');
+        if (mockElement) {
+            // mevcut design sınıflarını kaldır
+            Object.values(designClasses).forEach(cls => {
+                mockElement.classList.remove(cls);
+            });
+            mockElement.classList.add(designClasses[design]);
+        }
+        // Ayrıca body background? tercih edilen
+        if (design === 'pro') {
+            document.body.style.background = "#03050a";
+        } else if (design === 'normal') {
+            document.body.style.background = "#0c0f16";
+        } else {
+            document.body.style.background = "#0a0c10";
+        }
+    }
+    
+    // Seçimleri güncelle ve render
+    function updateAll() {
+        renderPreview();
+        applyDesignToPreview(currentDesign);
+        // buton aktif görünümlerini güncelle
+        document.querySelectorAll('.style-btn').forEach(btn => {
+            if (btn.dataset.design === currentDesign) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        document.querySelectorAll('.package-btn').forEach(btn => {
+            if (btn.dataset.package === currentPackage) btn.classList.add('active');
+            else btn.classList.remove('active');
         });
     }
     
-    // Menü linklerine tıklanınca menüyü kapat
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            navLinks.classList.remove('show');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+    // Event listener'lar
+    document.querySelectorAll('.style-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            currentDesign = btn.dataset.design;
+            updateAll();
         });
     });
     
-    // Slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('sliderDots');
-    
-    if (slides.length > 0 && dotsContainer) {
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+    document.querySelectorAll('.package-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            currentPackage = btn.dataset.package;
+            updateAll();
         });
-        
-        function goToSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (dotsContainer.children[i]) dotsContainer.children[i].classList.remove('active');
-            });
-            slides[index].classList.add('active');
-            if (dotsContainer.children[index]) dotsContainer.children[index].classList.add('active');
-            currentSlide = index;
-        }
-        setInterval(() => { let next = (currentSlide + 1) % slides.length; goToSlide(next); }, 5000);
-    }
+    });
     
-    // Çalışma saatleri
-    const schedule = [
-        { day: "Pazartesi", dayIndex: 1, open: "09:00", close: "18:00" },
-        { day: "Salı", dayIndex: 2, open: "09:00", close: "18:00" },
-        { day: "Çarşamba", dayIndex: 3, open: "09:00", close: "18:00" },
-        { day: "Perşembe", dayIndex: 4, open: "09:00", close: "18:00" },
-        { day: "Cuma", dayIndex: 5, open: "09:00", close: "18:00" },
-        { day: "Cumartesi", dayIndex: 6, open: "09:00", close: "15:00" },
-        { day: "Pazar", dayIndex: 0, open: null, close: null, isClosed: true }
-    ];
-
-    function isCurrentlyOpen() {
-        const now = new Date();
-        const today = schedule.find(s => s.dayIndex === now.getDay());
-        if (!today || today.isClosed) return false;
-        const hour = now.getHours();
-        const minute = now.getMinutes();
-        const [openH, openM] = today.open.split(':').map(Number);
-        const [closeH, closeM] = today.close.split(':').map(Number);
-        const current = hour * 60 + minute;
-        return current >= (openH * 60 + openM) && current <= (closeH * 60 + closeM);
-    }
-
-    function updateStatusUI() {
-        const badge = document.getElementById('openClosedBadge');
-        const nextInfo = document.getElementById('nextOpenInfo');
-        const openNow = isCurrentlyOpen();
-        if (openNow) {
-            badge.innerHTML = '<i class="fas fa-door-open"></i> AÇIK · Hizmet veriyoruz';
-            badge.className = 'open-badge';
-            const todayData = schedule.find(s => s.dayIndex === new Date().getDay());
-            if (todayData && !todayData.isClosed) {
-                nextInfo.innerHTML = `<i class="far fa-hourglass-half"></i> Kapanış: ${todayData.close}`;
-            }
-        } else {
-            badge.innerHTML = '<i class="fas fa-lock"></i> KAPALI · Şu anda kapalıyız';
-            badge.className = 'closed-badge';
-            nextInfo.innerHTML = `<i class="fas fa-clock"></i> Açılış: Pazartesi 09:00`;
-        }
-    }
-    updateStatusUI();
-    setInterval(updateStatusUI, 60000);
+    // İlk render
+    updateAll();
 </script>
+
+<div style="text-align: center; margin-top: 30px; font-size: 0.75rem; color: #6b7280; border-top: 1px solid #222; padding-top: 20px;">
+    <i class="fas fa-magic"></i> 3 farklı tasarım (Basit, Normal, Pro) × 4 farklı özellik paketi — Her seçimde içerik ve görsel stil değişir. <br> Görseller ve metinler örnektir, gerçek içerik eklenebilir.
+</div>
+
 </body>
 </html>
