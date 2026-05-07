@@ -3,675 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>UI Tasarım & Paket Demosu | Gerçek Site Şablonları</title>
+    <title>UI Tasarım Showcase | Basic · Modern · Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0c10;
-            color: #fff;
+            background: #0a0c12;
+            color: #eef2ff;
             padding: 2rem 1.5rem;
         }
 
-        /* Seçim Paneli */
-        .selection-panel {
-            max-width: 1300px;
+        /* SEÇİM PANELİ */
+        .demo-panel {
+            max-width: 1400px;
             margin: 0 auto 2rem auto;
-            background: #11141c;
-            border-radius: 28px;
+            background: rgba(18, 22, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
             padding: 1.5rem 2rem;
-            border: 1px solid #2a2e3a;
-            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .selection-panel h3 {
+        .section-label {
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: #f39c12;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .design-btn, .package-btn {
             background: #1e2434;
-            border: none;
-            padding: 8px 22px;
-            border-radius: 40px;
+            border: 1px solid #2f3648;
+            padding: 8px 24px;
+            border-radius: 60px;
             font-weight: 500;
             font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.2s;
-            color: #ccd6f0;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .design-btn.active, .package-btn.active {
             background: #f39c12;
-            color: #0a0c10;
-            box-shadow: 0 0 8px rgba(243,156,18,0.5);
+            border-color: #f39c12;
+            color: #0c0f17;
+            box-shadow: 0 0 12px rgba(243,156,18,0.5);
         }
 
-        /* Önizleme Alanı */
+        /* PREVIEW ALANI */
         .preview-area {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            background: #0b0e14;
-            border-radius: 32px;
-            border: 1px solid #2a2e3a;
+            background: #070a10;
+            border-radius: 2rem;
+            padding: 1rem;
+            border: 1px solid #252c3a;
+        }
+
+        /* ----- TASARIM 1: BASİT (Minimal, sade, küçük kartlar) ----- */
+        .design-basic .site-container {
+            background: #0f131c;
+            border-radius: 24px;
             overflow: hidden;
-            min-height: 650px;
-        }
-
-        /* Tasarımların kapsayıcısı */
-        .site-preview {
-            width: 100%;
-            height: 100%;
-            transition: all 0.2s;
-        }
-
-        /* ---- BASİT TASARIM ŞABLONU ---- */
-        .template-basic {
             font-family: 'Inter', sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
         }
-        .template-basic .header {
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 1rem 2rem;
+        .design-basic .header {
+            background: #121722;
+            padding: 1rem 1.8rem;
+            border-bottom: 1px solid #252c3a;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        .template-basic .logo {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #0f172a;
-        }
-        .template-basic .nav a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: #334155;
-            font-size: 0.9rem;
-        }
-        .template-basic .hero {
-            background: #f1f5f9;
-            padding: 3rem 2rem;
+        .design-basic .hero {
+            padding: 2rem 1.8rem;
+            background: #0f131c;
             text-align: center;
         }
-        .template-basic .card {
-            background: white;
+        .design-basic .card {
+            background: #161e2a;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .design-basic .btn-outline {
+            background: transparent;
+            border: 1px solid #3a4458;
+            border-radius: 30px;
+            padding: 6px 14px;
+        }
+        .design-basic .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 12px;
+        }
+        .design-basic .gallery-item {
+            background: #1e2738;
             border-radius: 12px;
             padding: 1rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-        .template-basic .btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.8rem;
+            text-align: center;
         }
 
-        /* ---- NORMAL TASARIM ŞABLONU ---- */
-        .template-normal {
+        /* ----- TASARIM 2: NORMAL (Modern, gradientler, hover, geniş kartlar) ----- */
+        .design-normal .site-container {
+            background: #0e121d;
+            border-radius: 32px;
+            overflow: hidden;
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #0f172a, #1e293b);
-            color: #f1f5f9;
         }
-        .template-normal .header {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+        .design-normal .header {
+            background: linear-gradient(95deg, #181f2c, #111722);
+            padding: 1.2rem 2rem;
+            border-bottom: 2px solid #e67e22;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
         }
-        .template-normal .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            background: linear-gradient(135deg, #fff, #f97316);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .template-normal .nav a {
-            margin-left: 1.8rem;
-            text-decoration: none;
-            color: #cbd5e1;
-            font-weight: 500;
-        }
-        .template-normal .hero {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+        .design-normal .hero {
+            background: linear-gradient(135deg, #131a28, #0b101a);
             padding: 3rem 2rem;
             text-align: center;
         }
-        .template-normal .card {
-            background: #1e293b;
-            border-radius: 24px;
-            padding: 1.2rem;
-            border: 1px solid #334155;
-            transition: 0.2s;
+        .design-normal .card {
+            background: #1b2234;
+            border-radius: 28px;
+            padding: 1.3rem;
+            border: 1px solid #2d364a;
+            transition: all 0.2s;
         }
-        .template-normal .card:hover {
-            transform: translateY(-4px);
-            border-color: #f97316;
+        .design-normal .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.4);
         }
-        .template-normal .btn {
-            background: #f97316;
-            color: white;
-            border: none;
-            padding: 8px 20px;
+        .design-normal .btn-primary {
+            background: #e67e22;
             border-radius: 40px;
+            padding: 10px 24px;
+            border: none;
             font-weight: 600;
         }
-
-        /* ---- PRO TASARIM ŞABLONU ---- */
-        .template-pro {
-            font-family: 'Poppins', 'Inter', sans-serif;
-            background: #05070c;
-            color: #fff;
+        .design-normal .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
         }
-        .template-pro .header {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(16px);
-            padding: 1rem 2rem;
+        .design-normal .gallery-item {
+            background: #252f44;
+            border-radius: 24px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        /* ----- TASARIM 3: PRO (Lüks, cam efekti, büyük tipografi, özel font) ----- */
+        .design-pro .site-container {
+            background: rgba(6, 10, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Inter', 'Playfair Display', serif;
+        }
+        .design-pro .header {
+            background: rgba(20, 28, 44, 0.75);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
         }
-        .template-pro .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff, #e84393, #f39c12);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .template-pro .nav a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: #ddd;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .template-pro .nav a:hover {
-            color: #e84393;
-        }
-        .template-pro .hero {
-            background: radial-gradient(circle at 30% 10%, #1a1a2e, #0a0c10);
-            padding: 4rem 2rem;
+        .design-pro .hero {
             text-align: center;
+            padding: 4rem 2rem;
+            background: radial-gradient(circle at 20% 30%, rgba(232,67,147,0.15), transparent);
         }
-        .template-pro .card {
-            background: rgba(30, 35, 55, 0.6);
+        .design-pro .card {
+            background: rgba(30, 42, 66, 0.55);
             backdrop-filter: blur(10px);
+            border-radius: 36px;
+            padding: 1.6rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s cubic-bezier(0.2,0.9,0.4,1.2);
+        }
+        .design-pro .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: #e84393;
+            box-shadow: 0 25px 35px -15px black;
+        }
+        .design-pro .btn-glow {
+            background: linear-gradient(95deg, #e84393, #f39c12);
+            border-radius: 60px;
+            padding: 12px 32px;
+            font-weight: 700;
+            box-shadow: 0 6px 14px rgba(232,67,147,0.4);
+        }
+        .design-pro .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 24px;
+        }
+        .design-pro .gallery-item {
+            background: linear-gradient(145deg, #2e3952, #1e253e);
             border-radius: 32px;
             padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s;
+            text-align: center;
+            transition: 0.2s;
         }
-        .template-pro .card:hover {
-            border-color: #e84393;
+        .design-pro .gallery-item:hover {
             transform: scale(1.02);
         }
-        .template-pro .btn {
-            background: linear-gradient(95deg, #e84393, #f39c12);
-            border: none;
-            padding: 10px 24px;
-            border-radius: 60px;
-            font-weight: 600;
-            color: white;
-        }
 
-        /* ortak */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* ortak flex, grid yardımcıları */
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
         }
-        .gallery-img {
-            background: #2a2f3f;
-            height: 150px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-        .map-place {
-            background: #1e2538;
-            height: 200px;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-        .review-card {
+        .feature-chip {
             background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 1rem;
-            margin-bottom: 1rem;
+            border-radius: 60px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
         }
-        footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid #2a2f3a;
-            margin-top: 2rem;
+        .content-pad {
+            padding: 1.8rem;
+        }
+        hr {
+            border-color: #2e384a;
         }
     </style>
 </head>
 <body>
 
-<div class="selection-panel">
-    <h3><i class="fas fa-palette"></i> 1. Tasarım Stili (Gerçek UI Değişimi)</h3>
+<div class="demo-panel">
+    <div class="section-label"><i class="fas fa-bezier-curve"></i> 1. Tasarım Stili (Tamamen Farklı Ana Sayfa)</div>
     <div class="btn-group" id="designGroup">
-        <button class="design-btn" data-design="basic">📄 Basit · Minimal</button>
-        <button class="design-btn active" data-design="normal">✨ Normal · Modern</button>
-        <button class="design-btn" data-design="pro">💎 Pro · Premium</button>
+        <button class="design-btn" data-design="basic">🧱 Basic - Sade</button>
+        <button class="design-btn active" data-design="normal">✨ Normal - Modern</button>
+        <button class="design-btn" data-design="pro">💎 Pro - Lüks</button>
     </div>
 
-    <h3><i class="fas fa-cubes"></i> 2. Paket Seçimi (Özellikler)</h3>
+    <div class="section-label"><i class="fas fa-cubes"></i> 2. Paket (Özellik Seti)</div>
     <div class="btn-group" id="packageGroup">
-        <button class="package-btn" data-package="starter">🚀 Başlangıç</button>
-        <button class="package-btn active" data-package="small">🏪 Küçük İşletme</button>
-        <button class="package-btn" data-package="medium">🏢 Büyük İşletme</button>
-        <button class="package-btn" data-package="pro">💼 Profesyonel Site</button>
+        <button class="package-btn" data-package="baslangic">🚀 Başlangıç</button>
+        <button class="package-btn active" data-package="kucuk">🏪 Küçük İşletme</button>
+        <button class="package-btn" data-package="buyuk">🏢 Büyük İşletme</button>
+        <button class="package-btn" data-package="prosite">💼 Profesyonel Site</button>
     </div>
-    <div style="font-size:0.7rem; text-align:center; margin-top:10px;">🎯 Tasarım değişince site baştan aşağı farklılaşır. Paket değişince içerik zenginliği artar.</div>
+    <div style="font-size:0.7rem; text-align:center; margin-top:8px;">✨ Her tasarım farklı header, hero, kart yapısı ve animasyonlara sahiptir. Paketler içerik zenginliğini belirler.</div>
 </div>
 
-<div class="preview-area" id="preview">
-    <!-- dinamik site şablonu yüklenecek -->
-    <div style="padding: 40px; text-align:center;">Yükleniyor...</div>
+<div class="preview-area" id="previewRoot">
+    <div id="siteContainer">Yükleniyor...</div>
 </div>
 
 <script>
     let currentDesign = "normal";
-    let currentPackage = "small";
+    let currentPackage = "kucuk";
 
-    // Paket içerik haritası (hangi bloklar gösterilsin)
-    const packageContent = {
-        starter: {
-            showWhatsapp: true,
-            showCall: true,
-            showContactInfo: false,
-            showForm: false,
-            showSimpleGallery: true,
-            showAdvancedGallery: false,
-            showServices: true,
-            showTeam: false,
-            showReviews: false,
-            showMap: true
+    const packageFeatures = {
+        baslangic: {
+            whatsapp: true, call: true, contactInfo: true,
+            contactForm: false, simpleGallery: true,
+            services: true, aboutTeam: false, reviews: false, map: true,
+            advancedGallery: false, extraGallery: false
         },
-        small: {
-            showWhatsapp: true,
-            showCall: true,
-            showContactInfo: true,
-            showForm: true,
-            showSimpleGallery: true,
-            showAdvancedGallery: false,
-            showServices: true,
-            showTeam: true,
-            showReviews: false,
-            showMap: true
+        kucuk: {
+            whatsapp: true, call: true, contactInfo: true,
+            contactForm: true, simpleGallery: true,
+            services: true, aboutTeam: true, reviews: false, map: true,
+            advancedGallery: false, extraGallery: false
         },
-        medium: {
-            showWhatsapp: true,
-            showCall: true,
-            showContactInfo: true,
-            showForm: true,
-            showSimpleGallery: false,
-            showAdvancedGallery: true,
-            showServices: true,
-            showTeam: true,
-            showReviews: true,
-            showMap: true
+        buyuk: {
+            whatsapp: true, call: true, contactInfo: true,
+            contactForm: true, simpleGallery: false,
+            services: true, aboutTeam: true, reviews: true, map: true,
+            advancedGallery: true, extraGallery: false
         },
-        pro: {
-            showWhatsapp: true,
-            showCall: true,
-            showContactInfo: true,
-            showForm: true,
-            showSimpleGallery: false,
-            showAdvancedGallery: false,
-            showServices: true,
-            showTeam: true,
-            showReviews: true,
-            showMap: true,
-            showExtraGallery: true
+        prosite: {
+            whatsapp: true, call: true, contactInfo: true,
+            contactForm: true, simpleGallery: false,
+            services: true, aboutTeam: true, reviews: true, map: true,
+            advancedGallery: false, extraGallery: true
         }
     };
 
-    function renderSite() {
-        const container = document.getElementById("preview");
-        const pkg = packageContent[currentPackage];
+    function renderWebsite() {
+        const features = packageFeatures[currentPackage];
+        const container = document.getElementById("siteContainer");
+        const designClass = `design-${currentDesign}`;
         
-        // Tasarıma göre tamamen farklı HTML yapısı
+        // Tasarıma özel header, hero başlık ve buton stilleri farklı olacak.
+        let headerHtml = "", heroHtml = "";
         if (currentDesign === "basic") {
-            container.innerHTML = basicTemplate(pkg);
+            headerHtml = `<div class="header">
+                            <div style="font-weight:800; font-size:1.3rem;">🔹 BasicCorp</div>
+                            <div style="display: flex; gap: 1.2rem;"><span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span></div>
+                          </div>`;
+            heroHtml = `<div class="hero"><h2 style="font-size:1.8rem;">Basit ve Hızlı Çözümler</h2><p style="opacity:0.7;">Kullanışlı arayüz, net hizmetler.</p></div>`;
         } else if (currentDesign === "normal") {
-            container.innerHTML = normalTemplate(pkg);
-        } else {
-            container.innerHTML = proTemplate(pkg);
+            headerHtml = `<div class="header">
+                            <div style="font-weight:800; font-size:1.5rem; background:linear-gradient(135deg,#fff,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent;">✨ ModernStack</div>
+                            <div style="display: flex; gap: 1.6rem;"><i class="fas fa-th-large"></i><span>Projeler</span><span>Ekip</span><span>İletişim</span></div>
+                          </div>`;
+            heroHtml = `<div class="hero"><h1 style="font-size:2.6rem; font-weight:700;">Yenilikçi Tasarım</h1><p style="font-size:1rem;">Modern web çözümleriyle işletmenizi büyütün.</p><button class="btn-primary" style="margin-top:1rem;">Keşfet</button></div>`;
+        } else { // PRO
+            headerHtml = `<div class="header">
+                            <div style="font-weight:800; font-size:1.9rem; letter-spacing:-1px;">⚡ AURORA</div>
+                            <div style="display: flex; gap: 2rem; background: rgba(255,255,255,0.05); padding: 6px 20px; border-radius: 60px;"><span>Ana Sayfa</span><span>Portfolyo</span><span>Premium</span><span>İletişim</span></div>
+                          </div>`;
+            heroHtml = `<div class="hero"><h1 style="font-family:'Playfair Display', serif; font-size:3.5rem; font-weight:800;">Lüks Deneyim</h1><p style="font-size:1.1rem;">Premium kalite, kusursuz hizmet.</p><button class="btn-glow" style="margin-top:1rem;">İncele</button></div>`;
+        }
+
+        let content = `<div class="site-container ${designClass}">`;
+        content += headerHtml;
+        content += heroHtml;
+        content += `<div class="content-pad">`;
+        
+        // İletişim butonları ve bilgi
+        if (features.whatsapp || features.call || features.contactInfo) {
+            let btnClass = currentDesign === "basic" ? "btn-outline" : (currentDesign === "normal" ? "btn-primary" : "btn-glow");
+            content += `<div class="card" style="margin-bottom:1.2rem;">
+                            <div class="flex-between">
+                                <div style="display: flex; gap: 12px;">
+                                    ${features.whatsapp ? `<span class="${btnClass}" style="display:inline-flex; align-items:center; gap:6px;"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}
+                                    ${features.call ? `<span class="${btnClass}" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>` : ''}
+                                </div>
+                                ${features.contactInfo ? `<div style="font-size:0.75rem;"><i class="fas fa-envelope"></i> info@demo.com | <i class="fas fa-map-marker-alt"></i> İstanbul</div>` : ''}
+                            </div>
+                        </div>`;
+        }
+        
+        // İletişim formu
+        if (features.contactForm) {
+            content += `<div class="card" style="margin-bottom:1.2rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">📋 Hızlı İletişim</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                                <input type="text" placeholder="Adınız" style="background:#1e2535; border:1px solid #2e384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
+                                <input type="email" placeholder="Email" style="background:#1e2535; border:1px solid #2e384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
+                                <button style="background: ${currentDesign === 'pro' ? '#e84393' : '#e67e22'}; border: none; border-radius:60px; padding:8px 20px; color:white;">Gönder</button>
+                            </div>
+                        </div>`;
+        }
+        
+        // Harita
+        if (features.map) {
+            content += `<div class="card" style="margin-bottom:1.2rem;">
+                            <div style="font-weight:600; margin-bottom:10px;">📍 Konum</div>
+                            <div style="background:#1a2132; height:140px; border-radius: 24px; display: flex; align-items:center; justify-content:center;">🗺️ Google Maps önizlemesi</div>
+                        </div>`;
+        }
+        
+        // Hizmetler
+        if (features.services) {
+            content += `<div class="card" style="margin-bottom:1.2rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">🛠️ Hizmetlerimiz</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <span class="feature-chip">Kaporta Düzeltme</span>
+                                <span class="feature-chip">Boyasız Göçük</span>
+                                <span class="feature-chip">Çekme & Şasi</span>
+                            </div>
+                        </div>`;
+        }
+        
+        // Galeri: Basit
+        if (features.simpleGallery) {
+            content += `<div class="card"><div style="font-weight:600; margin-bottom:12px;">📸 Görsel Galeri</div>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">Görsel 1</div><div class="gallery-item">Görsel 2</div><div class="gallery-item">Görsel 3</div>
+                        </div></div>`;
+        }
+        // Gelişmiş galeri (büyük işletme)
+        if (features.advancedGallery) {
+            content += `<div class="card" style="margin-bottom:1.2rem;"><div style="font-weight:600; margin-bottom:12px;">🎯 Gelişmiş Galeri</div>
+                        <div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);">
+                            <div class="gallery-item">Proje Alpha</div><div class="gallery-item">Proje Beta</div>
+                            <div class="gallery-item">Proje Gamma</div><div class="gallery-item">Proje Delta</div>
+                        </div></div>`;
+        }
+        // Extra premium galeri
+        if (features.extraGallery) {
+            content += `<div class="card" style="margin-bottom:1.2rem;"><div style="font-weight:600; margin-bottom:12px;">💎 Premium Galeri</div>
+                        <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="gallery-item">Ultra 1</div><div class="gallery-item">Ultra 2</div><div class="gallery-item">Ultra 3</div>
+                        </div></div>`;
+        }
+        
+        // Hakkımızda & Ekip
+        if (features.aboutTeam) {
+            content += `<div class="card" style="margin-bottom:1.2rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">👥 Profesyonel Ekip</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+                                <div style="background:#1b212f; border-radius: 20px; padding: 12px; flex:1; text-align:center;"><i class="fas fa-user-tie fa-2x"></i><br><strong>Ahmet Usta</strong><br>Teknik</div>
+                                <div style="background:#1b212f; border-radius: 20px; padding: 12px; flex:1; text-align:center;"><i class="fas fa-user-graduate fa-2x"></i><br><strong>Elif H.</strong><br>Tasarım</div>
+                                <div style="background:#1b212f; border-radius: 20px; padding: 12px; flex:1; text-align:center;"><i class="fas fa-user-astronaut fa-2x"></i><br><strong>Can Bey</strong><br>Proje</div>
+                            </div>
+                        </div>`;
+        }
+        
+        // Yorumlar
+        if (features.reviews) {
+            content += `<div class="card" style="margin-bottom:1.2rem;">
+                            <div style="font-weight:600; margin-bottom:12px;"><i class="fab fa-google"></i> Müşteri Yorumları</div>
+                            <div style="background:#1c2335; border-radius: 20px; padding: 12px; margin-bottom: 8px;">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div>
+                            <div style="background:#1c2335; border-radius: 20px; padding: 12px;">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div>
+                            <div style="margin-top:8px;">4.9 ★ (32 yorum)</div>
+                        </div>`;
+        }
+        
+        content += `</div>`; // content-pad kapat
+        
+        // Footer tasarıma göre değişiyor
+        let footer = "";
+        if (currentDesign === "basic") footer = `<div style="padding:1rem; text-align:center; border-top:1px solid #252c3a; font-size:0.7rem;">© BasicCorp - Tüm hakları saklıdır.</div>`;
+        else if (currentDesign === "normal") footer = `<div style="padding:1rem; text-align:center; background:#0c1120; border-top:1px solid #2e3a4e;">✨ ModernSite | Yenilikçi çözümler</div>`;
+        else footer = `<div style="padding:1.2rem; text-align:center; backdrop-filter:blur(8px); border-top:1px solid rgba(255,255,255,0.1);">⭐ AURORA — Premium Tasarım</div>`;
+        
+        content += footer;
+        content += `</div>`; // site-container kapat
+        
+        container.innerHTML = content;
+        
+        // Tasarıma özel hover efektlerini yeniden ekle
+        if (currentDesign === "pro") {
+            const cards = document.querySelectorAll('.design-pro .card');
+            cards.forEach(c => {
+                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-6px) scale(1.01)');
+                c.addEventListener('mouseleave', () => c.style.transform = '');
+            });
+        } else if (currentDesign === "normal") {
+            const cards = document.querySelectorAll('.design-normal .card');
+            cards.forEach(c => {
+                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-5px)');
+                c.addEventListener('mouseleave', () => c.style.transform = '');
+            });
         }
     }
-
-    // ----- BASİT ŞABLON -----
-    function basicTemplate(pkg) {
-        return `
-        <div class="site-preview template-basic">
-            <div class="header">
-                <div class="logo">📁 BasicCo</div>
-                <div class="nav">
-                    <a href="#">Ana Sayfa</a>
-                    <a href="#">Hizmetler</a>
-                    <a href="#">İletişim</a>
-                </div>
-            </div>
-            <div class="hero">
-                <h2>Basit ve Etkili Çözümler</h2>
-                <p>İhtiyacınız olan her şey sade bir arayüzde.</p>
-                ${pkg.showWhatsapp || pkg.showCall ? `<div style="margin-top:1rem;">
-                    ${pkg.showWhatsapp ? `<button class="btn" style="margin-right:10px;"><i class="fab fa-whatsapp"></i> WhatsApp</button>` : ''}
-                    ${pkg.showCall ? `<button class="btn"><i class="fas fa-phone"></i> Ara</button>` : ''}
-                </div>` : ''}
-            </div>
-            <div class="container">
-                ${pkg.showContactInfo ? `<div class="card" style="margin:1rem 0;"><i class="fas fa-envelope"></i> info@basicco.com | <i class="fas fa-map-marker-alt"></i> İstanbul</div>` : ''}
-                
-                ${pkg.showForm ? `
-                <div class="card">
-                    <h4>İletişim Formu</h4>
-                    <input type="text" placeholder="Adınız" style="width:100%; margin:8px 0; padding:8px; border-radius:8px; border:1px solid #ccc;">
-                    <input type="email" placeholder="Email" style="width:100%; margin:8px 0; padding:8px; border-radius:8px;">
-                    <button class="btn">Gönder</button>
-                </div>
-                ` : ''}
-                
-                ${pkg.showServices ? `
-                <div class="card" style="margin:1rem 0;">
-                    <h4>Hizmetler</h4>
-                    <ul style="margin-top:8px;">
-                        <li>Kaporta Düzeltme</li>
-                        <li>Boyasız Göçük</li>
-                        <li>Çekme & Şasi</li>
-                    </ul>
-                </div>
-                ` : ''}
-                
-                ${pkg.showSimpleGallery ? `
-                <div class="grid-3">
-                    <div class="gallery-img">📸 Görsel 1</div>
-                    <div class="gallery-img">📸 Görsel 2</div>
-                    <div class="gallery-img">📸 Görsel 3</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showAdvancedGallery ? `
-                <div class="grid-3">
-                    <div class="gallery-img" style="background:#3a4a6e;">🎨 Proje A</div>
-                    <div class="gallery-img" style="background:#3a4a6e;">🎨 Proje B</div>
-                    <div class="gallery-img" style="background:#3a4a6e;">🎨 Proje C</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showTeam ? `
-                <div class="card">
-                    <h4>Ekibimiz</h4>
-                    <div style="display:flex; gap:1rem; margin-top:10px;">
-                        <div>👤 Ahmet Usta</div>
-                        <div>👤 Elif Hanım</div>
-                        <div>👤 Mert Bey</div>
-                    </div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showReviews ? `
-                <div class="card">
-                    <h4>Google Yorumları</h4>
-                    <div>⭐⭐⭐⭐⭐ "Harika işçilik" - Mehmet</div>
-                    <div>⭐⭐⭐⭐ "İlgili ekip" - Ayşe</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showMap ? `<div class="map-place"><i class="fas fa-map-marked-alt"></i> Google Maps Önizlemesi</div>` : ''}
-                
-                ${pkg.showExtraGallery ? `
-                <div class="grid-3">
-                    <div class="gallery-img" style="background:#4a5a7e;">✨ Premium 1</div>
-                    <div class="gallery-img" style="background:#4a5a7e;">✨ Premium 2</div>
-                    <div class="gallery-img" style="background:#4a5a7e;">✨ Premium 3</div>
-                </div>
-                ` : ''}
-            </div>
-            <footer>© BasicCo - Basit ve hızlı çözümler</footer>
-        </div>
-        `;
-    }
-
-    // ----- NORMAL ŞABLON -----
-    function normalTemplate(pkg) {
-        return `
-        <div class="site-preview template-normal">
-            <div class="header">
-                <div class="logo">✨ Nexus Digital</div>
-                <div class="nav">
-                    <a href="#">Anasayfa</a>
-                    <a href="#">Portfolyo</a>
-                    <a href="#">İletişim</a>
-                </div>
-            </div>
-            <div class="hero">
-                <h1>Yaratıcı Çözümler</h1>
-                <p>Modern tasarım, güçlü altyapı</p>
-                ${pkg.showWhatsapp || pkg.showCall ? `<div style="margin-top:1rem;">
-                    ${pkg.showWhatsapp ? `<button class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>` : ''}
-                    ${pkg.showCall ? `<button class="btn" style="margin-left:10px;"><i class="fas fa-phone-alt"></i> Hemen Ara</button>` : ''}
-                </div>` : ''}
-            </div>
-            <div class="container">
-                ${pkg.showContactInfo ? `<div class="card" style="margin:1rem 0; display:flex; justify-content:space-between;">
-                    <span><i class="fas fa-envelope"></i> info@nexus.com</span>
-                    <span><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</span>
-                </div>` : ''}
-                
-                ${pkg.showForm ? `
-                <div class="card">
-                    <h3>Hızlı İletişim</h3>
-                    <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                        <input type="text" placeholder="Adınız" style="flex:1; background:#0f172a; border:1px solid #334155; border-radius:40px; padding:8px 16px; color:white;">
-                        <input type="email" placeholder="E-posta" style="flex:1; background:#0f172a; border:1px solid #334155; border-radius:40px; padding:8px 16px;">
-                        <button class="btn">Gönder</button>
-                    </div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showServices ? `
-                <div class="grid-3">
-                    <div class="card"><i class="fas fa-car"></i><br>Kaporta</div>
-                    <div class="card"><i class="fas fa-paint-roller"></i><br>Boya</div>
-                    <div class="card"><i class="fas fa-draw-polygon"></i><br>Çekme</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showSimpleGallery ? `
-                <div class="grid-3">
-                    <div class="gallery-img">📸 Proje 1</div>
-                    <div class="gallery-img">📸 Proje 2</div>
-                    <div class="gallery-img">📸 Proje 3</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showAdvancedGallery ? `
-                <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:2rem 0;">
-                    <div class="gallery-img" style="height:180px;">🎯 Gelişmiş Proje A</div>
-                    <div class="gallery-img" style="height:180px;">🎯 Gelişmiş Proje B</div>
-                    <div class="gallery-img" style="height:180px;">🎯 Gelişmiş Proje C</div>
-                    <div class="gallery-img" style="height:180px;">🎯 Gelişmiş Proje D</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showTeam ? `
-                <div class="card" style="margin:1rem 0;">
-                    <h3>Uzman Ekibimiz</h3>
-                    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-                        <div><i class="fas fa-user-tie"></i> Ahmet Yılmaz - Teknik Lider</div>
-                        <div><i class="fas fa-user-graduate"></i> Elif Demir - Tasarım</div>
-                        <div><i class="fas fa-user-astronaut"></i> Can Kaya - Proje Yöneticisi</div>
-                    </div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showReviews ? `
-                <div class="card">
-                    <h3><i class="fab fa-google"></i> Google Yorumları</h3>
-                    <div class="review-card">⭐⭐⭐⭐⭐ “Harika iş çıkardılar, kesinlikle tavsiye ederim.” - Ali K.</div>
-                    <div class="review-card">⭐⭐⭐⭐ “Hızlı ve kaliteli hizmet.” - Zeynep D.</div>
-                    <div class="review-card">⭐⭐⭐⭐⭐ “Beykoz'un en iyisi!” - Mehmet S.</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showMap ? `<div class="map-place"><i class="fas fa-map"></i> Google Maps konum gösterimi</div>` : ''}
-                
-                ${pkg.showExtraGallery ? `
-                <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;">
-                    <div class="gallery-img" style="background: linear-gradient(145deg,#2a3a5a,#1e2a3a);">🏆 Premium 1</div>
-                    <div class="gallery-img" style="background: linear-gradient(145deg,#2a3a5a,#1e2a3a);">🏆 Premium 2</div>
-                    <div class="gallery-img" style="background: linear-gradient(145deg,#2a3a5a,#1e2a3a);">🏆 Premium 3</div>
-                </div>
-                ` : ''}
-            </div>
-            <footer>© Nexus Digital - Modern Dijital Çözümler</footer>
-        </div>
-        `;
-    }
-
-    // ----- PRO ŞABLON -----
-    function proTemplate(pkg) {
-        return `
-        <div class="site-preview template-pro">
-            <div class="header">
-                <div class="logo">⚡ AURORA STUDIO</div>
-                <div class="nav">
-                    <a href="#">Ana Sayfa</a>
-                    <a href="#">Projeler</a>
-                    <a href="#">Studio</a>
-                    <a href="#">İletişim</a>
-                </div>
-            </div>
-            <div class="hero">
-                <h1 style="font-size:3rem;">Premium Deneyim</h1>
-                <p style="font-size:1.2rem;">Yaratıcılık ve teknoloji buluşuyor</p>
-                ${pkg.showWhatsapp || pkg.showCall ? `<div style="margin-top:2rem;">
-                    ${pkg.showWhatsapp ? `<button class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>` : ''}
-                    ${pkg.showCall ? `<button class="btn" style="margin-left:15px;"><i class="fas fa-phone-alt"></i> Hemen Ara</button>` : ''}
-                </div>` : ''}
-            </div>
-            <div class="container">
-                ${pkg.showContactInfo ? `<div class="card" style="margin:1rem 0; text-align:center;">
-                    <i class="fas fa-envelope"></i> hello@aurorastudio.com &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> İstanbul / Global
-                </div>` : ''}
-                
-                ${pkg.showForm ? `
-                <div class="card">
-                    <h3>İletişime Geçin</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-                        <input type="text" placeholder="İsim" style="flex:1; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius: 60px; padding: 12px 20px; color:white;">
-                        <input type="email" placeholder="Email" style="flex:1; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius: 60px; padding: 12px 20px;">
-                        <button class="btn">Gönder</button>
-                    </div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showServices ? `
-                <div class="grid-3">
-                    <div class="card"><i class="fas fa-car-crash fa-2x"></i><br><h4>Kaporta</h4><p>Profesyonel çözümler</p></div>
-                    <div class="card"><i class="fas fa-paint-roller fa-2x"></i><br><h4>Oto Boya</h4><p>Renk garantisi</p></div>
-                    <div class="card"><i class="fas fa-draw-polygon fa-2x"></i><br><h4>Çekme & Şasi</h4><p>Hidrolik sistem</p></div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showSimpleGallery ? `
-                <div class="grid-3">
-                    <div class="gallery-img" style="height:200px;">🌟 Görsel 1</div>
-                    <div class="gallery-img" style="height:200px;">🌟 Görsel 2</div>
-                    <div class="gallery-img" style="height:200px;">🌟 Görsel 3</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showAdvancedGallery ? `
-                <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin:2rem 0;">
-                    <div class="gallery-img" style="height:220px;">🖼️ Premium Proje A</div>
-                    <div class="gallery-img" style="height:220px;">🖼️ Premium Proje B</div>
-                    <div class="gallery-img" style="height:220px;">🖼️ Premium Proje C</div>
-                    <div class="gallery-img" style="height:220px;">🖼️ Premium Proje D</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showTeam ? `
-                <div class="card">
-                    <h3>✨ Vizyoner Ekibimiz</h3>
-                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;">
-                        <div><i class="fas fa-user-circle fa-2x"></i><br><strong>Ahmet Yılmaz</strong><br>Kreatif Direktör</div>
-                        <div><i class="fas fa-user-circle fa-2x"></i><br><strong>Elif Demir</strong><br>Baş Tasarımcı</div>
-                        <div><i class="fas fa-user-circle fa-2x"></i><br><strong>Can Kaya</strong><br>Teknoloji Lideri</div>
-                    </div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showReviews ? `
-                <div class="card">
-                    <h3><i class="fab fa-google"></i> Müşteri Yorumları</h3>
-                    <div class="review-card">⭐⭐⭐⭐⭐ “Mükemmel bir ekip, hayalimizdeki siteyi yaptılar.” - Özgür Ş.</div>
-                    <div class="review-card">⭐⭐⭐⭐⭐ “Profesyonellik ve kalite harika.” - Derya K.</div>
-                    <div class="review-card">⭐⭐⭐⭐⭐ “Kesinlikle tavsiye ediyorum.” - Serkan A.</div>
-                </div>
-                ` : ''}
-                
-                ${pkg.showMap ? `<div class="map-place" style="background: radial-gradient(circle at 20% 30%, #1a1a2e, #0a0c10);"><i class="fas fa-map-marked-alt fa-2x"></i> Google Maps Etkileşimli Harita</div>` : ''}
-                
-                ${pkg.showExtraGallery ? `
-                <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;">
-                    <div class="gallery-img" style="background: linear-gradient(145deg, #e84393, #f39c12);">✨ Ultra HD 1</div>
-                    <div class="gallery-img" style="background: linear-gradient(145deg, #e84393, #f39c12);">✨ Ultra HD 2</div>
-                    <div class="gallery-img" style="background: linear-gradient(145deg, #e84393, #f39c12);">✨ Ultra HD 3</div>
-                </div>
-                ` : ''}
-            </div>
-            <footer>© AURORA STUDIO — İleri Düzey Tasarım Deneyimi</footer>
-        </div>
-        `;
-    }
-
-    // Buton aktiflik güncelleme
-    function updateButtons() {
+    
+    function updateActiveButtons() {
         document.querySelectorAll('.design-btn').forEach(btn => {
             if (btn.dataset.design === currentDesign) btn.classList.add('active');
             else btn.classList.remove('active');
@@ -681,13 +476,12 @@
             else btn.classList.remove('active');
         });
     }
-
+    
     function refresh() {
-        renderSite();
-        updateButtons();
+        renderWebsite();
+        updateActiveButtons();
     }
-
-    // Olay dinleyicileri
+    
     document.querySelectorAll('.design-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             currentDesign = btn.dataset.design;
@@ -700,7 +494,7 @@
             refresh();
         });
     });
-
+    
     refresh();
 </script>
 </body>
