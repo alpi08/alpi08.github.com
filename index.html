@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>UI Tasarım & Paket Demosu | Basit · Normal · Pro</title>
+    <title>Tasarım Stili & Paket Demosu | Gerçek UI Farkları</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -15,44 +15,43 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0c12;
+            background: #0c0f17;
             color: #f0f4fa;
-            padding: 2rem 1.8rem;
+            padding: 2rem 1.5rem;
         }
 
-        /* kontrol paneli */
-        .controls {
+        /* seçim paneli */
+        .selector-panel {
             max-width: 1400px;
             margin: 0 auto 2rem auto;
-            background: rgba(18, 22, 32, 0.8);
+            background: rgba(20, 26, 36, 0.9);
             backdrop-filter: blur(12px);
             border-radius: 2rem;
-            padding: 1.6rem 2rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.3);
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
-        .section-label {
+        .section-title {
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: #f39c12;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .btn-group {
+        .btn-row {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-bottom: 28px;
         }
 
-        .design-btn, .package-btn {
-            background: #1e2434;
-            border: 1px solid #2f3648;
-            padding: 8px 22px;
+        .style-btn, .package-btn {
+            background: #1a1f2c;
+            border: 1px solid #2d3445;
+            padding: 8px 24px;
             border-radius: 60px;
             font-weight: 500;
             font-size: 0.85rem;
@@ -63,111 +62,214 @@
             gap: 8px;
         }
 
-        .design-btn.active, .package-btn.active {
+        .style-btn.active, .package-btn.active {
             background: #f39c12;
             border-color: #f39c12;
             color: #0c0f17;
-            box-shadow: 0 0 12px rgba(243,156,18,0.5);
+            box-shadow: 0 0 12px rgba(243,156,18,0.4);
         }
 
-        /* PREVIEW ALANI */
-        .preview-frame {
+        /* PREVIEW KUTUSU */
+        .preview {
             max-width: 1400px;
             margin: 0 auto;
-            background: #0b0f17;
+            background: #070a10;
             border-radius: 2rem;
             padding: 1rem;
-            border: 1px solid #232834;
+            border: 1px solid #252c3a;
             transition: all 0.2s;
         }
 
-        /* dinamik mock site wrapper */
-        .mockup {
-            transition: all 0.3s ease;
+        /* ---- TASARIMLAR (temel farklılıklar) ---- */
+        /* BASİT TASARIM */
+        .design-basic .mock-site {
+            background: #0f131c;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
         }
-
-        /* ---- TASARIMLAR ARASI FARKLILIKLAR (CSS tabanlı + JS yapısal fark) ---- */
-        /* Basit tasarım */
         .design-basic .mock-header {
-            background: #10141e;
+            background: #11161f;
             padding: 1rem 1.5rem;
             border-bottom: 1px solid #252c3a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .design-basic .card {
-            background: #131822;
+            background: #161c28;
             border-radius: 16px;
             padding: 1rem;
             border: none;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         .design-basic .btn-custom {
             background: #2a3448;
             border-radius: 30px;
             padding: 6px 14px;
+            font-size: 0.8rem;
         }
-        /* Normal tasarım */
+        .design-basic .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .design-basic .gallery-item {
+            background: #1e2535;
+            border-radius: 12px;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* NORMAL TASARIM */
+        .design-normal .mock-site {
+            background: #0f1420;
+            border-radius: 28px;
+            overflow: hidden;
+        }
         .design-normal .mock-header {
-            background: linear-gradient(135deg, #191f2c, #11161f);
+            background: linear-gradient(95deg, #1a1f2e, #131826);
             padding: 1.2rem 2rem;
             border-bottom: 2px solid #e67e22;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .design-normal .card {
-            background: #1c2332;
+            background: #1a202f;
             border-radius: 24px;
             padding: 1.2rem;
-            border: 1px solid #2e3a4e;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #2d3548;
+            transition: all 0.2s;
         }
         .design-normal .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 20px -8px rgba(0,0,0,0.4);
         }
-        /* Pro tasarım */
+        .design-normal .btn-custom {
+            background: #e67e22;
+            border-radius: 40px;
+            padding: 8px 18px;
+            font-weight: 600;
+        }
+        .design-normal .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .design-normal .gallery-item {
+            background: #252e42;
+            border-radius: 20px;
+            padding: 1rem;
+            text-align: center;
+            transition: 0.1s;
+        }
+
+        /* PRO TASARIM */
+        .design-pro .mock-site {
+            background: rgba(8, 12, 20, 0.7);
+            backdrop-filter: blur(6px);
+            border-radius: 36px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
         .design-pro .mock-header {
-            background: rgba(20, 28, 48, 0.7);
+            background: rgba(25, 32, 48, 0.8);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
             padding: 1.2rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .design-pro .card {
-            background: rgba(30, 38, 58, 0.65);
+            background: rgba(30, 40, 60, 0.55);
             backdrop-filter: blur(8px);
             border-radius: 32px;
             padding: 1.4rem;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.1);
             transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.2);
         }
         .design-pro .card:hover {
             transform: scale(1.02);
             border-color: #e84393;
-            box-shadow: 0 20px 35px -12px black;
+            box-shadow: 0 20px 30px -12px black;
+        }
+        .design-pro .btn-custom {
+            background: linear-gradient(95deg, #e84393, #f39c12);
+            border-radius: 60px;
+            padding: 10px 24px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(232,67,147,0.3);
+        }
+        .design-pro .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .design-pro .gallery-item {
+            background: linear-gradient(145deg, #2c354a, #1e2538);
+            border-radius: 28px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .design-pro .gallery-item:hover {
+            transform: translateY(-6px);
+        }
+
+        /* ortak stiller */
+        .mock-site {
+            overflow: hidden;
+        }
+        .content-pad {
+            padding: 1.8rem;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .service-chip {
+            background: rgba(255,255,255,0.05);
+            border-radius: 60px;
+            padding: 6px 14px;
+            display: inline-block;
+        }
+        hr {
+            border-color: #2e384a;
+            margin: 12px 0;
         }
     </style>
 </head>
 <body>
 
-<div class="controls">
-    <div class="section-label"><i class="fas fa-palette"></i> 1. Tasarım Stili (UI karakteri)</div>
-    <div class="btn-group" id="designGroup">
-        <button class="design-btn" data-design="basic">🧱 Basit · Düz</button>
-        <button class="design-btn active" data-design="normal">✨ Normal · Modern</button>
-        <button class="design-btn" data-design="pro">💎 Pro · Premium</button>
+<div class="selector-panel">
+    <div class="section-title"><i class="fas fa-bezier-curve"></i> 1. Tasarım Stili (Tamamen Farklı UI)</div>
+    <div class="btn-row" id="designRow">
+        <button class="style-btn" data-design="basic">🧩 Basit · Minimal</button>
+        <button class="style-btn active" data-design="normal">✨ Normal · Modern</button>
+        <button class="style-btn" data-design="pro">💎 Pro · Premium</button>
     </div>
 
-    <div class="section-label"><i class="fas fa-cubes"></i> 2. Paket (içerik & özellikler)</div>
-    <div class="btn-group" id="packageGroup">
+    <div class="section-title"><i class="fas fa-cubes"></i> 2. Paket Seçimi (Özellik Seti)</div>
+    <div class="btn-row" id="packageRow">
         <button class="package-btn" data-package="baslangic">🚀 Başlangıç</button>
         <button class="package-btn active" data-package="kucuk">🏪 Küçük İşletme</button>
         <button class="package-btn" data-package="buyuk">🏢 Büyük İşletme</button>
         <button class="package-btn" data-package="prosite">💼 Profesyonel Site</button>
     </div>
-    <div style="font-size:0.7rem; text-align:center; margin-top:6px;"><i class="fas fa-mouse-pointer"></i> Her seçimde site arayüzü, bileşenler ve düzen değişir</div>
+    <div style="font-size:0.7rem; text-align:center; margin-top:8px;"><i class="fas fa-sync-alt"></i> Her seçimde site arayüzü, bileşenler ve düzen değişir. Paketler içerik zenginliğini belirler.</div>
 </div>
 
-<div class="preview-frame" id="previewArea">
-    <div id="mockupRoot" class="mockup">
-        <!-- dinamik olarak doldurulacak -->
-        <div style="text-align:center; padding: 80px;">Yükleniyor...</div>
+<div class="preview" id="previewArea">
+    <div id="dynamicSite" class="mock-site design-normal">
+        <!-- Dinamik içerik -->
+        <div style="padding: 60px; text-align:center;">Yükleniyor...</div>
     </div>
 </div>
 
@@ -176,8 +278,8 @@
     let currentDesign = "normal";   // basic, normal, pro
     let currentPackage = "kucuk";   // baslangic, kucuk, buyuk, prosite
 
-    // Paket özellikleri (hangi bloklar gösterilsin)
-    const packageFeatures = {
+    // Paket özellik haritası
+    const features = {
         baslangic: {
             whatsapp: true, callBtn: true, contactInfo: true,
             contactForm: false, simpleGallery: true, advancedGallery: false,
@@ -204,164 +306,174 @@
         }
     };
 
-    // farklı tasarımlar için farklı header içerik ve buton stilleri, ayrıca layout yapısı
+    // Tasarım bazlı farklı header ve içerik yapıları
     function renderSite() {
-        const features = packageFeatures[currentPackage];
-        const root = document.getElementById("mockupRoot");
+        const container = document.getElementById("dynamicSite");
+        const f = features[currentPackage];
         
-        // tasarım sınıfını root'a ekle
-        root.className = `mockup design-${currentDesign}`;
+        // Tasarım sınıfını root mock-site'e ata
+        container.className = `mock-site design-${currentDesign}`;
         
-        // Her tasarım için farklı header markup ve içerik düzeni
+        // ---- HER TASARIM İÇİN FARKLI HEADER ----
         let headerHtml = "";
         if (currentDesign === "basic") {
-            headerHtml = `<div class="mock-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;">
-                            <div style="font-weight:800; font-size:1.3rem;">🔷 DemoStack</div>
+            headerHtml = `<div class="mock-header">
+                            <div style="font-weight:800; font-size:1.3rem;">📁 BasicStack</div>
                             <div style="display: flex; gap: 1.2rem;">
-                                <span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span>
+                                <span>Home</span><span>Services</span><span>Contact</span>
                             </div>
                          </div>`;
         } else if (currentDesign === "normal") {
-            headerHtml = `<div class="mock-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;">
-                            <div style="font-weight:800; background: linear-gradient(135deg,#fff,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent;">✨ StudioPlus</div>
-                            <div style="display: flex; gap: 1.5rem;">
-                                <i class="fas fa-search"></i>
-                                <span>Keşfet</span><span>Projeler</span><span>Blog</span><span>İletişim</span>
+            headerHtml = `<div class="mock-header">
+                            <div style="font-weight:800; font-size:1.4rem; background: linear-gradient(135deg,#fff,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent;">✨ ModernSite</div>
+                            <div style="display: flex; gap: 1.8rem;">
+                                <i class="fas fa-th-large"></i><span>Keşfet</span><span>Portfolyo</span><span>İletişim</span>
                             </div>
                          </div>`;
         } else { // pro
-            headerHtml = `<div class="mock-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;">
-                            <div style="font-weight:800; font-size:1.4rem; letter-spacing:-0.5px;">⚡ AURORA</div>
-                            <div style="display: flex; gap: 2rem; background: rgba(255,255,255,0.05); padding: 6px 18px; border-radius: 60px;">
-                                <span>Home</span><span>Services</span><span>Work</span><span>Contact</span>
+            headerHtml = `<div class="mock-header">
+                            <div style="font-weight:800; font-size:1.6rem; letter-spacing:-1px;">⚡ AURORA STUDIO</div>
+                            <div style="display: flex; gap: 2rem; background: rgba(255,255,255,0.03); padding: 6px 20px; border-radius: 60px;">
+                                <span>Home</span><span>Work</span><span>Studio</span><span>Contact</span>
                             </div>
                          </div>`;
         }
         
-        let contentHtml = `<div style="padding: 1.8rem;">`;
+        let content = `<div class="content-pad">`;
         
-        // İletişim ve buton alanı (pakete göre)
-        if (features.whatsapp || features.callBtn || features.contactInfo) {
-            let btnStyle = (currentDesign === "basic") ? "background:#2a3448; border-radius:40px; padding:6px 16px;" : 
-                           (currentDesign === "normal") ? "background:#e67e22; border-radius:40px; padding:8px 20px; box-shadow:0 4px 8px rgba(0,0,0,0.2);" :
-                           "background: linear-gradient(95deg, #e84393, #f39c12); border-radius:60px; padding:8px 24px; box-shadow:0 6px 14px rgba(0,0,0,0.3);";
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;">
-                                    <div style="display: flex; gap: 12px;">
-                                        ${features.whatsapp ? `<span style="${btnStyle}"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}
-                                        ${features.callBtn ? `<span style="${btnStyle}"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>` : ''}
-                                    </div>
-                                    ${features.contactInfo ? `<div style="font-size:0.75rem;"><i class="fas fa-envelope"></i> info@demo.com | <i class="fas fa-map-marker-alt"></i> İstanbul</div>` : ''}
+        // İLETİŞİM ve BUTON BLOĞU (tasarıma göre değişen buton stilleri)
+        if (f.whatsapp || f.callBtn || f.contactInfo) {
+            let btnClass = (currentDesign === "basic") ? "btn-custom" : (currentDesign === "normal") ? "btn-custom" : "btn-custom";
+            content += `<div class="card" style="margin-bottom: 1.5rem;">
+                            <div class="flex-between">
+                                <div style="display: flex; gap: 12px;">
+                                    ${f.whatsapp ? `<span class="${btnClass}" style="display:inline-flex; align-items:center; gap:6px;"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}
+                                    ${f.callBtn ? `<span class="${btnClass}" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>` : ''}
                                 </div>
-                            </div>`;
+                                ${f.contactInfo ? `<div style="font-size:0.75rem;"><i class="fas fa-envelope"></i> info@demostudio.com &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> İstanbul</div>` : ''}
+                            </div>
+                        </div>`;
         }
         
-        // İletişim formu (sadece belirli paketler)
-        if (features.contactForm) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;">📋 Hızlı İletişim</div>
-                                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                                    <input type="text" placeholder="Adınız" style="background: #1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
-                                    <input type="email" placeholder="Email" style="background: #1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
-                                    <button style="background: ${currentDesign === 'pro' ? '#e84393' : '#e67e22'}; border: none; border-radius: 60px; padding: 8px 20px; color:white;">Gönder</button>
-                                </div>
-                            </div>`;
+        // İLETİŞİM FORMU
+        if (f.contactForm) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">📋 Hızlı İletişim</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                                <input type="text" placeholder="Adınız" style="background:#1e2535; border:1px solid #2e384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
+                                <input type="email" placeholder="E-posta" style="background:#1e2535; border:1px solid #2e384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
+                                <button style="background: ${currentDesign === 'pro' ? '#e84393' : '#e67e22'}; border:none; border-radius:60px; padding:8px 20px; color:white;">Gönder</button>
+                            </div>
+                        </div>`;
         }
         
-        // Google Maps
-        if (features.map) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 10px;">📍 Konum</div>
-                                <div style="background: #1b2335; height: 140px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas fa-map-marked-alt"></i> Google Maps önizlemesi
-                                </div>
-                            </div>`;
+        // GOOGLE MAPS
+        if (f.map) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:10px;">📍 Konum</div>
+                            <div style="background:#1a2132; height:140px; border-radius: 24px; display: flex; align-items:center; justify-content:center;">
+                                <i class="fas fa-map-marked-alt"></i> Google Maps önizlemesi
+                            </div>
+                        </div>`;
         }
         
-        // Hizmetler
-        if (features.services) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;">🛠️ Hizmetlerimiz</div>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap: 12px;">
-                                    <div class="service-chip">Kaporta Düzeltme</div>
-                                    <div class="service-chip">Boyasız Göçük</div>
-                                    <div class="service-chip">Çekme & Şasi</div>
-                                </div>
-                            </div>`;
+        // HİZMETLER
+        if (f.services) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">🛠️ Hizmetlerimiz</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <span class="service-chip">Kaporta Düzeltme</span>
+                                <span class="service-chip">Boyasız Göçük</span>
+                                <span class="service-chip">Çekme & Şasi</span>
+                            </div>
+                        </div>`;
         }
         
-        // Galeri – basit
-        if (features.simpleGallery) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;">🖼️ Görsel Galeri</div>
-                                <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;">
-                                    <div class="gallery-item" style="background:#202838; border-radius: 16px; padding: 12px; text-align:center;">Görsel 1</div>
-                                    <div class="gallery-item" style="background:#202838; border-radius: 16px; padding: 12px; text-align:center;">Görsel 2</div>
-                                    <div class="gallery-item" style="background:#202838; border-radius: 16px; padding: 12px; text-align:center;">Görsel 3</div>
-                                </div>
-                            </div>`;
+        // GALERİ - BASİT (3 görsel)
+        if (f.simpleGallery) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">🖼️ Görsel Galeri</div>
+                            <div class="gallery-grid">
+                                <div class="gallery-item" style="aspect-ratio:1/1; display: flex; align-items:center; justify-content:center;">📸 Görsel 1</div>
+                                <div class="gallery-item" style="aspect-ratio:1/1; display: flex; align-items:center; justify-content:center;">📸 Görsel 2</div>
+                                <div class="gallery-item" style="aspect-ratio:1/1; display: flex; align-items:center; justify-content:center;">📸 Görsel 3</div>
+                            </div>
+                        </div>`;
         }
         
-        // Gelişmiş galeri (büyük işletme)
-        if (features.advancedGallery) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;">✨ Gelişmiş Galeri (Hover efekti)</div>
-                                <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 16px;">
-                                    <div class="gallery-adv" style="background: #2d3548; border-radius: 24px; padding: 20px; text-align:center; transition:0.2s;">Proje Alpha</div>
-                                    <div class="gallery-adv" style="background: #2d3548; border-radius: 24px; padding: 20px; text-align:center;">Proje Beta</div>
-                                    <div class="gallery-adv" style="background: #2d3548; border-radius: 24px; padding: 20px; text-align:center;">Proje Gamma</div>
-                                    <div class="gallery-adv" style="background: #2d3548; border-radius: 24px; padding: 20px; text-align:center;">Proje Delta</div>
-                                </div>
-                            </div>`;
+        // GELİŞMİŞ GALERİ (Büyük işletme)
+        if (f.advancedGallery) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">✨ Gelişmiş Galeri (4 öğe)</div>
+                            <div class="gallery-grid" style="grid-template-columns: repeat(2,1fr);">
+                                <div class="gallery-item" style="padding:1.2rem;">🎨 Proje Alpha</div>
+                                <div class="gallery-item" style="padding:1.2rem;">🎨 Proje Beta</div>
+                                <div class="gallery-item" style="padding:1.2rem;">🎨 Proje Gamma</div>
+                                <div class="gallery-item" style="padding:1.2rem;">🎨 Proje Delta</div>
+                            </div>
+                        </div>`;
         }
         
-        // Extra premium galeri (Profesyonel paket)
-        if (features.extraGallery) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;">👑 Premium Galeri (3D Hover)</div>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 18px;">
-                                    <div class="premium-item" style="background: linear-gradient(145deg,#2a3248,#1b212f); border-radius: 28px; padding: 24px 12px; text-align:center;">✨ Ultra HD 1</div>
-                                    <div class="premium-item" style="background: linear-gradient(145deg,#2a3248,#1b212f); border-radius: 28px; padding: 24px 12px; text-align:center;">✨ Ultra HD 2</div>
-                                    <div class="premium-item" style="background: linear-gradient(145deg,#2a3248,#1b212f); border-radius: 28px; padding: 24px 12px; text-align:center;">✨ Ultra HD 3</div>
-                                </div>
-                            </div>`;
+        // EKSTRA PREMIUM GALERİ (Profesyonel paket)
+        if (f.extraGallery) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">👑 Premium Galeri (Ultra HD)</div>
+                            <div class="gallery-grid" style="grid-template-columns: repeat(3,1fr);">
+                                <div class="gallery-item" style="background: linear-gradient(145deg,#2e3a50,#1b2235);">✨ Ultra 1</div>
+                                <div class="gallery-item" style="background: linear-gradient(145deg,#2e3a50,#1b2235);">✨ Ultra 2</div>
+                                <div class="gallery-item" style="background: linear-gradient(145deg,#2e3a50,#1b2235);">✨ Ultra 3</div>
+                            </div>
+                        </div>`;
         }
         
-        // Hakkımızda & Ekip (sadece belirli paketler)
-        if (features.aboutTeam) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;">👥 Ekibimiz</div>
-                                <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-                                    <div class="team-member" style="background: #1b212f; border-radius: 24px; padding: 16px; text-align:center; flex:1;">🧑‍🔧 <strong>Ahmet Usta</strong><br>Teknik</div>
-                                    <div class="team-member" style="background: #1b212f; border-radius: 24px; padding: 16px; text-align:center; flex:1;">👩‍🎨 <strong>Elif S.</strong><br>Tasarım</div>
-                                    <div class="team-member" style="background: #1b212f; border-radius: 24px; padding: 16px; text-align:center; flex:1;">🧑‍💻 <strong>Mert C.</strong><br>Proje Yön.</div>
-                                </div>
-                            </div>`;
+        // HAKKIMIZDA & EKİP
+        if (f.aboutTeam) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">👥 Profesyonel Ekip</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+                                <div style="background:#1b212f; border-radius: 24px; padding: 16px; flex:1; text-align:center;"><i class="fas fa-user-tie fa-2x"></i><br><strong>Ahmet Usta</strong><br>Teknik Lider</div>
+                                <div style="background:#1b212f; border-radius: 24px; padding: 16px; flex:1; text-align:center;"><i class="fas fa-user-graduate fa-2x"></i><br><strong>Elif H.</strong><br>Tasarım</div>
+                                <div style="background:#1b212f; border-radius: 24px; padding: 16px; flex:1; text-align:center;"><i class="fas fa-user-astronaut fa-2x"></i><br><strong>Can Bey</strong><br>Proje Yön.</div>
+                            </div>
+                        </div>`;
         }
         
-        // Google Yorumları
-        if (features.googleReviews) {
-            contentHtml += `<div class="card" style="margin-bottom: 1.5rem;">
-                                <div style="font-weight:600; margin-bottom: 12px;"><i class="fab fa-google"></i> Müşteri Yorumları</div>
-                                <div style="background: #202838; border-radius: 20px; padding: 12px; margin-bottom: 8px;">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Ali K.</div>
-                                <div style="background: #202838; border-radius: 20px; padding: 12px;">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Zeynep D.</div>
-                                <div style="margin-top: 8px; font-size:0.7rem;">4.9 ★ (32 değerlendirme)</div>
-                            </div>`;
+        // GOOGLE YORUMLARI
+        if (f.googleReviews) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;"><i class="fab fa-google"></i> Müşteri Yorumları</div>
+                            <div style="background:#1c2335; border-radius: 20px; padding: 12px; margin-bottom: 8px;">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div>
+                            <div style="background:#1c2335; border-radius: 20px; padding: 12px;">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div>
+                            <div style="margin-top: 8px; font-size:0.7rem;">4.9 ★ (42 değerlendirme)</div>
+                        </div>`;
         }
         
-        contentHtml += `</div>`;
+        content += `</div>`;
         
-        // Son olarak ekstra bir altbilgi (tasarıma göre farklı)
-        let footerHtml = `<div style="padding: 1rem; text-align:center; border-top: 1px solid #2a3040; margin-top: 10px; font-size:0.7rem;">© Demo Tasarım – Seçtiğiniz: ${currentDesign.toUpperCase()} + ${currentPackage}</div>`;
+        // FOOTER tasarıma göre farklı
+        let footerHtml = "";
+        if (currentDesign === "basic") {
+            footerHtml = `<div style="padding: 1rem; text-align:center; border-top:1px solid #252c3a; font-size:0.7rem;">© BasicDemo — Tüm hakları saklıdır.</div>`;
+        } else if (currentDesign === "normal") {
+            footerHtml = `<div style="padding: 1.2rem; text-align:center; background: #0c1120; border-top:1px solid #2e3a4e;"><i class="fas fa-crown"></i> ModernSite · Yenilikçi çözümler</div>`;
+        } else {
+            footerHtml = `<div style="padding: 1.2rem; text-align:center; backdrop-filter: blur(8px); border-top: 1px solid rgba(255,255,255,0.1); font-size:0.75rem;">⭐ AURORA STUDIO — Premium deneyim</div>`;
+        }
         
-        root.innerHTML = headerHtml + contentHtml + footerHtml;
+        container.innerHTML = headerHtml + content + footerHtml;
         
-        // Tasarıma özel ekstra interaktif animasyonlar (pro için hover scale, normal için kart hover)
+        // Tasarıma özel interaktif animasyonlar (pro için hover efektleri yeniden)
         if (currentDesign === "pro") {
-            const items = document.querySelectorAll('.card, .premium-item');
+            const items = document.querySelectorAll('.card, .gallery-item');
             items.forEach(el => {
-                el.addEventListener('mouseenter', () => el.style.transform = 'translateY(-6px) scale(1.01)');
-                el.addEventListener('mouseleave', () => el.style.transform = '');
+                el.addEventListener('mouseenter', (e) => {
+                    el.style.transform = 'translateY(-6px)';
+                    if (el.classList.contains('card')) el.style.boxShadow = '0 20px 30px -12px black';
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = '';
+                    if (el.classList.contains('card')) el.style.boxShadow = '';
+                });
             });
         } else if (currentDesign === "normal") {
             const cards = document.querySelectorAll('.card');
@@ -369,13 +481,12 @@
                 c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-4px)');
                 c.addEventListener('mouseleave', () => c.style.transform = '');
             });
-        } else {
-            // basic: hiç hover etkisi yok
         }
     }
     
-    function updateActiveButtons() {
-        document.querySelectorAll('.design-btn').forEach(btn => {
+    // BUTON AKTİF GÖSTERİM
+    function updateButtons() {
+        document.querySelectorAll('.style-btn').forEach(btn => {
             if (btn.dataset.design === currentDesign) btn.classList.add('active');
             else btn.classList.remove('active');
         });
@@ -387,11 +498,11 @@
     
     function refresh() {
         renderSite();
-        updateActiveButtons();
+        updateButtons();
     }
     
     // Olay dinleyiciler
-    document.querySelectorAll('.design-btn').forEach(btn => {
+    document.querySelectorAll('.style-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             currentDesign = btn.dataset.design;
             refresh();
@@ -404,7 +515,6 @@
         });
     });
     
-    // başlangıç
     refresh();
 </script>
 </body>
