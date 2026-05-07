@@ -3,50 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>UI Tasarım Showcase | Basic · Modern · Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <title>Premium Tasarım Showcase | Basic · Modern · Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0c12;
-            color: #eef2ff;
-            padding: 2rem 1.5rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* SEÇİM PANELİ */
-        .demo-panel {
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0e16;
+            color: #edf2f8;
+            padding: 2rem 1.8rem;
+        }
+
+        /* KONTROL PANELİ */
+        .controller {
             max-width: 1400px;
             margin: 0 auto 2rem auto;
-            background: rgba(18, 22, 32, 0.85);
+            background: rgba(18, 22, 35, 0.8);
             backdrop-filter: blur(12px);
             border-radius: 2rem;
             padding: 1.5rem 2rem;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
-        .section-label {
+        .label {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
-            color: #f39c12;
+            color: #f5a623;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .btn-group {
+        .btn-wrap {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-bottom: 28px;
         }
 
-        .design-btn, .package-btn {
-            background: #1e2434;
-            border: 1px solid #2f3648;
+        .theme-btn, .pack-btn {
+            background: #1e2436;
+            border: 1px solid #2f364a;
             padding: 8px 24px;
             border-radius: 60px;
             font-weight: 500;
@@ -58,444 +64,433 @@
             gap: 8px;
         }
 
-        .design-btn.active, .package-btn.active {
-            background: #f39c12;
-            border-color: #f39c12;
+        .theme-btn.active, .pack-btn.active {
+            background: #f5a623;
+            border-color: #f5a623;
             color: #0c0f17;
-            box-shadow: 0 0 12px rgba(243,156,18,0.5);
+            box-shadow: 0 0 14px rgba(245,166,35,0.5);
         }
 
         /* PREVIEW ALANI */
-        .preview-area {
+        .live-preview {
             max-width: 1400px;
             margin: 0 auto;
-            background: #070a10;
+            background: #080b12;
             border-radius: 2rem;
             padding: 1rem;
-            border: 1px solid #252c3a;
+            border: 1px solid #262e3c;
         }
 
-        /* ----- TASARIM 1: BASİT (Minimal, sade, küçük kartlar) ----- */
-        .design-basic .site-container {
-            background: #0f131c;
+        /* ========= TEMA 1: BASIC (Minimal, pastel tonlar, yumuşak gölgeler) ========= */
+        .theme-basic {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #475569;
+            --primary: #3b82f6;
+            --border: #e2e8f0;
+            --radius: 16px;
+            --shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .theme-basic .mock-site {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
             border-radius: 24px;
             overflow: hidden;
-            font-family: 'Inter', sans-serif;
         }
-        .design-basic .header {
-            background: #121722;
-            padding: 1rem 1.8rem;
-            border-bottom: 1px solid #252c3a;
+        .theme-basic .header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
+            gap: 1rem;
         }
-        .design-basic .hero {
-            padding: 2rem 1.8rem;
-            background: #0f131c;
+        .theme-basic .hero {
+            background: linear-gradient(105deg, #eff6ff, #ffffff);
+            padding: 3rem 2rem;
             text-align: center;
         }
-        .design-basic .card {
-            background: #161e2a;
-            border-radius: 16px;
-            padding: 1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        .theme-basic .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
-        .design-basic .btn-outline {
+        .theme-basic .btn-outline {
             background: transparent;
-            border: 1px solid #3a4458;
-            border-radius: 30px;
-            padding: 6px 14px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 40px;
+            padding: 6px 18px;
         }
-        .design-basic .gallery-grid {
+        .theme-basic .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 12px;
         }
-        .design-basic .gallery-item {
-            background: #1e2738;
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-        }
 
-        /* ----- TASARIM 2: NORMAL (Modern, gradientler, hover, geniş kartlar) ----- */
-        .design-normal .site-container {
-            background: #0e121d;
+        /* ========= TEMA 2: MODERN (Karanlık + neon vurgular, büyük fontlar) ========= */
+        .theme-modern {
+            --bg: #0a0f1c;
+            --surface: #131a2c;
+            --text: #eef2ff;
+            --text-light: #9aa5c0;
+            --primary: #e63946;
+            --border: #253045;
+            --radius: 28px;
+            --shadow: 0 15px 25px -12px rgba(0,0,0,0.5);
+        }
+        .theme-modern .mock-site {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', monospace;
             border-radius: 32px;
             overflow: hidden;
-            font-family: 'Inter', sans-serif;
         }
-        .design-normal .header {
-            background: linear-gradient(95deg, #181f2c, #111722);
+        .theme-modern .header {
+            background: var(--surface);
             padding: 1.2rem 2rem;
-            border-bottom: 2px solid #e67e22;
+            border-bottom: 2px solid var(--primary);
             display: flex;
             justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
         }
-        .design-normal .hero {
-            background: linear-gradient(135deg, #131a28, #0b101a);
-            padding: 3rem 2rem;
+        .theme-modern .hero {
+            background: radial-gradient(circle at 10% 20%, #1e2a44, #0a0f1c);
+            padding: 3.5rem 2rem;
             text-align: center;
         }
-        .design-normal .card {
-            background: #1b2234;
-            border-radius: 28px;
-            padding: 1.3rem;
-            border: 1px solid #2d364a;
-            transition: all 0.2s;
+        .theme-modern .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.4rem;
+            border: 1px solid var(--border);
+            transition: 0.2s;
         }
-        .design-normal .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.4);
-        }
-        .design-normal .btn-primary {
-            background: #e67e22;
-            border-radius: 40px;
-            padding: 10px 24px;
-            border: none;
+        .theme-modern .card:hover { transform: translateY(-4px); box-shadow: var(--shadow);}
+        .theme-modern .btn-primary {
+            background: var(--primary);
+            border-radius: 60px;
+            padding: 8px 24px;
             font-weight: 600;
         }
-        .design-normal .gallery-grid {
+        .theme-modern .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 20px;
         }
-        .design-normal .gallery-item {
-            background: #252f44;
-            border-radius: 24px;
-            padding: 1.2rem;
-            text-align: center;
-            transition: 0.2s;
-        }
 
-        /* ----- TASARIM 3: PRO (Lüks, cam efekti, büyük tipografi, özel font) ----- */
-        .design-pro .site-container {
-            background: rgba(6, 10, 18, 0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 48px;
-            border: 1px solid rgba(255,255,255,0.1);
-            font-family: 'Inter', 'Playfair Display', serif;
+        /* ========= TEMA 3: PREMIUM PRO (Lüks, cam efekti, serif başlık) ========= */
+        .theme-premium {
+            --bg: #070b14;
+            --surface: rgba(25, 33, 56, 0.7);
+            --text: #f3f6fc;
+            --text-light: #bfc9e0;
+            --primary: #cf94ff;
+            --border: rgba(255,255,255,0.08);
+            --radius: 36px;
+            --shadow: 0 25px 40px -15px black;
         }
-        .design-pro .header {
-            background: rgba(20, 28, 44, 0.75);
-            backdrop-filter: blur(15px);
+        .theme-premium .mock-site {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            backdrop-filter: blur(4px);
+            border-radius: 48px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        .theme-premium .header {
+            background: rgba(15, 22, 40, 0.8);
+            backdrop-filter: blur(20px);
             padding: 1.2rem 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
         }
-        .design-pro .hero {
+        .theme-premium .hero {
             text-align: center;
             padding: 4rem 2rem;
-            background: radial-gradient(circle at 20% 30%, rgba(232,67,147,0.15), transparent);
+            background: radial-gradient(ellipse at 30% 40%, rgba(207,148,255,0.1), transparent);
         }
-        .design-pro .card {
-            background: rgba(30, 42, 66, 0.55);
-            backdrop-filter: blur(10px);
-            border-radius: 36px;
+        .theme-premium .card {
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
             padding: 1.6rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s cubic-bezier(0.2,0.9,0.4,1.2);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
-        .design-pro .card:hover {
-            transform: translateY(-8px) scale(1.01);
-            border-color: #e84393;
-            box-shadow: 0 25px 35px -15px black;
+        .theme-premium .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 35px -12px black;
         }
-        .design-pro .btn-glow {
-            background: linear-gradient(95deg, #e84393, #f39c12);
+        .theme-premium .btn-glow {
+            background: linear-gradient(105deg, #cf94ff, #9b5de5);
             border-radius: 60px;
             padding: 12px 32px;
             font-weight: 700;
-            box-shadow: 0 6px 14px rgba(232,67,147,0.4);
+            box-shadow: 0 5px 15px rgba(207,148,255,0.4);
         }
-        .design-pro .gallery-grid {
+        .theme-premium .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3,1fr);
             gap: 24px;
         }
-        .design-pro .gallery-item {
-            background: linear-gradient(145deg, #2e3952, #1e253e);
-            border-radius: 32px;
-            padding: 1.5rem;
-            text-align: center;
+        .theme-premium .gallery-item {
+            background: rgba(40, 50, 75, 0.6);
+            border-radius: 28px;
+            padding: 1.2rem;
             transition: 0.2s;
         }
-        .design-pro .gallery-item:hover {
-            transform: scale(1.02);
-        }
 
-        /* ortak flex, grid yardımcıları */
-        .flex-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-        .feature-chip {
-            background: rgba(255,255,255,0.05);
-            border-radius: 60px;
-            padding: 5px 12px;
-            font-size: 0.8rem;
-        }
-        .content-pad {
-            padding: 1.8rem;
-        }
-        hr {
-            border-color: #2e384a;
-        }
+        /* ORTAK YARDIMCILAR */
+        .flex-sb { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 1rem; }
+        .chip { background: rgba(255,255,255,0.05); border-radius: 40px; padding: 6px 12px; font-size:0.75rem; display: inline-block; }
+        .content-space { padding: 1.8rem; }
+        hr { border-color: #2e3a4e; margin: 12px 0; }
+        .mt-1 { margin-top: 1rem; }
     </style>
 </head>
 <body>
 
-<div class="demo-panel">
-    <div class="section-label"><i class="fas fa-bezier-curve"></i> 1. Tasarım Stili (Tamamen Farklı Ana Sayfa)</div>
-    <div class="btn-group" id="designGroup">
-        <button class="design-btn" data-design="basic">🧱 Basic - Sade</button>
-        <button class="design-btn active" data-design="normal">✨ Normal - Modern</button>
-        <button class="design-btn" data-design="pro">💎 Pro - Lüks</button>
+<div class="controller">
+    <div class="label"><i class="fas fa-bezier-curve"></i> 1. Tasarım Teması (Tamamen farklı UI)</div>
+    <div class="btn-wrap" id="themeWrap">
+        <button class="theme-btn" data-theme="basic">🎨 Basic – Sade & Pastel</button>
+        <button class="theme-btn active" data-theme="modern">🌙 Modern – Neon & Koyu</button>
+        <button class="theme-btn" data-theme="premium">👑 Premium – Lüks & Glow</button>
     </div>
 
-    <div class="section-label"><i class="fas fa-cubes"></i> 2. Paket (Özellik Seti)</div>
-    <div class="btn-group" id="packageGroup">
-        <button class="package-btn" data-package="baslangic">🚀 Başlangıç</button>
-        <button class="package-btn active" data-package="kucuk">🏪 Küçük İşletme</button>
-        <button class="package-btn" data-package="buyuk">🏢 Büyük İşletme</button>
-        <button class="package-btn" data-package="prosite">💼 Profesyonel Site</button>
+    <div class="label"><i class="fas fa-cubes"></i> 2. Paket (İçerik Özellikleri)</div>
+    <div class="btn-wrap" id="packWrap">
+        <button class="pack-btn" data-pack="starter">🚀 Başlangıç</button>
+        <button class="pack-btn active" data-pack="business">🏪 Küçük İşletme</button>
+        <button class="pack-btn" data-pack="enterprise">🏢 Büyük İşletme</button>
+        <button class="pack-btn" data-pack="pro">💼 Profesyonel</button>
     </div>
-    <div style="font-size:0.7rem; text-align:center; margin-top:8px;">✨ Her tasarım farklı header, hero, kart yapısı ve animasyonlara sahiptir. Paketler içerik zenginliğini belirler.</div>
+    <div style="font-size:0.7rem; text-align:center; margin-top:6px;">✨ Tasarım seçenekleri: farklı renk paleti, tipografi, kart stilleri, HEADER/HERO yapısı, hover efektleri. Paketler içerik zenginliğini belirler.</div>
 </div>
 
-<div class="preview-area" id="previewRoot">
-    <div id="siteContainer">Yükleniyor...</div>
+<div class="live-preview" id="previewLive">
+    <div id="dynamicRender">Yükleniyor...</div>
 </div>
 
 <script>
-    let currentDesign = "normal";
-    let currentPackage = "kucuk";
+    let activeTheme = "modern";
+    let activePack = "business";
 
-    const packageFeatures = {
-        baslangic: {
+    const packageProps = {
+        starter: {
             whatsapp: true, call: true, contactInfo: true,
-            contactForm: false, simpleGallery: true,
-            services: true, aboutTeam: false, reviews: false, map: true,
-            advancedGallery: false, extraGallery: false
+            contactForm: false, simpleGallery: true, advancedGallery: false,
+            services: true, team: false, reviews: false, map: true,
+            extraGallery: false
         },
-        kucuk: {
+        business: {
             whatsapp: true, call: true, contactInfo: true,
-            contactForm: true, simpleGallery: true,
-            services: true, aboutTeam: true, reviews: false, map: true,
-            advancedGallery: false, extraGallery: false
+            contactForm: true, simpleGallery: true, advancedGallery: false,
+            services: true, team: true, reviews: false, map: true,
+            extraGallery: false
         },
-        buyuk: {
+        enterprise: {
             whatsapp: true, call: true, contactInfo: true,
-            contactForm: true, simpleGallery: false,
-            services: true, aboutTeam: true, reviews: true, map: true,
-            advancedGallery: true, extraGallery: false
+            contactForm: true, simpleGallery: false, advancedGallery: true,
+            services: true, team: true, reviews: true, map: true,
+            extraGallery: false
         },
-        prosite: {
+        pro: {
             whatsapp: true, call: true, contactInfo: true,
-            contactForm: true, simpleGallery: false,
-            services: true, aboutTeam: true, reviews: true, map: true,
-            advancedGallery: false, extraGallery: true
+            contactForm: true, simpleGallery: false, advancedGallery: false,
+            services: true, team: true, reviews: true, map: true,
+            extraGallery: true
         }
     };
 
-    function renderWebsite() {
-        const features = packageFeatures[currentPackage];
-        const container = document.getElementById("siteContainer");
-        const designClass = `design-${currentDesign}`;
-        
-        // Tasarıma özel header, hero başlık ve buton stilleri farklı olacak.
+    function renderUI() {
+        const f = packageProps[activePack];
+        const container = document.getElementById("dynamicRender");
+        let themeClass = "";
+        if (activeTheme === "basic") themeClass = "theme-basic";
+        else if (activeTheme === "modern") themeClass = "theme-modern";
+        else themeClass = "theme-premium";
+
         let headerHtml = "", heroHtml = "";
-        if (currentDesign === "basic") {
-            headerHtml = `<div class="header">
-                            <div style="font-weight:800; font-size:1.3rem;">🔹 BasicCorp</div>
-                            <div style="display: flex; gap: 1.2rem;"><span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span></div>
-                          </div>`;
-            heroHtml = `<div class="hero"><h2 style="font-size:1.8rem;">Basit ve Hızlı Çözümler</h2><p style="opacity:0.7;">Kullanışlı arayüz, net hizmetler.</p></div>`;
-        } else if (currentDesign === "normal") {
-            headerHtml = `<div class="header">
-                            <div style="font-weight:800; font-size:1.5rem; background:linear-gradient(135deg,#fff,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent;">✨ ModernStack</div>
-                            <div style="display: flex; gap: 1.6rem;"><i class="fas fa-th-large"></i><span>Projeler</span><span>Ekip</span><span>İletişim</span></div>
-                          </div>`;
-            heroHtml = `<div class="hero"><h1 style="font-size:2.6rem; font-weight:700;">Yenilikçi Tasarım</h1><p style="font-size:1rem;">Modern web çözümleriyle işletmenizi büyütün.</p><button class="btn-primary" style="margin-top:1rem;">Keşfet</button></div>`;
-        } else { // PRO
-            headerHtml = `<div class="header">
-                            <div style="font-weight:800; font-size:1.9rem; letter-spacing:-1px;">⚡ AURORA</div>
-                            <div style="display: flex; gap: 2rem; background: rgba(255,255,255,0.05); padding: 6px 20px; border-radius: 60px;"><span>Ana Sayfa</span><span>Portfolyo</span><span>Premium</span><span>İletişim</span></div>
-                          </div>`;
-            heroHtml = `<div class="hero"><h1 style="font-family:'Playfair Display', serif; font-size:3.5rem; font-weight:800;">Lüks Deneyim</h1><p style="font-size:1.1rem;">Premium kalite, kusursuz hizmet.</p><button class="btn-glow" style="margin-top:1rem;">İncele</button></div>`;
+
+        // TEMA BAZLI HEADER VE HERO (farklı stiller)
+        if (activeTheme === "basic") {
+            headerHtml = `<div class="header"><div style="font-weight:800;">🌿 BasicStudio</div><div style="display:flex; gap:1.2rem;"><span>Ana Sayfa</span><span>İşler</span><span>İletişim</span></div></div>`;
+            heroHtml = `<div class="hero"><h2 style="font-size:2rem;">Sade ve Etkili Tasarım</h2><p>İşletmenizi öne çıkaracak minimal çözümler.</p></div>`;
+        } else if (activeTheme === "modern") {
+            headerHtml = `<div class="header"><div style="font-weight:800; font-size:1.3rem;">⚡ NEO<span style="color:#e63946;">STUDIO</span></div><div style="display:flex; gap:1.5rem;"><i class="fas fa-th"></i><span>Portfolyo</span><span>Ekip</span><span>Bize Ulaş</span></div></div>`;
+            heroHtml = `<div class="hero"><h1 style="font-size:2.8rem; font-weight:800;">Yaratıcılığın Sınırı Yok</h1><p>Modern web deneyimi ile fark yaratın.</p><button class="btn-primary" style="margin-top:1rem;">Keşfet</button></div>`;
+        } else {
+            headerHtml = `<div class="header"><div style="font-weight:800; font-size:1.6rem; letter-spacing:-1px;">✨ AURORA<span style="font-size:0.8rem;"> PREMIUM</span></div><div style="display:flex; gap:2rem;"><span>Anasayfa</span><span>Hizmetler</span><span>Lüks Galeri</span><span>İletişim</span></div></div>`;
+            heroHtml = `<div class="hero"><h1 style="font-family:'Playfair Display', serif; font-size:3.8rem; font-weight:800;">Yüksek Standartlar</h1><p>Premium kalite, kusursuz deneyim.</p><button class="btn-glow" style="margin-top:1rem;">İncele</button></div>`;
         }
 
-        let content = `<div class="site-container ${designClass}">`;
+        let content = `<div class="mock-site ${themeClass}">`;
         content += headerHtml;
         content += heroHtml;
-        content += `<div class="content-pad">`;
-        
-        // İletişim butonları ve bilgi
-        if (features.whatsapp || features.call || features.contactInfo) {
-            let btnClass = currentDesign === "basic" ? "btn-outline" : (currentDesign === "normal" ? "btn-primary" : "btn-glow");
-            content += `<div class="card" style="margin-bottom:1.2rem;">
-                            <div class="flex-between">
+        content += `<div class="content-space">`;
+
+        // İletişim & Button Bloğu
+        if (f.whatsapp || f.call || f.contactInfo) {
+            let btnClass = activeTheme === "basic" ? "btn-outline" : (activeTheme === "modern" ? "btn-primary" : "btn-glow");
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div class="flex-sb">
                                 <div style="display: flex; gap: 12px;">
-                                    ${features.whatsapp ? `<span class="${btnClass}" style="display:inline-flex; align-items:center; gap:6px;"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}
-                                    ${features.call ? `<span class="${btnClass}" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>` : ''}
+                                    ${f.whatsapp ? `<span class="${btnClass}" style="display:inline-flex; gap:6px;"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}
+                                    ${f.call ? `<span class="${btnClass}" style="display:inline-flex; gap:6px;"><i class="fas fa-phone-alt"></i> Tıkla Ara</span>` : ''}
                                 </div>
-                                ${features.contactInfo ? `<div style="font-size:0.75rem;"><i class="fas fa-envelope"></i> info@demo.com | <i class="fas fa-map-marker-alt"></i> İstanbul</div>` : ''}
+                                ${f.contactInfo ? `<div style="font-size:0.75rem;"><i class="fas fa-envelope"></i> info@tasarim.com | 📍 İstanbul</div>` : ''}
                             </div>
                         </div>`;
         }
-        
-        // İletişim formu
-        if (features.contactForm) {
-            content += `<div class="card" style="margin-bottom:1.2rem;">
+
+        // İletişim Formu
+        if (f.contactForm) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
                             <div style="font-weight:600; margin-bottom:12px;">📋 Hızlı İletişim</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 12px;">
                                 <input type="text" placeholder="Adınız" style="background:#1e2535; border:1px solid #2e384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
                                 <input type="email" placeholder="Email" style="background:#1e2535; border:1px solid #2e384a; border-radius: 60px; padding: 8px 16px; flex:1; color:white;">
-                                <button style="background: ${currentDesign === 'pro' ? '#e84393' : '#e67e22'}; border: none; border-radius:60px; padding:8px 20px; color:white;">Gönder</button>
+                                <button style="background: ${activeTheme === 'premium' ? '#cf94ff' : '#e63946'}; border: none; border-radius:60px; padding:8px 20px; color:white;">Gönder</button>
                             </div>
                         </div>`;
         }
-        
-        // Harita
-        if (features.map) {
-            content += `<div class="card" style="margin-bottom:1.2rem;">
+
+        // Google Harita
+        if (f.map) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
                             <div style="font-weight:600; margin-bottom:10px;">📍 Konum</div>
-                            <div style="background:#1a2132; height:140px; border-radius: 24px; display: flex; align-items:center; justify-content:center;">🗺️ Google Maps önizlemesi</div>
+                            <div style="background:#1a2132; height:130px; border-radius: 24px; display: flex; align-items:center; justify-content:center;">🗺️ Google Maps Önizlemesi</div>
                         </div>`;
         }
-        
+
         // Hizmetler
-        if (features.services) {
-            content += `<div class="card" style="margin-bottom:1.2rem;">
+        if (f.services) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
                             <div style="font-weight:600; margin-bottom:12px;">🛠️ Hizmetlerimiz</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                <span class="feature-chip">Kaporta Düzeltme</span>
-                                <span class="feature-chip">Boyasız Göçük</span>
-                                <span class="feature-chip">Çekme & Şasi</span>
+                                <span class="chip">Kaporta Düzeltme</span>
+                                <span class="chip">Boyasız Göçük</span>
+                                <span class="chip">Çekme & Şasi</span>
                             </div>
                         </div>`;
         }
-        
-        // Galeri: Basit
-        if (features.simpleGallery) {
-            content += `<div class="card"><div style="font-weight:600; margin-bottom:12px;">📸 Görsel Galeri</div>
-                        <div class="gallery-grid">
-                            <div class="gallery-item">Görsel 1</div><div class="gallery-item">Görsel 2</div><div class="gallery-item">Görsel 3</div>
-                        </div></div>`;
+
+        // GALERİ
+        if (f.simpleGallery) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">📸 Görsel Galeri</div>
+                            <div class="gallery-grid">
+                                <div class="gallery-item">Görsel 1</div><div class="gallery-item">Görsel 2</div><div class="gallery-item">Görsel 3</div>
+                            </div>
+                        </div>`;
         }
-        // Gelişmiş galeri (büyük işletme)
-        if (features.advancedGallery) {
-            content += `<div class="card" style="margin-bottom:1.2rem;"><div style="font-weight:600; margin-bottom:12px;">🎯 Gelişmiş Galeri</div>
-                        <div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);">
-                            <div class="gallery-item">Proje Alpha</div><div class="gallery-item">Proje Beta</div>
-                            <div class="gallery-item">Proje Gamma</div><div class="gallery-item">Proje Delta</div>
-                        </div></div>`;
+        if (f.advancedGallery) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">🎯 Gelişmiş Galeri</div>
+                            <div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);">
+                                <div class="gallery-item">Proje Alpha</div><div class="gallery-item">Proje Beta</div>
+                                <div class="gallery-item">Proje Gamma</div><div class="gallery-item">Proje Delta</div>
+                            </div>
+                        </div>`;
         }
-        // Extra premium galeri
-        if (features.extraGallery) {
-            content += `<div class="card" style="margin-bottom:1.2rem;"><div style="font-weight:600; margin-bottom:12px;">💎 Premium Galeri</div>
-                        <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr);">
-                            <div class="gallery-item">Ultra 1</div><div class="gallery-item">Ultra 2</div><div class="gallery-item">Ultra 3</div>
-                        </div></div>`;
+        if (f.extraGallery) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
+                            <div style="font-weight:600; margin-bottom:12px;">💎 Premium Galeri</div>
+                            <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr);">
+                                <div class="gallery-item">Ultra HD 1</div><div class="gallery-item">Ultra HD 2</div><div class="gallery-item">Ultra HD 3</div>
+                            </div>
+                        </div>`;
         }
-        
-        // Hakkımızda & Ekip
-        if (features.aboutTeam) {
-            content += `<div class="card" style="margin-bottom:1.2rem;">
+
+        // Ekip & Hakkımızda
+        if (f.team) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
                             <div style="font-weight:600; margin-bottom:12px;">👥 Profesyonel Ekip</div>
-                            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-                                <div style="background:#1b212f; border-radius: 20px; padding: 12px; flex:1; text-align:center;"><i class="fas fa-user-tie fa-2x"></i><br><strong>Ahmet Usta</strong><br>Teknik</div>
-                                <div style="background:#1b212f; border-radius: 20px; padding: 12px; flex:1; text-align:center;"><i class="fas fa-user-graduate fa-2x"></i><br><strong>Elif H.</strong><br>Tasarım</div>
-                                <div style="background:#1b212f; border-radius: 20px; padding: 12px; flex:1; text-align:center;"><i class="fas fa-user-astronaut fa-2x"></i><br><strong>Can Bey</strong><br>Proje</div>
+                            <div class="grid-2">
+                                <div style="background:#1b212f; border-radius: 24px; padding: 1rem; text-align:center;"><i class="fas fa-user-tie fa-2x"></i><br><strong>Ahmet Usta</strong><br>Teknik Lider</div>
+                                <div style="background:#1b212f; border-radius: 24px; padding: 1rem; text-align:center;"><i class="fas fa-user-graduate fa-2x"></i><br><strong>Elif H.</strong><br>Tasarım</div>
+                                <div style="background:#1b212f; border-radius: 24px; padding: 1rem; text-align:center;"><i class="fas fa-user-astronaut fa-2x"></i><br><strong>Can Bey</strong><br>Proje Yön.</div>
                             </div>
                         </div>`;
         }
-        
-        // Yorumlar
-        if (features.reviews) {
-            content += `<div class="card" style="margin-bottom:1.2rem;">
+
+        // Google Yorumları
+        if (f.reviews) {
+            content += `<div class="card" style="margin-bottom:1.5rem;">
                             <div style="font-weight:600; margin-bottom:12px;"><i class="fab fa-google"></i> Müşteri Yorumları</div>
                             <div style="background:#1c2335; border-radius: 20px; padding: 12px; margin-bottom: 8px;">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div>
                             <div style="background:#1c2335; border-radius: 20px; padding: 12px;">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div>
-                            <div style="margin-top:8px;">4.9 ★ (32 yorum)</div>
+                            <div class="mt-1">⭐ 4.9 ★ (42 değerlendirme)</div>
                         </div>`;
         }
-        
-        content += `</div>`; // content-pad kapat
-        
-        // Footer tasarıma göre değişiyor
-        let footer = "";
-        if (currentDesign === "basic") footer = `<div style="padding:1rem; text-align:center; border-top:1px solid #252c3a; font-size:0.7rem;">© BasicCorp - Tüm hakları saklıdır.</div>`;
-        else if (currentDesign === "normal") footer = `<div style="padding:1rem; text-align:center; background:#0c1120; border-top:1px solid #2e3a4e;">✨ ModernSite | Yenilikçi çözümler</div>`;
-        else footer = `<div style="padding:1.2rem; text-align:center; backdrop-filter:blur(8px); border-top:1px solid rgba(255,255,255,0.1);">⭐ AURORA — Premium Tasarım</div>`;
-        
-        content += footer;
-        content += `</div>`; // site-container kapat
-        
+
+        content += `</div>`; // content-space
+
+        // Footer (her temada farklı)
+        let footerText = "";
+        if (activeTheme === "basic") footerText = `<div style="padding:1rem; text-align:center; border-top:1px solid #e2e8f0; font-size:0.7rem;">© BasicStudio · Tüm hakları saklıdır.</div>`;
+        else if (activeTheme === "modern") footerText = `<div style="padding:1rem; text-align:center; background:#0e1220; border-top:1px solid #253045;">🚀 NeoStudio · Dijital dönüşüm</div>`;
+        else footerText = `<div style="padding:1.2rem; text-align:center; backdrop-filter:blur(8px); border-top:1px solid rgba(255,255,255,0.1);">⭐ AURORA PREMIUM — Kusursuz deneyim</div>`;
+        content += footerText;
+        content += `</div>`; // mock-site
         container.innerHTML = content;
-        
-        // Tasarıma özel hover efektlerini yeniden ekle
-        if (currentDesign === "pro") {
-            const cards = document.querySelectorAll('.design-pro .card');
-            cards.forEach(c => {
-                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-6px) scale(1.01)');
+
+        // Tasarıma özel hover dinamik eklemeler
+        if (activeTheme === "modern") {
+            document.querySelectorAll('.theme-modern .card').forEach(c => {
+                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-4px)');
                 c.addEventListener('mouseleave', () => c.style.transform = '');
             });
-        } else if (currentDesign === "normal") {
-            const cards = document.querySelectorAll('.design-normal .card');
-            cards.forEach(c => {
-                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-5px)');
+        } else if (activeTheme === "premium") {
+            document.querySelectorAll('.theme-premium .card').forEach(c => {
+                c.addEventListener('mouseenter', () => c.style.transform = 'translateY(-8px)');
                 c.addEventListener('mouseleave', () => c.style.transform = '');
             });
         }
     }
-    
-    function updateActiveButtons() {
-        document.querySelectorAll('.design-btn').forEach(btn => {
-            if (btn.dataset.design === currentDesign) btn.classList.add('active');
+
+    function activateButtons() {
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            if (btn.dataset.theme === activeTheme) btn.classList.add('active');
             else btn.classList.remove('active');
         });
-        document.querySelectorAll('.package-btn').forEach(btn => {
-            if (btn.dataset.package === currentPackage) btn.classList.add('active');
+        document.querySelectorAll('.pack-btn').forEach(btn => {
+            if (btn.dataset.pack === activePack) btn.classList.add('active');
             else btn.classList.remove('active');
         });
     }
-    
-    function refresh() {
-        renderWebsite();
-        updateActiveButtons();
+
+    function update() {
+        renderUI();
+        activateButtons();
     }
-    
-    document.querySelectorAll('.design-btn').forEach(btn => {
+
+    document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            currentDesign = btn.dataset.design;
-            refresh();
+            activeTheme = btn.dataset.theme;
+            update();
         });
     });
-    document.querySelectorAll('.package-btn').forEach(btn => {
+    document.querySelectorAll('.pack-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            currentPackage = btn.dataset.package;
-            refresh();
+            activePack = btn.dataset.pack;
+            update();
         });
     });
-    
-    refresh();
+
+    update();
 </script>
 </body>
 </html>
