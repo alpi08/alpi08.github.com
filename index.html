@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Tasarım Stüdyosu | Seç & Oluştur</title>
+    <title>Tasarım Stüdyosu | Basic · Modern · Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0b0e17 0%, #0f1320 100%);
+            background: linear-gradient(135deg, #0a0d17 0%, #0f1322 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -23,21 +23,21 @@
             padding: 2rem;
         }
 
-        /* SEÇİM KARTI */
-        .selector-card {
+        /* SEÇİM KARTI - ŞIK VE MODERN */
+        .selection-card {
             max-width: 1100px;
             width: 100%;
-            background: rgba(18, 22, 35, 0.8);
+            background: rgba(18, 22, 38, 0.85);
             backdrop-filter: blur(20px);
             border-radius: 3rem;
             padding: 2.5rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.6);
         }
 
         h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.3rem;
+            font-weight: 800;
             text-align: center;
             background: linear-gradient(135deg, #ffffff, #f5a623);
             background-clip: text;
@@ -48,13 +48,13 @@
 
         .sub {
             text-align: center;
-            color: #8e9aaf;
+            color: #9aa4bf;
             margin-bottom: 2.5rem;
             font-size: 0.9rem;
         }
 
-        .section-title {
-            font-size: 0.9rem;
+        .section-label {
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 1px;
             color: #f5a623;
@@ -64,41 +64,40 @@
             gap: 8px;
         }
 
-        .btn-cluster {
+        .option-group {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2rem;
         }
 
-        .design-option, .package-option {
-            background: #1a1f2e;
-            border: 1px solid #2c3348;
+        .design-card, .pack-card {
+            background: #1a1f30;
+            border: 1px solid #2d3448;
             padding: 12px 28px;
             border-radius: 60px;
             font-weight: 500;
             font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .design-option.active, .package-option.active {
+        .design-card.active, .pack-card.active {
             background: #f5a623;
             border-color: #f5a623;
-            color: #0b0e17;
-            box-shadow: 0 0 15px rgba(245,166,35,0.4);
+            color: #0a0d17;
+            box-shadow: 0 0 18px rgba(245, 166, 35, 0.5);
         }
 
-        .design-option:hover, .package-option:hover {
+        .design-card:hover, .pack-card:hover {
             transform: translateY(-2px);
             background: #2a3148;
         }
 
-        .generate-btn {
-            display: block;
+        .generate-button {
             width: 100%;
             background: linear-gradient(95deg, #f5a623, #e67e22);
             border: none;
@@ -106,182 +105,228 @@
             border-radius: 60px;
             font-weight: 700;
             font-size: 1rem;
-            color: #0b0e17;
+            color: #0a0d17;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 1rem;
             font-family: inherit;
+            margin-top: 1rem;
         }
 
-        .generate-btn:hover {
+        .generate-button:hover {
             transform: scale(1.01);
-            box-shadow: 0 8px 20px rgba(245,166,35,0.4);
+            box-shadow: 0 10px 25px rgba(245, 166, 35, 0.4);
         }
 
         hr {
-            border-color: #2c3348;
-            margin: 1rem 0;
+            border-color: #2d3448;
+            margin: 1.2rem 0;
+        }
+
+        .info-note {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #6a7a9a;
         }
     </style>
 </head>
 <body>
 
-<div class="selector-card">
+<div class="selection-card">
     <h1><i class="fas fa-bezier-curve"></i> Tasarım Stüdyosu</h1>
-    <div class="sub">Gerçek anlamda farklı UI'lar. Seç, oluştur, gör.</div>
+    <div class="sub">Gerçek UI farkları. Seç, oluştur, farkı gör.</div>
 
-    <div class="section-title"><i class="fas fa-palette"></i> 1. Tasarım Stili (Tamamen Farklı Site)</div>
-    <div class="btn-cluster" id="designSelector">
-        <div class="design-option" data-design="basic">📘 BASIC · Minimal & Sade</div>
-        <div class="design-option active" data-design="modern">🔥 MODERN · Dinamik & Neon</div>
-        <div class="design-option" data-design="pro">💎 PRO · Lüks & Akan Görsel</div>
+    <div class="section-label"><i class="fas fa-palette"></i> 1. Tasarım Kimliği (Her biri ayrı bir site)</div>
+    <div class="option-group" id="designGroup">
+        <div class="design-card" data-design="basic">📘 BASIC · Sade & Minimal</div>
+        <div class="design-card active" data-design="modern">🔥 MODERN · Dinamik & Akıcı</div>
+        <div class="design-card" data-design="pro">💎 PRO · Lüks & Premium</div>
     </div>
 
-    <div class="section-title"><i class="fas fa-cubes"></i> 2. Paket (Özellik Zenginliği)</div>
-    <div class="btn-cluster" id="packageSelector">
-        <div class="package-option" data-pack="starter">🚀 Başlangıç</div>
-        <div class="package-option active" data-pack="business">🏪 Küçük İşletme</div>
-        <div class="package-option" data-pack="enterprise">🏢 Büyük İşletme</div>
-        <div class="package-option" data-pack="prosite">💼 Profesyonel</div>
+    <div class="section-label"><i class="fas fa-cubes"></i> 2. Paket (İçerik skalası)</div>
+    <div class="option-group" id="packageGroup">
+        <div class="pack-card" data-pack="starter">🚀 Başlangıç</div>
+        <div class="pack-card active" data-pack="business">🏪 Küçük İşletme</div>
+        <div class="pack-card" data-pack="enterprise">🏢 Büyük İşletme</div>
+        <div class="pack-card" data-pack="prosite">💼 Profesyonel Site</div>
     </div>
 
-    <button class="generate-btn" id="applyBtn"><i class="fas fa-magic"></i> SİTEYİ OLUŞTUR & GÖR</button>
+    <button class="generate-button" id="buildBtn"><i class="fas fa-magic"></i> SİTEYİ OLUŞTUR & GÖR</button>
     <hr>
-    <div style="font-size: 0.7rem; text-align: center; color: #6a7a9a;">Her seçimde sıfırdan oluşturulmuş, tamamen farklı bir site göreceksiniz.</div>
+    <div class="info-note">Her tasarım: farklı header, hero, kart yapısı, galeri stili, animasyonlar ve renk paleti.</div>
 </div>
 
 <script>
-    // Seçili değerler
-    let selectedDesign = "modern";
-    let selectedPack = "business";
+    let currentDesign = "modern";
+    let currentPack = "business";
 
-    // Paket özellikleri
-    const packageFeatures = {
-        starter: { whatsapp: true, call: true, info: true, form: false, simpleGallery: true, advGallery: false, services: true, team: false, reviews: false, map: true, extraGallery: false },
-        business: { whatsapp: true, call: true, info: true, form: true, simpleGallery: true, advGallery: false, services: true, team: true, reviews: false, map: true, extraGallery: false },
-        enterprise: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advGallery: true, services: true, team: true, reviews: true, map: true, extraGallery: false },
-        prosite: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advGallery: false, services: true, team: true, reviews: true, map: true, extraGallery: true }
+    // Paket özellik tablosu
+    const packConfig = {
+        starter: { whatsapp: true, call: true, info: true, form: false, simpleGallery: true, advanced: false, services: true, team: false, reviews: false, map: true, extra: false },
+        business: { whatsapp: true, call: true, info: true, form: true, simpleGallery: true, advanced: false, services: true, team: true, reviews: false, map: true, extra: false },
+        enterprise: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advanced: true, services: true, team: true, reviews: true, map: true, extra: false },
+        prosite: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advanced: false, services: true, team: true, reviews: true, map: true, extra: true }
     };
 
-    // UI seçim butonları aktifleştirme
-    function bindSelection() {
-        document.querySelectorAll('.design-option').forEach(btn => {
+    // Aktif buton görünümü
+    function bindEvents() {
+        document.querySelectorAll('.design-card').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.design-option').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.design-card').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                selectedDesign = btn.dataset.design;
+                currentDesign = btn.dataset.design;
             });
         });
-        document.querySelectorAll('.package-option').forEach(btn => {
+        document.querySelectorAll('.pack-card').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.package-option').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.pack-card').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                selectedPack = btn.dataset.pack;
+                currentPack = btn.dataset.pack;
             });
         });
     }
 
-    // ----- SİTE ÜRETİCİ (farklı tasarımlar için ayrı ayrı HTML) -----
-    function generateSite() {
-        const design = selectedDesign;
-        const pack = selectedPack;
-        const f = packageFeatures[pack];
-
-        // HER TASARIM İÇİN BAŞTAN SONA FARKLI BİR SAYFA YAPISI
-        let fullHtml = `<!DOCTYPE html>
+    // Ana site üretici
+    function generateFullSite() {
+        const design = currentDesign;
+        const f = packConfig[currentPack];
+        
+        let siteHtml = `<!DOCTYPE html>
         <html lang="tr">
         <head>
             <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>${design.toUpperCase()} Tasarım | Demo Site</title>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+            <title>${design === 'basic' ? 'BasicCo | Minimal Tasarım' : (design === 'modern' ? 'NEO Studio | Modern Çözümler' : 'AURORA Premium | Lüks Deneyim')}</title>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
             <style>
                 * { margin: 0; padding: 0; box-sizing: border-box; }
-                body { font-family: 'Inter', sans-serif; background: #0a0c12; color: #eef2ff; }
-                .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+                body {
+                    font-family: 'Inter', sans-serif;
+                    line-height: 1.5;
+                    scroll-behavior: smooth;
+                }
+                .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
                 
-                /* TASARIM ÖZEL STILLER */
+                /* ========= BASIC TASARIM ========= */
                 ${design === 'basic' ? `
-                    body { background: #f5f7fc; color: #1e2a3a; }
-                    .header { background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem 0; }
-                    .hero { background: #eef2f8; padding: 3rem 0; text-align: center; }
-                    .card { background: white; border-radius: 20px; padding: 1.2rem; border: 1px solid #eef2f8; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-                    .btn { background: #2c7da0; border-radius: 40px; padding: 8px 24px; display: inline-block; color: white; }
-                    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+                    body { background: #f8fafc; color: #1e293b; }
+                    .site-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 16px 0; position: sticky; top:0; z-index:10; }
+                    .hero { background: #f1f5f9; padding: 60px 0; text-align: center; }
+                    .service-card { background: white; border-radius: 24px; padding: 24px; border: 1px solid #eef2ff; transition: 0.2s; }
+                    .service-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -12px rgba(0,0,0,0.1); }
+                    .btn-primary { background: #3b82f6; color: white; padding: 10px 28px; border-radius: 40px; display: inline-block; text-decoration: none; font-weight: 600; }
+                    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin: 2rem 0; }
+                    .gallery-item { background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #eef2ff; padding: 1rem; text-align: center; }
+                    .map-placeholder { background: #e2e8f0; height: 200px; border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+                    .footer { background: #0f172a; color: #94a3b8; padding: 2rem; text-align: center; margin-top: 3rem; }
                 ` : design === 'modern' ? `
-                    body { background: #0e121f; color: #edf2ff; font-family: 'Space Grotesk', monospace; }
-                    .header { background: #141b2c; border-bottom: 2px solid #e63946; padding: 1rem 0; }
-                    .hero { background: radial-gradient(circle at 20% 30%, #1e2a44, #0a0f1c); padding: 3rem 0; }
-                    .card { background: #17202f; border-radius: 28px; padding: 1.3rem; border: 1px solid #253045; transition: 0.2s; }
-                    .card:hover { transform: translateY(-4px); border-color: #e63946; }
-                    .btn { background: #e63946; border-radius: 60px; padding: 10px 28px; display: inline-block; }
-                    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+                    body { background: #0b0f1c; color: #eef2ff; font-family: 'Space Grotesk', monospace; }
+                    .site-header { background: #111722; border-bottom: 2px solid #e63946; padding: 16px 0; position: sticky; top:0; z-index:10; backdrop-filter: blur(8px); }
+                    .hero { background: radial-gradient(circle at 20% 30%, #1e2a44, #0a0f1c); padding: 70px 0; text-align: center; }
+                    .service-card { background: #17202f; border-radius: 28px; padding: 24px; border: 1px solid #253045; transition: 0.2s; }
+                    .service-card:hover { transform: translateY(-5px); border-color: #e63946; box-shadow: 0 15px 25px -12px black; }
+                    .btn-primary { background: #e63946; color: white; padding: 12px 32px; border-radius: 60px; display: inline-block; text-decoration: none; font-weight: 600; }
+                    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin: 2rem 0; }
+                    .gallery-item { background: #1a2335; border-radius: 24px; padding: 1.2rem; text-align: center; transition: 0.2s; }
+                    .gallery-item:hover { transform: scale(1.02); background: #25304a; }
+                    .map-placeholder { background: #1a2132; height: 200px; border-radius: 24px; display: flex; align-items: center; justify-content: center; }
+                    .footer { background: #070b14; padding: 2rem; text-align: center; border-top: 1px solid #253045; margin-top: 3rem; }
                 ` : `
-                    body { background: #03060c; color: #fff5e6; font-family: 'Playfair Display', serif; }
-                    .bg-video-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: url('https://placehold.co/1920x1080/1a2535/ffffff?text=Premium+Arka+Plan') center/cover no-repeat; opacity: 0.2; z-index: -1; animation: slowZoom 20s infinite alternate; }
-                    @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-                    .header { background: rgba(10, 15, 25, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem 0; position: sticky; top:0; z-index: 10; }
-                    .hero { text-align: center; padding: 5rem 0; background: radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.1), transparent); }
-                    .card { background: rgba(25, 35, 55, 0.55); backdrop-filter: blur(12px); border-radius: 36px; padding: 1.6rem; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
-                    .card:hover { transform: translateY(-12px); border-color: #ffb347; }
-                    .btn { background: linear-gradient(95deg, #ffb347, #e67e22); border-radius: 80px; padding: 12px 36px; display: inline-block; font-weight: 700; }
-                    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.8rem; }
+                    /* PRO TASARIM - LÜKS, GLOSS, HAREKETLİ ARKA PLAN */
+                    body { background: #03060c; color: #fef6e6; font-family: 'Playfair Display', serif; }
+                    .animated-bg { position: fixed; top:0; left:0; width:100%; height:100%; background: url('https://placehold.co/1920x1080/1a2535/ffffff?text=Premium+Arka+Plan') center/cover no-repeat; opacity: 0.15; z-index: -2; animation: slowPan 25s infinite alternate; }
+                    @keyframes slowPan { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+                    .site-header { background: rgba(10, 15, 25, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; position: sticky; top:0; z-index: 20; }
+                    .hero { text-align: center; padding: 80px 0; background: radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.1), transparent); }
+                    .service-card { background: rgba(25, 35, 55, 0.55); backdrop-filter: blur(12px); border-radius: 36px; padding: 28px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s cubic-bezier(0.2,0.9,0.4,1.2); }
+                    .service-card:hover { transform: translateY(-12px); border-color: #ffb347; box-shadow: 0 30px 40px -20px black; }
+                    .btn-primary { background: linear-gradient(95deg, #ffb347, #e67e22); color: #0a0d17; padding: 14px 38px; border-radius: 80px; display: inline-block; text-decoration: none; font-weight: 700; border: none; transition: 0.2s; }
+                    .btn-primary:hover { transform: scale(1.02); box-shadow: 0 5px 20px rgba(255,180,70,0.4); }
+                    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin: 2rem 0; }
+                    .gallery-item { background: rgba(35, 45, 70, 0.6); backdrop-filter: blur(8px); border-radius: 32px; padding: 1.5rem; text-align: center; transition: 0.2s; }
+                    .gallery-item:hover { transform: scale(1.03); background: rgba(55, 70, 100, 0.7); }
+                    .map-placeholder { background: rgba(20, 30, 50, 0.6); backdrop-filter: blur(8px); height: 200px; border-radius: 32px; display: flex; align-items: center; justify-content: center; }
+                    .footer { background: rgba(5, 10, 18, 0.8); backdrop-filter: blur(12px); padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; }
                 `}
                 
                 .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-                .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 1rem; }
-                .chip { background: rgba(255,255,255,0.08); border-radius: 60px; padding: 5px 14px; font-size: 0.7rem; display: inline-block; }
-                .section-pad { padding: 2rem 0; }
-                .footer { padding: 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem; }
+                .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin: 2rem 0; }
+                .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+                .team-card { background: ${design === 'basic' ? '#ffffff' : (design === 'modern' ? '#17202f' : 'rgba(35, 45, 70, 0.5)')}; border-radius: 24px; padding: 1.5rem; text-align: center; }
+                .review-card { background: ${design === 'basic' ? '#f1f5f9' : (design === 'modern' ? '#1a2335' : 'rgba(25, 35, 55, 0.5)')}; border-radius: 24px; padding: 1rem; margin-bottom: 1rem; }
+                .contact-form input, .contact-form button { padding: 0.8rem 1.2rem; border-radius: 60px; border: none; font-family: inherit; }
+                .section-title { font-size: 1.8rem; font-weight: 700; margin: 2rem 0 1rem; border-left: 4px solid ${design === 'basic' ? '#3b82f6' : (design === 'modern' ? '#e63946' : '#ffb347')}; padding-left: 1rem; }
             </style>
         </head>
         <body>
-        ${design === 'pro' ? `<div class="bg-video-overlay"></div>` : ''}
-        <div class="header">
+        ${design === 'pro' ? '<div class="animated-bg"></div>' : ''}
+        <header class="site-header">
             <div class="container flex-between">
-                <div style="font-weight:800; font-size:1.3rem;">${design === 'basic' ? '📁 BasicCo' : (design === 'modern' ? '◉ NEO STUDIO' : '✦ AURORA PREMIUM')}</div>
-                <div style="display: flex; gap: 1.5rem;"><span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span></div>
+                <div style="font-weight:800; font-size:1.4rem;">${design === 'basic' ? '📁 BasicCo' : (design === 'modern' ? '◉ NEO STUDIO' : '✦ AURORA PREMIUM')}</div>
+                <div style="display: flex; gap: 1.8rem;"><span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span></div>
             </div>
-        </div>
-        <div class="hero">
+        </header>
+        
+        <section class="hero">
             <div class="container">
-                <h1 style="font-size: ${design === 'pro' ? '3.5rem' : '2.5rem'}; font-weight:800;">${design === 'basic' ? 'Sade ve Etkili' : (design === 'modern' ? 'Yaratıcı Dijital Çözümler' : 'Zirve Tasarım Deneyimi')}</h1>
-                <p style="margin-top:0.5rem;">${design === 'basic' ? 'Hızlı, güvenilir, minimal.' : (design === 'modern' ? 'Yenilikçi yaklaşım, akıcı arayüz.' : 'Premium kalite, benzersiz his.')}</p>
-                ${design !== 'basic' ? `<button class="btn" style="margin-top:1rem;">Keşfet</button>` : ''}
+                <h1 style="font-size: ${design === 'pro' ? '3.8rem' : '2.5rem'}; font-weight:800;">${design === 'basic' ? 'Sade, Hızlı, Güvenilir' : (design === 'modern' ? 'Yaratıcı Dijital Dönüşüm' : 'Zirveye Ulaşın')}</h1>
+                <p style="font-size:1.1rem; margin-top:0.5rem; opacity:0.9;">${design === 'basic' ? 'İşletmeniz için temel çözümler.' : (design === 'modern' ? 'Yenilikçi yaklaşım, akıcı arayüz.' : 'Premium kalite, benzersiz deneyim.')}</p>
+                ${design !== 'basic' ? `<a href="#" class="btn-primary" style="margin-top:1.5rem; display:inline-block;">Keşfet</a>` : ''}
             </div>
-        </div>
-        <div class="container section-pad">`;
+        </section>
         
-        // Ortak içerik blokları (pakete göre)
-        // İletişim bloğu
+        <div class="container">`;
+        
+        // İletişim Butonları
         if (f.whatsapp || f.call || f.info) {
-            fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div class="flex-between"><div style="display:flex; gap:0.8rem;">${f.whatsapp ? `<span class="btn" style="padding:5px 16px;"><i class="fab fa-whatsapp"></i> WhatsApp</span>` : ''}${f.call ? `<span class="btn" style="padding:5px 16px;"><i class="fas fa-phone-alt"></i> Ara</span>` : ''}</div>${f.info ? `<div><i class="fas fa-envelope"></i> info@demo.com | 📍 İstanbul</div>` : ''}</div></div>`;
+            siteHtml += `<div class="service-card" style="margin: 1.5rem 0;"><div class="flex-between"><div style="display:flex; gap:0.8rem;">${f.whatsapp ? `<a href="#" class="btn-primary" style="padding:6px 20px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>` : ''}${f.call ? `<a href="#" class="btn-primary" style="padding:6px 20px;"><i class="fas fa-phone-alt"></i> Ara</a>` : ''}</div>${f.info ? `<div><i class="fas fa-envelope"></i> info@demo.com | 📍 İstanbul</div>` : ''}</div></div>`;
         }
-        if (f.form) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📋 İletişim Formu</div><div style="display:flex; gap:0.8rem; margin-top:0.5rem;"><input placeholder="Adınız" style="background:#1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1;"><input placeholder="Email" style="background:#1e2535; border:1px solid #2f384a; border-radius: 60px; padding: 8px 16px; flex:1;"><button class="btn" style="padding:6px 18px;">Gönder</button></div></div>`;
-        if (f.map) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📍 Konum</div><div style="background:#1a2132; height:130px; border-radius:24px; display:flex; align-items:center; justify-content:center;">🗺️ Google Maps Önizlemesi</div></div>`;
-        if (f.services) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">🛠️ Hizmetlerimiz</div><div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;"><span class="chip">Kaporta</span><span class="chip">Boyasız Göçük</span><span class="chip">Çekme & Şasi</span></div></div>`;
-        if (f.simpleGallery) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">📸 Galeri</div><div class="gallery-grid"><div class="card" style="background:#1e2535;">Görsel 1</div><div class="card" style="background:#1e2535;">Görsel 2</div><div class="card" style="background:#1e2535;">Görsel 3</div></div></div>`;
-        if (f.advGallery) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">🎯 Gelişmiş Galeri</div><div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);"><div class="card">Proje A</div><div class="card">Proje B</div><div class="card">Proje C</div><div class="card">Proje D</div></div></div>`;
-        if (f.extraGallery) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">💎 Premium Ultra HD</div><div class="gallery-grid"><div class="card">Ultra 1</div><div class="card">Ultra 2</div><div class="card">Ultra 3</div></div></div>`;
-        if (f.team) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;">👥 Ekibimiz</div><div class="grid-2"><div style="background:#1b212f; border-radius: 24px; padding: 1rem;"><i class="fas fa-user-tie fa-2x"></i><br/>Ahmet Usta</div><div style="background:#1b212f; border-radius: 24px; padding: 1rem;"><i class="fas fa-user-graduate fa-2x"></i><br/>Elif H.</div></div></div>`;
-        if (f.reviews) fullHtml += `<div class="card" style="margin-bottom:1.5rem;"><div style="font-weight:600;"><i class="fab fa-google"></i> Yorumlar</div><div style="background:#1c2335; border-radius: 20px; padding: 10px;">⭐⭐⭐⭐⭐ "Harika işçilik" – Mehmet</div><div style="margin-top:8px;">4.9 ★ (34 yorum)</div></div>`;
         
-        fullHtml += `</div>
-        <div class="footer">© 2025 • ${design.toUpperCase()} Tasarım | İletişim: 0532 264 15 01</div>
-        </body>
-        </html>`;
+        // Form
+        if (f.form) {
+            siteHtml += `<div class="service-card" style="margin:1.5rem 0;"><div style="font-weight:600;">📋 İletişim Formu</div><div class="contact-form" style="display:flex; flex-wrap:wrap; gap:0.8rem; margin-top:0.8rem;"><input placeholder="Adınız"><input placeholder="Email"><button class="btn-primary" style="padding:6px 20px;">Gönder</button></div></div>`;
+        }
         
-        // Yeni bir sayfada aç
-        const newWindow = window.open();
-        newWindow.document.write(fullHtml);
-        newWindow.document.close();
+        // Harita
+        if (f.map) siteHtml += `<div class="service-card" style="margin:1.5rem 0;"><div style="font-weight:600;">📍 Konum</div><div class="map-placeholder"><i class="fas fa-map-marked-alt"></i> Google Maps Önizlemesi</div></div>`;
+        
+        // Hizmetler
+        if (f.services) {
+            siteHtml += `<div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div><div class="services-grid"><div class="service-card"><i class="fas fa-car-crash fa-2x"></i><h3 style="margin:0.5rem 0;">Kaporta Düzeltme</h3><p>Profesyonel işçilik</p></div><div class="service-card"><i class="fas fa-paint-roller fa-2x"></i><h3>Oto Boya</h3><p>Renk garantili</p></div><div class="service-card"><i class="fas fa-draw-polygon fa-2x"></i><h3>Çekme & Şasi</h3><p>Hidrolik sistem</p></div></div>`;
+        }
+        
+        // Galeri
+        if (f.simpleGallery) {
+            siteHtml += `<div class="section-title">📸 Görsel Galeri</div><div class="gallery-grid"><div class="gallery-item"><i class="fas fa-image fa-2x"></i><br>Görsel 1</div><div class="gallery-item"><i class="fas fa-image fa-2x"></i><br>Görsel 2</div><div class="gallery-item"><i class="fas fa-image fa-2x"></i><br>Görsel 3</div></div>`;
+        }
+        if (f.advanced) {
+            siteHtml += `<div class="section-title">🎯 Gelişmiş Galeri</div><div class="gallery-grid" style="grid-template-columns:repeat(2,1fr);"><div class="gallery-item">Proje Alpha</div><div class="gallery-item">Proje Beta</div><div class="gallery-item">Proje Gamma</div><div class="gallery-item">Proje Delta</div></div>`;
+        }
+        if (f.extra) {
+            siteHtml += `<div class="section-title">💎 Premium Ultra HD</div><div class="gallery-grid"><div class="gallery-item">Ultra 1</div><div class="gallery-item">Ultra 2</div><div class="gallery-item">Ultra 3</div></div>`;
+        }
+        
+        // Ekip
+        if (f.team) {
+            siteHtml += `<div class="section-title">👥 Ekibimiz</div><div class="team-grid"><div class="team-card"><i class="fas fa-user-tie fa-3x"></i><br><strong>Ahmet Usta</strong><br>Teknik Lider</div><div class="team-card"><i class="fas fa-user-graduate fa-3x"></i><br><strong>Elif H.</strong><br>Tasarım</div><div class="team-card"><i class="fas fa-user-astronaut fa-3x"></i><br><strong>Can Bey</strong><br>Proje Yön.</div></div>`;
+        }
+        
+        // Yorumlar
+        if (f.reviews) {
+            siteHtml += `<div class="section-title"><i class="fab fa-google"></i> Müşteri Yorumları</div><div class="review-card">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div><div class="review-card">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div><div style="margin-top:0.5rem;">⭐ 4.9 ★ (42 değerlendirme)</div>`;
+        }
+        
+        siteHtml += `</div><footer class="footer"><p>© 2025 ${design.toUpperCase()} Tasarım | İletişim: 0532 264 15 01</p></footer></body></html>`;
+        
+        const newWin = window.open();
+        newWin.document.write(siteHtml);
+        newWin.document.close();
     }
-
-    bindSelection();
-    document.getElementById("applyBtn").addEventListener("click", generateSite);
+    
+    bindEvents();
+    document.getElementById("buildBtn").addEventListener("click", generateFullSite);
 </script>
 </body>
 </html>
