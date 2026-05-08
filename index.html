@@ -23,7 +23,7 @@
             padding: 2rem;
         }
 
-        /* SEÇİM KARTI - ŞIK VE MODERN */
+        /* SEÇİM KARTI */
         .selection-card {
             max-width: 1100px;
             width: 100%;
@@ -159,7 +159,6 @@
     let currentDesign = "modern";
     let currentPack = "business";
 
-    // Paket özellik tablosu
     const packConfig = {
         starter: { whatsapp: true, call: true, info: true, form: false, simpleGallery: true, advanced: false, services: true, team: false, reviews: false, map: true, extra: false },
         business: { whatsapp: true, call: true, info: true, form: true, simpleGallery: true, advanced: false, services: true, team: true, reviews: false, map: true, extra: false },
@@ -167,7 +166,6 @@
         prosite: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advanced: false, services: true, team: true, reviews: true, map: true, extra: true }
     };
 
-    // Aktif buton görünümü
     function bindEvents() {
         document.querySelectorAll('.design-card').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -185,7 +183,6 @@
         });
     }
 
-    // Ana site üretici
     function generateFullSite() {
         const design = currentDesign;
         const f = packConfig[currentPack];
@@ -234,12 +231,27 @@
                     .map-placeholder { background: #1a2132; height: 200px; border-radius: 24px; display: flex; align-items: center; justify-content: center; }
                     .footer { background: #070b14; padding: 2rem; text-align: center; border-top: 1px solid #253045; margin-top: 3rem; }
                 ` : `
-                    /* PRO TASARIM - LÜKS, GLOSS, HAREKETLİ ARKA PLAN */
+                    /* PRO TASARIM - PREMIUM ARKA PLAN HERO & KARTLARDA */
                     body { background: #03060c; color: #fef6e6; font-family: 'Playfair Display', serif; }
-                    .animated-bg { position: fixed; top:0; left:0; width:100%; height:100%; background: url('https://placehold.co/1920x1080/1a2535/ffffff?text=Premium+Arka+Plan') center/cover no-repeat; opacity: 0.15; z-index: -2; animation: slowPan 25s infinite alternate; }
-                    @keyframes slowPan { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
-                    .site-header { background: rgba(10, 15, 25, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; position: sticky; top:0; z-index: 20; }
-                    .hero { text-align: center; padding: 80px 0; background: radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.1), transparent); }
+                    /* Büyük, hareketli arka plan sadece hero bölümünde */
+                    .animated-hero-bg {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: url('https://placehold.co/1920x1080/1a2535/ffffff?text=Premium+Texture') center/cover no-repeat;
+                        opacity: 0.2;
+                        z-index: 0;
+                        animation: slowShift 22s infinite alternate;
+                    }
+                    @keyframes slowShift {
+                        0% { transform: scale(1); opacity: 0.18; }
+                        100% { transform: scale(1.08); opacity: 0.28; }
+                    }
+                    .hero { position: relative; overflow: hidden; background: #050a12; text-align: center; padding: 100px 0; }
+                    .hero-content { position: relative; z-index: 2; }
+                    .site-header { background: rgba(10, 15, 25, 0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; position: sticky; top:0; z-index: 20; }
                     .service-card { background: rgba(25, 35, 55, 0.55); backdrop-filter: blur(12px); border-radius: 36px; padding: 28px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s cubic-bezier(0.2,0.9,0.4,1.2); }
                     .service-card:hover { transform: translateY(-12px); border-color: #ffb347; box-shadow: 0 30px 40px -20px black; }
                     .btn-primary { background: linear-gradient(95deg, #ffb347, #e67e22); color: #0a0d17; padding: 14px 38px; border-radius: 80px; display: inline-block; text-decoration: none; font-weight: 700; border: none; transition: 0.2s; }
@@ -261,7 +273,6 @@
             </style>
         </head>
         <body>
-        ${design === 'pro' ? '<div class="animated-bg"></div>' : ''}
         <header class="site-header">
             <div class="container flex-between">
                 <div style="font-weight:800; font-size:1.4rem;">${design === 'basic' ? '📁 BasicCo' : (design === 'modern' ? '◉ NEO STUDIO' : '✦ AURORA PREMIUM')}</div>
@@ -270,8 +281,9 @@
         </header>
         
         <section class="hero">
-            <div class="container">
-                <h1 style="font-size: ${design === 'pro' ? '3.8rem' : '2.5rem'}; font-weight:800;">${design === 'basic' ? 'Sade, Hızlı, Güvenilir' : (design === 'modern' ? 'Yaratıcı Dijital Dönüşüm' : 'Zirveye Ulaşın')}</h1>
+            ${design === 'pro' ? '<div class="animated-hero-bg"></div>' : ''}
+            <div class="container hero-content">
+                <h1 style="font-size: ${design === 'pro' ? '4rem' : '2.5rem'}; font-weight:800;">${design === 'basic' ? 'Sade, Hızlı, Güvenilir' : (design === 'modern' ? 'Yaratıcı Dijital Dönüşüm' : 'Zirveye Ulaşın')}</h1>
                 <p style="font-size:1.1rem; margin-top:0.5rem; opacity:0.9;">${design === 'basic' ? 'İşletmeniz için temel çözümler.' : (design === 'modern' ? 'Yenilikçi yaklaşım, akıcı arayüz.' : 'Premium kalite, benzersiz deneyim.')}</p>
                 ${design !== 'basic' ? `<a href="#" class="btn-primary" style="margin-top:1.5rem; display:inline-block;">Keşfet</a>` : ''}
             </div>
@@ -279,25 +291,16 @@
         
         <div class="container">`;
         
-        // İletişim Butonları
         if (f.whatsapp || f.call || f.info) {
             siteHtml += `<div class="service-card" style="margin: 1.5rem 0;"><div class="flex-between"><div style="display:flex; gap:0.8rem;">${f.whatsapp ? `<a href="#" class="btn-primary" style="padding:6px 20px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>` : ''}${f.call ? `<a href="#" class="btn-primary" style="padding:6px 20px;"><i class="fas fa-phone-alt"></i> Ara</a>` : ''}</div>${f.info ? `<div><i class="fas fa-envelope"></i> info@demo.com | 📍 İstanbul</div>` : ''}</div></div>`;
         }
-        
-        // Form
         if (f.form) {
             siteHtml += `<div class="service-card" style="margin:1.5rem 0;"><div style="font-weight:600;">📋 İletişim Formu</div><div class="contact-form" style="display:flex; flex-wrap:wrap; gap:0.8rem; margin-top:0.8rem;"><input placeholder="Adınız"><input placeholder="Email"><button class="btn-primary" style="padding:6px 20px;">Gönder</button></div></div>`;
         }
-        
-        // Harita
         if (f.map) siteHtml += `<div class="service-card" style="margin:1.5rem 0;"><div style="font-weight:600;">📍 Konum</div><div class="map-placeholder"><i class="fas fa-map-marked-alt"></i> Google Maps Önizlemesi</div></div>`;
-        
-        // Hizmetler
         if (f.services) {
             siteHtml += `<div class="section-title"><i class="fas fa-tools"></i> Hizmetlerimiz</div><div class="services-grid"><div class="service-card"><i class="fas fa-car-crash fa-2x"></i><h3 style="margin:0.5rem 0;">Kaporta Düzeltme</h3><p>Profesyonel işçilik</p></div><div class="service-card"><i class="fas fa-paint-roller fa-2x"></i><h3>Oto Boya</h3><p>Renk garantili</p></div><div class="service-card"><i class="fas fa-draw-polygon fa-2x"></i><h3>Çekme & Şasi</h3><p>Hidrolik sistem</p></div></div>`;
         }
-        
-        // Galeri
         if (f.simpleGallery) {
             siteHtml += `<div class="section-title">📸 Görsel Galeri</div><div class="gallery-grid"><div class="gallery-item"><i class="fas fa-image fa-2x"></i><br>Görsel 1</div><div class="gallery-item"><i class="fas fa-image fa-2x"></i><br>Görsel 2</div><div class="gallery-item"><i class="fas fa-image fa-2x"></i><br>Görsel 3</div></div>`;
         }
@@ -307,13 +310,9 @@
         if (f.extra) {
             siteHtml += `<div class="section-title">💎 Premium Ultra HD</div><div class="gallery-grid"><div class="gallery-item">Ultra 1</div><div class="gallery-item">Ultra 2</div><div class="gallery-item">Ultra 3</div></div>`;
         }
-        
-        // Ekip
         if (f.team) {
             siteHtml += `<div class="section-title">👥 Ekibimiz</div><div class="team-grid"><div class="team-card"><i class="fas fa-user-tie fa-3x"></i><br><strong>Ahmet Usta</strong><br>Teknik Lider</div><div class="team-card"><i class="fas fa-user-graduate fa-3x"></i><br><strong>Elif H.</strong><br>Tasarım</div><div class="team-card"><i class="fas fa-user-astronaut fa-3x"></i><br><strong>Can Bey</strong><br>Proje Yön.</div></div>`;
         }
-        
-        // Yorumlar
         if (f.reviews) {
             siteHtml += `<div class="section-title"><i class="fab fa-google"></i> Müşteri Yorumları</div><div class="review-card">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div><div class="review-card">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div><div style="margin-top:0.5rem;">⭐ 4.9 ★ (42 değerlendirme)</div>`;
         }
