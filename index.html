@@ -178,7 +178,7 @@
 
     <button class="generate-button" id="buildBtn"><i class="fas fa-magic"></i> SİTEYİ OLUŞTUR & GÖR</button>
     <hr>
-    <div class="info-note">Tasarımlar: Basic (sade), Modern (dinamik), Pro (lüks giriş + akan görsel arka plan). Galeri görsellerine tıklayarak büyütebilirsiniz.</div>
+    <div class="info-note">Tasarımlar: Basic (sade), Modern (dinamik), Pro (lüks giriş + mor-mavi gradient arka plan).</div>
 </div>
 
 <script>
@@ -271,11 +271,8 @@
                     .map-placeholder { background: #1a2132; height: 200px; border-radius: 24px; display: flex; align-items: center; justify-content: center; }
                     .footer { background: #070b14; padding: 2rem; text-align: center; border-top: 1px solid #253045; margin-top: 3rem; }
                 ` : `
-                    /* PRO TASARIM - ARKA PLAN AKIYOR, STICKY HEADER, BÜYÜK HERO */
-                    body { background: #03060c; color: #fef6e6; font-family: 'Playfair Display', serif; }
-                    .slider-bg { position: fixed; top:0; left:0; width:100%; height:100%; z-index: -2; overflow: hidden; }
-                    .slide-bg { position: absolute; width:100%; height:100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.8s ease; }
-                    .slide-bg.active { opacity: 0.28; }
+                    /* PRO TASARIM - MOR MAVİ GRADYAN ARKA PLAN, GİRİŞTE LOGO, AKAN GÖRSEL YOK */
+                    body { background: linear-gradient(135deg, #1a0b2e 0%, #0f172a 50%, #0b1120 100%); color: #fef6e6; font-family: 'Playfair Display', serif; }
                     .site-header { background: rgba(10, 15, 25, 0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; position: sticky; top:0; z-index: 20; }
                     .hero-full { min-height: calc(100vh - 80px); display: flex; align-items: center; position: relative; z-index: 2; background: transparent; }
                     .hero-full .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 3rem; }
@@ -301,11 +298,10 @@
             </style>
         </head>
         <body>
-        ${design === 'pro' ? `<div class="slider-bg" id="proSlider"><div class="slide-bg active" style="background-image: url('https://placehold.co/1920x1080/1a2535/ffffff?text=Premium+Texture+1');"></div><div class="slide-bg" style="background-image: url('https://placehold.co/1920x1080/2c3e50/ffffff?text=Premium+Texture+2');"></div><div class="slide-bg" style="background-image: url('https://placehold.co/1920x1080/34495e/ffffff?text=Premium+Texture+3');"></div></div>` : ''}
         <div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt=""></div>
         
         ${design === 'pro' ? `
-        <!-- PRO: STICKY HEADER + BÜYÜK HERO -->
+        <!-- PRO: STICKY HEADER + BÜYÜK HERO (arka plan gradyan, girişte logo) -->
         <header class="site-header sticky-header">
             <div class="container flex-between">
                 <div style="font-weight:800; font-size:1.4rem;">✦ AURORA PREMIUM</div>
@@ -324,7 +320,7 @@
                     <a href="#" class="btn-primary" style="margin-top: 1.5rem; display: inline-block;">Keşfet</a>
                 </div>
                 <div class="hero-right">
-                    <img src="https://placehold.co/400x400/2c3e50/ffb347?text=Logo" alt="Premium Logo">
+                    <img src="https://placehold.co/400x400/2c3e50/ffb347?text=Premium+Logo" alt="Premium Logo">
                 </div>
             </div>
         </section>
@@ -377,11 +373,6 @@
                 });
             });
             lightbox.addEventListener('click', () => { lightbox.classList.remove('active'); lightboxImg.src = ''; });
-            ${design === 'pro' ? `
-            let slides = document.querySelectorAll('.slide-bg'), current = 0;
-            function nextSlide() { slides[current].classList.remove('active'); current = (current+1)%slides.length; slides[current].classList.add('active'); }
-            setInterval(nextSlide, 4500);
-            ` : ''}
         <\/script>
         </body>
         </html>`;
