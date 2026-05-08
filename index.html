@@ -24,7 +24,7 @@
         }
 
         .selection-card {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             background: rgba(18, 22, 38, 0.85);
             backdrop-filter: blur(20px);
@@ -51,7 +51,23 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .intro-text {
+            background: rgba(245, 166, 35, 0.08);
+            border-left: 4px solid #f5a623;
+            padding: 1.2rem 1.8rem;
+            border-radius: 1.5rem;
+            margin: 1.5rem 0 2rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e6;
+        }
+
+        .intro-text i {
+            color: #f5a623;
+            margin-right: 8px;
         }
 
         .sub {
@@ -137,8 +153,12 @@
 <div class="selection-card">
     <div class="creator-name"><i class="fas fa-code"></i> Nail Alparslan Silman - Site Öngösterimi</div>
     <h1><i class="fas fa-bezier-curve"></i> Tasarım Stüdyosu</h1>
-    <div class="sub">Gerçek UI farkları. Seç, oluştur, farkı gör.</div>
-
+    
+    <div class="intro-text">
+        <i class="fas fa-comment-dots"></i> Merhaba, ben Nail Alparslan Silman. Freelance olarak sizler gibi işletmelere modern, hızlı ve dönüşüm odaklı web siteleri hazırlıyorum.<br><br>
+        Bu sayfaya kadar geldiğinize göre, site tasarımlarımı merak etmişsiniz demek ki. Aşağıdan kendi işletmenize uygun <strong>tasarım stilini (Basic, Modern, Pro)</strong> ve <strong>özellik paketini</strong> seçerek önizlemeleri inceleyebilir, canlı olarak farkları görebilirsiniz. Her seçimde tamamen farklı bir site arayüzü sizi bekliyor.
+    </div>
+    
     <div class="section-label"><i class="fas fa-palette"></i> 1. Tasarım Kimliği</div>
     <div class="option-group" id="designGroup">
         <div class="design-card" data-design="basic">📘 BASIC · Sade & Minimal</div>
@@ -156,7 +176,7 @@
 
     <button class="generate-button" id="buildBtn"><i class="fas fa-magic"></i> SİTEYİ OLUŞTUR & GÖR</button>
     <hr>
-    <div class="info-note">Her tasarım: farklı header, hero, hizmetler, galeri, ekip, yorumlar ve iletişim düzeni. Galeri görsellerine tıklayınca büyür.</div>
+    <div class="info-note">Her tasarım: farklı header, hero, hizmetler, galeri (tıklanabilir büyütme), ekip, yorumlar ve iletişim düzeni. Tüm galeri görsellerine tıklayarak detaylı inceleyebilirsiniz.</div>
 </div>
 
 <script>
@@ -206,7 +226,6 @@
                 body { font-family: 'Inter', sans-serif; line-height: 1.5; scroll-behavior: smooth; }
                 .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
                 
-                /* LIGHTBOX STILI */
                 .lightbox { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 1000; visibility: hidden; opacity: 0; transition: 0.25s; cursor: pointer; }
                 .lightbox.active { visibility: visible; opacity: 1; }
                 .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 16px; box-shadow: 0 20px 35px rgba(0,0,0,0.5); }
@@ -256,7 +275,7 @@
                     .gallery-item:hover { transform: scale(1.03); background: rgba(55, 70, 100, 0.7); }
                     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 1.5rem; margin: 1.5rem 0; }
                     .team-card { background: rgba(35, 45, 70, 0.5); border-radius: 28px; padding: 1.5rem; text-align: center; backdrop-filter: blur(4px); }
-                    .review-card { background: rgba(25, 35, 55, 0.5); border-radius: 24px; padding: 1rem; margin-bottom: 1rem; backrop-filter: blur(4px); }
+                    .review-card { background: rgba(25, 35, 55, 0.5); border-radius: 24px; padding: 1rem; margin-bottom: 1rem; backdrop-filter: blur(4px); }
                     .map-placeholder { background: rgba(20, 30, 50, 0.6); backdrop-filter: blur(8px); height: 200px; border-radius: 32px; display: flex; align-items: center; justify-content: center; }
                     .footer { background: rgba(5, 10, 18, 0.8); backdrop-filter: blur(12px); padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; }
                 `}
@@ -265,7 +284,6 @@
                 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin: 2rem 0; }
                 .section-title { font-size: 1.8rem; font-weight: 700; margin: 2.5rem 0 1.5rem; border-left: 4px solid ${design === 'basic' ? '#3b82f6' : (design === 'modern' ? '#e63946' : '#ffb347')}; padding-left: 1rem; }
                 .contact-area { margin: 2rem 0; }
-                img { pointer-events: none; }
                 .gallery-item i, .gallery-item span { pointer-events: none; }
             </style>
         </head>
@@ -309,27 +327,18 @@
         <footer class="footer"><p>© 2025 ${design.toUpperCase()} Tasarım | İletişim: 0532 264 15 01</p></footer>
         
         <script>
-            // Lightbox
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            galleryItems.forEach(item => {
+            document.querySelectorAll('.gallery-item').forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const imgUrl = item.getAttribute('data-img');
-                    if(imgUrl) {
-                        lightboxImg.src = imgUrl;
-                        lightbox.classList.add('active');
-                    }
+                    if(imgUrl) { lightboxImg.src = imgUrl; lightbox.classList.add('active'); }
                 });
             });
-            lightbox.addEventListener('click', () => {
-                lightbox.classList.remove('active');
-                lightboxImg.src = '';
-            });
+            lightbox.addEventListener('click', () => { lightbox.classList.remove('active'); lightboxImg.src = ''; });
             ${design === 'pro' ? `
-            let slides = document.querySelectorAll('.slide-bg');
-            let current = 0;
+            let slides = document.querySelectorAll('.slide-bg'), current = 0;
             function nextSlide() { slides[current].classList.remove('active'); current = (current+1)%slides.length; slides[current].classList.add('active'); }
             setInterval(nextSlide, 4200);
             ` : ''}
