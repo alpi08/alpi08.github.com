@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Nail Alparslan Silman - Öngösterim</title>
+    <title>Nail Alparslan Silman - Tasarım Stüdyosu</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
     <div class="creator-name"><i class="fas fa-code"></i> Nail Alparslan Silman - Site Öngösterimi</div>
     <h1><i class="fas fa-bezier-curve"></i> Tasarım Stüdyosu</h1>
     <div class="intro-text">
-        <i class="fas fa-comment-dots"></i> Merhaba, ben Nail Alparslan Silman. Freelance olarak işletmelere modern, hızlı web siteleri hazırlıyorum.<br><br>
+        <i class="fas fa-comment-dots"></i> Merhaba, ben Nail Alparslan Silman. Freelance olarak işletmelere modern web siteleri hazırlıyorum.<br><br>
         Aşağıdan <strong>tasarım stilini (Basic, Standart, Pro)</strong> ve <strong>özellik paketini</strong> seçerek farklı animasyon, ikon ve kart stillerini görebilirsiniz.
     </div>
     <div class="section-label"><i class="fas fa-palette"></i> 1. Tasarım Kimliği</div>
@@ -66,7 +66,7 @@
     </div>
     <button class="generate-button" id="buildBtn"><i class="fas fa-magic"></i> SİTEYİ OLUŞTUR & GÖR</button>
     <hr>
-    <div class="info-note">Her tasarım: farklı kart, ikon, animasyon ve hover efektleri. WhatsApp sol altta.</div>
+    <div class="info-note">Her tasarım seviyesi: butonlar, hover, kart, animasyon, tipografi, shadow, spacing, mobil uyum tamamen farklıdır.</div>
 </div>
 
 <script>
@@ -110,19 +110,26 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <style>
             * { margin:0; padding:0; box-sizing:border-box; }
-            body { font-family:'Inter', sans-serif; line-height:1.5; scroll-behavior:smooth; }
+            body { font-family:'Inter', sans-serif; line-height:1.5; }
             .container { width:100%; max-width:1200px; margin:0 auto; padding:0 20px; }
             .lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); display:flex; align-items:center; justify-content:center; z-index:1000; visibility:hidden; opacity:0; transition:0.25s; cursor:pointer; }
             .lightbox.active { visibility:visible; opacity:1; }
             .lightbox img { max-width:90%; max-height:90%; object-fit:contain; border-radius:16px; }
             .flex-between { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; }
             .services-grid, .gallery-grid, .team-grid { display:grid; gap:1.2rem; margin:1.5rem 0; }
-            .contact-bottom { margin-top: 2rem; }
+            .contact-section { margin: 2rem 0; }
+            .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
             .whatsapp-float { position:fixed; bottom:20px; left:20px; background:#25D366; width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:999; cursor:pointer; transition:0.2s; }
-            .whatsapp-float:hover { transform:scale(1.05); }
             .whatsapp-float i { font-size:1.8rem; color:white; }
+            .form-group { margin-bottom: 1rem; }
+            .form-group input, .form-group textarea { width:100%; padding:10px 14px; border-radius:8px; border:1px solid #ddd; background:#1a1a1a; color:#fff; font-family:inherit; }
+            .form-group textarea { min-height:100px; resize:vertical; }
+            .contact-info { display: flex; flex-direction: column; gap: 1rem; text-align:center; }
+            .contact-info .phone { font-size: 1.4rem; font-weight: 700; }
             
+            /* RESPONSIVE */
             @media (max-width: 768px) {
+                .contact-grid { grid-template-columns: 1fr; gap: 1rem; }
                 .services-grid { grid-template-columns:1fr !important; }
                 .gallery-grid { grid-template-columns:repeat(2,1fr) !important; gap:0.8rem; }
                 .team-grid { grid-template-columns:1fr !important; }
@@ -135,79 +142,95 @@
             }
             @media (max-width: 480px) { .gallery-grid { grid-template-columns:1fr !important; } }
             
-            /* ========= BASIC TASARIM (Düz, sade, minimal animasyon) ========= */
             ${design === 'basic' ? `
-                body { background:#f5f7fa; color:#2c3e50; }
-                .site-header { background:#fff; border-bottom:1px solid #e2e8f0; padding:12px 0; }
-                .hero { background:#eef2f6; padding:40px 0; text-align:center; }
-                .hero h1 { font-size:1.8rem; font-weight:600; }
-                .section-title { font-size:1.3rem; font-weight:600; margin:1.5rem 0 1rem; border-left:3px solid #3b82f6; padding-left:0.8rem; }
+                /* ========= BASIC ========= */
+                body { background:#f4f6fa; color:#1e293b; scroll-behavior:auto; }
+                .site-header { background:#fff; border-bottom:1px solid #e2e8f0; padding:12px 0; position:relative; }
+                .hero { background:#eef2f8; padding:50px 0; text-align:center; }
+                .hero h1 { font-size:2rem; font-weight:600; margin-bottom:0.5rem; }
+                .section-title { font-size:1.4rem; font-weight:600; margin:1.5rem 0 1rem; border-left:3px solid #3b82f6; padding-left:0.8rem; }
                 .services-grid { grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1rem; }
-                .service-card { background:#fff; border-radius:8px; padding:1.2rem; border:1px solid #e2e8f0; text-align:center; transition:0.1s; }
+                .service-card { background:#fff; border-radius:6px; padding:1.2rem; border:1px solid #e2e8f0; text-align:center; transition:0.1s; box-shadow:0 1px 2px rgba(0,0,0,0.02); }
                 .service-card i { color:#3b82f6; font-size:1.8rem; margin-bottom:8px; display:block; }
-                .service-card:hover { background:#f8fafc; }
-                .btn-primary { background:#3b82f6; color:#fff; padding:6px 18px; border-radius:30px; display:inline-block; text-decoration:none; font-weight:500; font-size:0.85rem; transition:0.1s; }
+                .service-card:hover { background:#f9fafc; }
+                .btn-primary { background:#3b82f6; color:#fff; padding:6px 20px; border-radius:6px; display:inline-block; text-decoration:none; font-weight:500; font-size:0.85rem; transition:0.1s; border:none; cursor:pointer; }
+                .btn-primary:hover { background:#2563eb; }
                 .gallery-grid { grid-template-columns:repeat(3,1fr); gap:0.8rem; }
-                .gallery-item { background:#fff; border-radius:8px; border:1px solid #e2e8f0; padding:0.8rem; text-align:center; cursor:pointer; transition:0.1s; }
+                .gallery-item { background:#fff; border-radius:6px; border:1px solid #e2e8f0; padding:0.8rem; text-align:center; cursor:pointer; }
                 .team-grid { grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:0.8rem; }
-                .team-card { background:#fff; border-radius:8px; padding:0.8rem; text-align:center; border:1px solid #e2e8f0; }
-                .review-card { background:#f1f5f9; border-radius:8px; padding:0.8rem; margin-bottom:0.8rem; }
-                .map-placeholder { background:#e2e8f0; height:160px; border-radius:8px; display:flex; align-items:center; justify-content:center; }
+                .team-card { background:#fff; border-radius:6px; padding:0.8rem; text-align:center; border:1px solid #e2e8f0; }
+                .review-card { background:#f1f5f9; border-radius:6px; padding:0.8rem; margin-bottom:0.8rem; }
+                .map-placeholder { background:#e2e8f0; height:250px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; }
                 .footer { background:#1e293b; color:#94a3b8; padding:1rem; text-align:center; margin-top:1.5rem; font-size:0.7rem; }
+                .form-group input, .form-group textarea { background:#1e1e2f; border:1px solid #334155; color:#fff; border-radius:6px; }
+                .contact-info .phone { font-size:1.2rem; }
             ` : design === 'modern' ? `
-                /* ========= STANDART TASARIM (Hover yükselme, renkli ikonlar, geçiş) ========= */
-                body { background:#0f121c; color:#eef2ff; font-family:'Space Grotesk', monospace; }
-                .site-header { background:#141a28; border-bottom:2px solid #e63946; padding:12px 0; }
-                .hero { background:radial-gradient(circle at 30% 40%, #1e2a44, #0a0f1c); padding:50px 0; text-align:center; }
-                .hero h1 { font-size:2.2rem; font-weight:700; background:linear-gradient(135deg, #fff, #e63946); background-clip:text; -webkit-background-clip:text; color:transparent; }
-                .section-title { font-size:1.5rem; font-weight:600; margin:2rem 0 1rem; border-left:4px solid #e63946; padding-left:0.8rem; }
+                /* ========= STANDART (Modern) ========= */
+                body { background:#0f121c; color:#eef2ff; font-family:'Space Grotesk', monospace; scroll-behavior:smooth; }
+                .site-header { background:#141a28; border-bottom:2px solid #e63946; padding:12px 0; position:sticky; top:0; z-index:100; transition:0.2s; }
+                .hero { background:radial-gradient(circle at 30% 40%, #1e2a44, #0a0f1c); padding:60px 0; text-align:center; animation: fadeInUp 0.6s ease; }
+                .hero h1 { font-size:2.5rem; font-weight:700; background:linear-gradient(135deg, #fff, #e63946); background-clip:text; -webkit-background-clip:text; color:transparent; }
+                .section-title { font-size:1.6rem; font-weight:600; margin:2rem 0 1rem; border-left:4px solid #e63946; padding-left:0.8rem; }
                 .services-grid { grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.2rem; }
-                .service-card { background:#17202f; border-radius:20px; padding:1.2rem; border:1px solid #253045; transition:0.25s ease; text-align:center; }
+                .service-card { background:#17202f; border-radius:16px; padding:1.2rem; border:1px solid #253045; transition:0.25s cubic-bezier(0.2,0.9,0.4,1.1); text-align:center; }
                 .service-card i { font-size:2rem; color:#e63946; margin-bottom:10px; display:block; transition:0.2s; }
-                .service-card:hover { transform:translateY(-6px); border-color:#e63946; box-shadow:0 12px 24px -12px rgba(0,0,0,0.5); }
+                .service-card:hover { transform:translateY(-6px); border-color:#e63946; box-shadow:0 12px 28px -12px rgba(0,0,0,0.6); }
                 .service-card:hover i { transform:scale(1.05); }
-                .btn-primary { background:#e63946; color:#fff; padding:8px 24px; border-radius:40px; display:inline-block; text-decoration:none; font-weight:600; font-size:0.85rem; transition:0.2s; }
-                .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 14px rgba(230,57,70,0.4); }
+                .btn-primary { background:#e63946; color:#fff; padding:10px 28px; border-radius:40px; display:inline-block; text-decoration:none; font-weight:600; font-size:0.85rem; transition:0.2s; border:none; cursor:pointer; }
+                .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 18px rgba(230,57,70,0.4); background:#ff4757; }
                 .gallery-grid { grid-template-columns:repeat(3,1fr); gap:1rem; }
                 .gallery-item { background:#1a2335; border-radius:16px; padding:0.8rem; text-align:center; cursor:pointer; transition:0.2s; }
-                .gallery-item:hover { transform:scale(1.02); background:#25304a; }
+                .gallery-item:hover { transform:scale(1.02); background:#25304a; box-shadow:0 8px 20px -8px black; }
                 .team-grid { grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:1rem; }
                 .team-card { background:#17202f; border-radius:16px; padding:1rem; text-align:center; transition:0.2s; }
-                .team-card:hover { transform:translateY(-3px); background:#1f2a40; }
+                .team-card:hover { transform:translateY(-4px); background:#1f2a40; box-shadow:0 8px 16px -8px black; }
                 .review-card { background:#1a2335; border-radius:16px; padding:0.8rem; margin-bottom:0.8rem; }
-                .map-placeholder { background:#1a2132; height:180px; border-radius:16px; display:flex; align-items:center; justify-content:center; }
-                .footer { background:#070b14; padding:1rem; text-align:center; border-top:1px solid #253045; margin-top:2rem; font-size:0.7rem; }
-                .fade-up { opacity:0; transform:translateY(20px); transition:opacity 0.5s ease, transform 0.5s ease; }
+                .map-placeholder { background:#1a2132; height:250px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; }
+                .footer { background:#070b14; padding:1.2rem; text-align:center; border-top:1px solid #253045; margin-top:2rem; font-size:0.7rem; }
+                .form-group input, .form-group textarea { background:#1a1f2e; border:1px solid #2a2f42; border-radius:12px; color:#fff; }
+                .fade-up { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
                 .fade-up.visible { opacity:1; transform:translateY(0); }
+                @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+                .contact-info .phone { font-size:1.3rem; }
+                .contact-grid { gap:2rem; }
             ` : `
-                /* ========= PRO TASARIM (Cam efekti, büyük ikonlar, glow, premium) ========= */
-                body { background:#05080f; color:#fef6e6; font-family:'Playfair Display', serif; }
-                .site-header { background:rgba(10,15,25,0.7); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.1); padding:12px 0; position:sticky; top:0; z-index:30; }
-                .hero { min-height:70vh; display:flex; align-items:center; text-align:center; background:radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.12), transparent); padding:40px 0; }
-                .hero h1 { font-size:2.8rem; font-weight:800; letter-spacing:-1px; background:linear-gradient(135deg, #fff, #ffb347, #e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; }
-                .section-title { font-size:1.6rem; font-weight:700; margin:2rem 0 1rem; border-left:5px solid #ffb347; padding-left:0.8rem; letter-spacing:-0.5px; }
-                .services-grid { grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
-                .service-card { background:rgba(25,35,55,0.55); backdrop-filter:blur(12px); border-radius:28px; padding:1.2rem; border:1px solid rgba(255,255,255,0.1); transition:0.4s cubic-bezier(0.2,0.9,0.4,1.2); text-align:center; }
-                .service-card i { font-size:2.3rem; color:#ffb347; margin-bottom:12px; display:block; filter:drop-shadow(0 0 6px rgba(255,180,71,0.5)); transition:0.3s; }
-                .service-card:hover { transform:translateY(-10px) scale(1.01); border-color:#ffb347; box-shadow:0 25px 35px -18px black, 0 0 20px rgba(255,180,71,0.2); }
-                .service-card:hover i { transform:scale(1.08); filter:drop-shadow(0 0 12px #ffb347); }
-                .btn-primary { background:linear-gradient(95deg, #ffb347, #e67e22); color:#0a0d17; padding:10px 32px; border-radius:80px; display:inline-block; text-decoration:none; font-weight:800; font-size:0.9rem; transition:0.3s; box-shadow:0 5px 18px rgba(255,180,71,0.3); }
-                .btn-primary:hover { transform:scale(1.03); box-shadow:0 12px 28px rgba(255,180,71,0.5); }
-                .gallery-grid { grid-template-columns:repeat(3,1fr); gap:1.2rem; }
-                .gallery-item { background:rgba(35,45,70,0.6); backdrop-filter:blur(8px); border-radius:24px; padding:1rem; text-align:center; cursor:pointer; transition:0.3s; }
-                .gallery-item:hover { transform:scale(1.03); background:rgba(55,70,100,0.7); box-shadow:0 8px 20px -8px black; }
-                .team-grid { grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:1.2rem; }
-                .team-card { background:rgba(35,45,70,0.5); backdrop-filter:blur(8px); border-radius:24px; padding:1rem; text-align:center; transition:0.3s; }
-                .team-card:hover { transform:translateY(-6px); background:rgba(55,70,100,0.6); box-shadow:0 12px 20px -12px black; }
-                .review-card { background:rgba(25,35,55,0.5); backdrop-filter:blur(8px); border-radius:20px; padding:0.8rem; margin-bottom:0.8rem; }
-                .map-placeholder { background:rgba(20,30,50,0.6); backdrop-filter:blur(8px); height:180px; border-radius:24px; display:flex; align-items:center; justify-content:center; }
-                .footer { background:rgba(5,10,18,0.8); backdrop-filter:blur(12px); padding:1rem; text-align:center; border-top:1px solid rgba(255,255,255,0.1); margin-top:2rem; font-size:0.7rem; }
-                .parallax-bg { position:fixed; top:0; left:0; width:100%; height:100%; background:url('https://placehold.co/1920x1080/0f0f1a/ffb347?text=Premium+Texture') center/cover no-repeat; opacity:0.04; z-index:-2; }
+                /* ========= PRO (Premium) ========= */
+                body { background:#03060c; color:#fef6e6; font-family:'Playfair Display', serif; scroll-behavior:smooth; cursor:default; overflow-x:hidden; }
+                .site-header { background:rgba(10,15,25,0.7); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.1); padding:12px 0; position:sticky; top:0; z-index:100; transition:0.3s; }
+                .hero { min-height:85vh; display:flex; align-items:center; text-align:center; background:radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.15), transparent); position:relative; overflow:hidden; animation: glowPulse 3s infinite alternate; }
+                @keyframes glowPulse { 0% { box-shadow:inset 0 0 30px rgba(255,180,71,0); } 100% { box-shadow:inset 0 0 50px rgba(255,180,71,0.1); } }
+                .hero h1 { font-size:3.8rem; font-weight:800; letter-spacing:-2px; background:linear-gradient(135deg, #fff, #ffb347, #e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; animation: textGlow 2s infinite alternate; }
+                @keyframes textGlow { 0% { text-shadow:0 0 0px rgba(255,180,71,0); } 100% { text-shadow:0 0 12px rgba(255,180,71,0.4); } }
+                .section-title { font-size:2rem; font-weight:700; margin:2.5rem 0 1rem; border-left:5px solid #ffb347; padding-left:1rem; letter-spacing:-0.5px; position:relative; }
+                .services-grid { grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.8rem; }
+                .service-card { background:rgba(25,35,55,0.45); backdrop-filter:blur(12px); border-radius:32px; padding:1.5rem; border:1px solid rgba(255,255,255,0.08); transition:0.4s cubic-bezier(0.2,0.9,0.4,1.2); text-align:center; transform-style:preserve-3d; }
+                .service-card i { font-size:2.6rem; color:#ffb347; margin-bottom:12px; display:block; filter:drop-shadow(0 0 8px rgba(255,180,71,0.5)); transition:0.3s; }
+                .service-card:hover { transform:translateY(-15px) scale(1.02); border-color:#ffb347; box-shadow:0 30px 45px -20px black, 0 0 20px rgba(255,180,71,0.2); }
+                .service-card:hover i { transform:scale(1.1); filter:drop-shadow(0 0 15px #ffb347); }
+                .btn-primary { background:linear-gradient(95deg, #ffb347, #e67e22); color:#0a0d17; padding:12px 40px; border-radius:80px; display:inline-block; text-decoration:none; font-weight:800; font-size:1rem; transition:0.3s; box-shadow:0 5px 20px rgba(255,180,71,0.4); border:none; cursor:pointer; position:relative; overflow:hidden; }
+                .btn-primary:hover { transform:scale(1.04); box-shadow:0 12px 30px rgba(255,180,71,0.7); letter-spacing:1px; }
+                .btn-primary:active { transform:scale(0.98); }
+                .gallery-grid { grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+                .gallery-item { background:rgba(35,45,70,0.5); backdrop-filter:blur(8px); border-radius:28px; padding:1rem; text-align:center; cursor:pointer; transition:0.3s; border:1px solid rgba(255,255,255,0.05); }
+                .gallery-item:hover { transform:scale(1.04); background:rgba(55,70,100,0.7); box-shadow:0 15px 30px -12px black; border-color:rgba(255,180,71,0.5); }
+                .team-grid { grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:1.5rem; }
+                .team-card { background:rgba(35,45,70,0.5); backdrop-filter:blur(8px); border-radius:28px; padding:1.2rem; text-align:center; transition:0.3s; border:1px solid rgba(255,255,255,0.05); }
+                .team-card:hover { transform:translateY(-8px); background:rgba(55,70,100,0.6); box-shadow:0 20px 30px -15px black; border-color:#ffb347; }
+                .review-card { background:rgba(25,35,55,0.5); backdrop-filter:blur(8px); border-radius:24px; padding:1rem; margin-bottom:1rem; border:1px solid rgba(255,255,255,0.05); }
+                .map-placeholder { background:rgba(20,30,50,0.6); backdrop-filter:blur(12px); height:260px; border-radius:32px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; border:1px solid rgba(255,255,255,0.1); }
+                .footer { background:rgba(5,10,18,0.85); backdrop-filter:blur(12px); padding:1.5rem; text-align:center; border-top:1px solid rgba(255,255,255,0.1); margin-top:2.5rem; font-size:0.75rem; }
+                .parallax-bg { position:fixed; top:0; left:0; width:100%; height:100%; background:url('https://placehold.co/1920x1080/0f0f1a/ffb347?text=Premium+Texture') center/cover no-repeat; opacity:0.04; z-index:-2; transform:translateY(0); transition:transform 0.1s ease-out; }
+                .form-group input, .form-group textarea { background:rgba(30,40,60,0.6); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); border-radius:24px; color:#fff; transition:0.2s; }
+                .form-group input:focus, .form-group textarea:focus { outline:none; border-color:#ffb347; box-shadow:0 0 12px rgba(255,180,71,0.3); }
+                .contact-grid { gap:2rem; }
+                .contact-info .phone { font-size:1.6rem; background:linear-gradient(135deg,#ffb347,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; }
+                .scroll-progress { position:fixed; top:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#ffb347,#e67e22); z-index:1001; transition:width 0.1s; }
+                .mouse-light { position:fixed; width:500px; height:500px; background:radial-gradient(circle, rgba(255,180,71,0.25) 0%, rgba(255,180,71,0) 70%); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform 0.03s linear; }
             `}
         </style>
         </head>
         <body>
-        ${design === 'pro' ? '<div class="parallax-bg"></div>' : ''}
+        ${design === 'pro' ? '<div class="parallax-bg" id="parallaxBg"></div><div class="scroll-progress" id="scrollProgress"></div><div class="mouse-light" id="mouseLight"></div>' : ''}
         <div class="lightbox" id="lightbox"><img id="lightboxImg" src=""></div>
         <div class="whatsapp-float"><i class="fab fa-whatsapp"></i></div>
         <header class="site-header sticky-header">
@@ -234,22 +257,39 @@
             
             ${f.reviews ? `<div class="section-title"><i class="fab fa-google"></i> Müşteri Yorumları</div><div class="review-card">⭐⭐⭐⭐⭐ “Harika işçilik, hızlı servis.” – Mehmet K.</div><div class="review-card">⭐⭐⭐⭐☆ “İlgili ekip, memnun kaldım.” – Sibel D.</div><div>⭐ 4.9 ★ (42 değerlendirme)</div>` : ''}
             
-            <div class="contact-bottom">
-                <div class="section-title"><i class="fas fa-headset"></i> İletişim & Destek</div>
-                ${f.map ? `<div class="service-card" style="margin-bottom:1rem;"><div style="font-weight:600; font-size:0.9rem;">📍 Konum</div><div class="map-placeholder" style="font-size:0.8rem;"><i class="fas fa-map-marked-alt"></i> Google Maps Önizlemesi</div></div>` : ''}
-                ${f.form ? `<div class="service-card"><div style="font-weight:600; font-size:0.9rem;">📋 İletişim Formu</div><div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;"><input placeholder="Adınız" style="flex:1; padding:0.5rem; border-radius:60px; border:none; font-size:0.8rem;"><input placeholder="Email" style="flex:1; padding:0.5rem; border-radius:60px; border:none; font-size:0.8rem;"><button class="btn-primary" style="padding:4px 14px; font-size:0.7rem;">Gönder</button></div></div>` : ''}
-                ${f.whatsapp || f.call || f.info ? `<div class="service-card" style="margin-top:1rem;"><div class="flex-between"><div style="display:flex; gap:0.5rem; flex-wrap:wrap;">${f.whatsapp ? `<a href="#" class="btn-primary" style="padding:4px 14px; font-size:0.75rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>` : ''}${f.call ? `<a href="#" class="btn-primary" style="padding:4px 14px; font-size:0.75rem;"><i class="fas fa-phone-alt"></i> Ara</a>` : ''}</div>${f.info ? `<div style="font-size:0.7rem;"><i class="fas fa-envelope"></i> info@demo.com</div>` : ''}</div></div>` : ''}
+            <div class="contact-section">
+                <div class="section-title"><i class="fas fa-headset"></i> İletişim</div>
+                <div class="contact-grid">
+                    <div class="map-placeholder"><i class="fas fa-map-marked-alt"></i> Google Maps Önizlemesi<br>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz</div>
+                    <div>
+                        <form action="#" method="post">
+                            <div class="form-group"><input type="text" name="name" placeholder="Adınız Soyadınız" required></div>
+                            <div class="form-group"><input type="email" name="email" placeholder="E-posta Adresiniz" required></div>
+                            <div class="form-group"><textarea name="message" placeholder="Mesajınız..." required></textarea></div>
+                            <button type="submit" class="btn-primary" style="width:100%;">Gönder</button>
+                        </form>
+                        <div class="contact-info" style="margin-top: 1rem;">
+                            <div class="phone"><i class="fas fa-phone-alt"></i> 0532 264 15 01</div>
+                            <div><i class="fas fa-envelope"></i> info@gecgaraj.com</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <footer class="footer"><p>© 2025 ${design.toUpperCase()} Tasarım | İletişim: 0532 264 15 01</p></footer>
+        <footer class="footer"><p>© 2025 ${design.toUpperCase()} Tasarım | Beykoz / İstanbul</p></footer>
         <script>
             const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lightboxImg');
             document.querySelectorAll('.gallery-item').forEach(el=>{el.addEventListener('click',()=>{const u=el.getAttribute('data-img'); if(u){lbImg.src=u; lb.classList.add('active');}});});
             lb.addEventListener('click',()=>{lb.classList.remove('active'); lbImg.src='';});
             ${design === 'modern' ? `
             const fadeEls=document.querySelectorAll('.service-card, .gallery-item, .team-card, .review-card');
-            const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('visible');});},{threshold:0.1});
-            fadeEls.forEach(el=>{el.classList.add('fade-up'); observer.observe(el);});
+            const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+            fadeEls.forEach(el=>{el.classList.add('fade-up'); obs.observe(el);});
+            ` : ''}
+            ${design === 'pro' ? `
+            window.addEventListener('scroll',()=>{const winScroll=document.documentElement.scrollTop, height=document.documentElement.scrollHeight-document.documentElement.clientHeight, scrolled=(winScroll/height)*100; document.getElementById('scrollProgress').style.width=scrolled+'%'; const pBg=document.getElementById('parallaxBg'); if(pBg)pBg.style.transform='translateY('+window.scrollY*0.2+'px)';});
+            const light=document.getElementById('mouseLight');
+            if(light) document.addEventListener('mousemove',(e)=>{light.style.transform='translate('+e.clientX+'px, '+e.clientY+'px)';});
             ` : ''}
         <\/script>
         </body>
