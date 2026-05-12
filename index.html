@@ -194,22 +194,19 @@
                 .contact-info .phone { font-size:1.3rem; }
                 .contact-grid { gap:2rem; }
             ` : `
-                /* ========= PRO (Premium) ========= */
-                body { background:#03060c; color:#fef6e6; font-family:'Playfair Display', serif; scroll-behavior:smooth; cursor:default; overflow-x:hidden; }
+                /* ========= PRO (Premium - Mouse ışığı YOK) ========= */
+                body { background:#03060c; color:#fef6e6; font-family:'Playfair Display', serif; scroll-behavior:smooth; overflow-x:hidden; }
                 .site-header { background:rgba(10,15,25,0.7); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.1); padding:12px 0; position:sticky; top:0; z-index:100; transition:0.3s; }
-                .hero { min-height:85vh; display:flex; align-items:center; text-align:center; background:radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.15), transparent); position:relative; overflow:hidden; animation: glowPulse 3s infinite alternate; }
-                @keyframes glowPulse { 0% { box-shadow:inset 0 0 30px rgba(255,180,71,0); } 100% { box-shadow:inset 0 0 50px rgba(255,180,71,0.1); } }
-                .hero h1 { font-size:3.8rem; font-weight:800; letter-spacing:-2px; background:linear-gradient(135deg, #fff, #ffb347, #e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; animation: textGlow 2s infinite alternate; }
-                @keyframes textGlow { 0% { text-shadow:0 0 0px rgba(255,180,71,0); } 100% { text-shadow:0 0 12px rgba(255,180,71,0.4); } }
-                .section-title { font-size:2rem; font-weight:700; margin:2.5rem 0 1rem; border-left:5px solid #ffb347; padding-left:1rem; letter-spacing:-0.5px; position:relative; }
+                .hero { min-height:85vh; display:flex; align-items:center; text-align:center; background:radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.15), transparent); position:relative; overflow:hidden; }
+                .hero h1 { font-size:3.5rem; font-weight:800; letter-spacing:-2px; background:linear-gradient(135deg, #fff, #ffb347, #e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; }
+                .section-title { font-size:2rem; font-weight:700; margin:2.5rem 0 1rem; border-left:5px solid #ffb347; padding-left:1rem; letter-spacing:-0.5px; }
                 .services-grid { grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.8rem; }
-                .service-card { background:rgba(25,35,55,0.45); backdrop-filter:blur(12px); border-radius:32px; padding:1.5rem; border:1px solid rgba(255,255,255,0.08); transition:0.4s cubic-bezier(0.2,0.9,0.4,1.2); text-align:center; transform-style:preserve-3d; }
+                .service-card { background:rgba(25,35,55,0.45); backdrop-filter:blur(12px); border-radius:32px; padding:1.5rem; border:1px solid rgba(255,255,255,0.08); transition:0.4s cubic-bezier(0.2,0.9,0.4,1.2); text-align:center; }
                 .service-card i { font-size:2.6rem; color:#ffb347; margin-bottom:12px; display:block; filter:drop-shadow(0 0 8px rgba(255,180,71,0.5)); transition:0.3s; }
-                .service-card:hover { transform:translateY(-15px) scale(1.02); border-color:#ffb347; box-shadow:0 30px 45px -20px black, 0 0 20px rgba(255,180,71,0.2); }
-                .service-card:hover i { transform:scale(1.1); filter:drop-shadow(0 0 15px #ffb347); }
-                .btn-primary { background:linear-gradient(95deg, #ffb347, #e67e22); color:#0a0d17; padding:12px 40px; border-radius:80px; display:inline-block; text-decoration:none; font-weight:800; font-size:1rem; transition:0.3s; box-shadow:0 5px 20px rgba(255,180,71,0.4); border:none; cursor:pointer; position:relative; overflow:hidden; }
-                .btn-primary:hover { transform:scale(1.04); box-shadow:0 12px 30px rgba(255,180,71,0.7); letter-spacing:1px; }
-                .btn-primary:active { transform:scale(0.98); }
+                .service-card:hover { transform:translateY(-12px) scale(1.01); border-color:#ffb347; box-shadow:0 30px 45px -20px black, 0 0 20px rgba(255,180,71,0.2); }
+                .service-card:hover i { transform:scale(1.08); filter:drop-shadow(0 0 15px #ffb347); }
+                .btn-primary { background:linear-gradient(95deg, #ffb347, #e67e22); color:#0a0d17; padding:12px 40px; border-radius:80px; display:inline-block; text-decoration:none; font-weight:800; font-size:1rem; transition:0.3s; box-shadow:0 5px 20px rgba(255,180,71,0.4); border:none; cursor:pointer; }
+                .btn-primary:hover { transform:scale(1.04); box-shadow:0 12px 30px rgba(255,180,71,0.7); }
                 .gallery-grid { grid-template-columns:repeat(3,1fr); gap:1.5rem; }
                 .gallery-item { background:rgba(35,45,70,0.5); backdrop-filter:blur(8px); border-radius:28px; padding:1rem; text-align:center; cursor:pointer; transition:0.3s; border:1px solid rgba(255,255,255,0.05); }
                 .gallery-item:hover { transform:scale(1.04); background:rgba(55,70,100,0.7); box-shadow:0 15px 30px -12px black; border-color:rgba(255,180,71,0.5); }
@@ -225,12 +222,11 @@
                 .contact-grid { gap:2rem; }
                 .contact-info .phone { font-size:1.6rem; background:linear-gradient(135deg,#ffb347,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; }
                 .scroll-progress { position:fixed; top:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#ffb347,#e67e22); z-index:1001; transition:width 0.1s; }
-                .mouse-light { position:fixed; width:500px; height:500px; background:radial-gradient(circle, rgba(255,180,71,0.25) 0%, rgba(255,180,71,0) 70%); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform 0.03s linear; }
             `}
         </style>
         </head>
         <body>
-        ${design === 'pro' ? '<div class="parallax-bg" id="parallaxBg"></div><div class="scroll-progress" id="scrollProgress"></div><div class="mouse-light" id="mouseLight"></div>' : ''}
+        ${design === 'pro' ? '<div class="parallax-bg" id="parallaxBg"></div><div class="scroll-progress" id="scrollProgress"></div>' : ''}
         <div class="lightbox" id="lightbox"><img id="lightboxImg" src=""></div>
         <div class="whatsapp-float"><i class="fab fa-whatsapp"></i></div>
         <header class="site-header sticky-header">
@@ -263,14 +259,14 @@
                     <div class="map-placeholder"><i class="fas fa-map-marked-alt"></i> Google Maps Önizlemesi<br>Tokatköy, Sultan Aziz Cd. 95/A, Beykoz</div>
                     <div>
                         <form action="#" method="post">
-                            <div class="form-group"><input type="text" name="name" placeholder="Adınız Soyadınız" required></div>
-                            <div class="form-group"><input type="email" name="email" placeholder="E-posta Adresiniz" required></div>
-                            <div class="form-group"><textarea name="message" placeholder="Mesajınız..." required></textarea></div>
+                            <div class="form-group"><input type="text" name="name" placeholder="Adınız Soyadınız" value="Örnek Kullanıcı"></div>
+                            <div class="form-group"><input type="email" name="email" placeholder="E-posta Adresiniz" value="ornek@mail.com"></div>
+                            <div class="form-group"><textarea name="message" placeholder="Mesajınız...">Örnek mesaj içeriği.</textarea></div>
                             <button type="submit" class="btn-primary" style="width:100%;">Gönder</button>
                         </form>
                         <div class="contact-info" style="margin-top: 1rem;">
                             <div class="phone"><i class="fas fa-phone-alt"></i> 0532 264 15 01</div>
-                            <div><i class="fas fa-envelope"></i> info@gecgaraj.com</div>
+                            <div><i class="fas fa-envelope"></i> info@ornekfirma.com</div>
                         </div>
                     </div>
                 </div>
@@ -288,8 +284,6 @@
             ` : ''}
             ${design === 'pro' ? `
             window.addEventListener('scroll',()=>{const winScroll=document.documentElement.scrollTop, height=document.documentElement.scrollHeight-document.documentElement.clientHeight, scrolled=(winScroll/height)*100; document.getElementById('scrollProgress').style.width=scrolled+'%'; const pBg=document.getElementById('parallaxBg'); if(pBg)pBg.style.transform='translateY('+window.scrollY*0.2+'px)';});
-            const light=document.getElementById('mouseLight');
-            if(light) document.addEventListener('mousemove',(e)=>{light.style.transform='translate('+e.clientX+'px, '+e.clientY+'px)';});
             ` : ''}
         <\/script>
         </body>
