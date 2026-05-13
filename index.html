@@ -49,7 +49,7 @@
     <h1><i class="fas fa-bezier-curve"></i> Tasarım Stüdyosu</h1>
     <div class="intro-text">
         <i class="fas fa-comment-dots"></i> Merhaba, ben Nail Alparslan Silman. Freelance olarak işletmelere modern web siteleri hazırlıyorum.<br><br>
-        Aşağıdan <strong>tasarım stilini (Basic, Standart, Pro)</strong> ve <strong>özellik paketini</strong> seçerek farklı animasyon, ikon ve kart stillerini görebilirsiniz.
+        Aşağıdan <strong>tasarım stilini (Basic, Standart, Pro)</strong> ve <strong>özellik paketini</strong> seçerek her kombinasyon için farklı kart, animasyon ve görsel detayları görebilirsiniz.
     </div>
     <div class="section-label"><i class="fas fa-palette"></i> 1. Tasarım Kimliği</div>
     <div class="option-group" id="designGroup">
@@ -57,7 +57,7 @@
         <div class="design-card active" data-design="modern">🔥 STANDART · Modern</div>
         <div class="design-card" data-design="pro">💎 PRO · Premium</div>
     </div>
-    <div class="section-label"><i class="fas fa-cubes"></i> 2. Paket (İçerik skalası)</div>
+    <div class="section-label"><i class="fas fa-cubes"></i> 2. Paket (İçerik skalası + özel tasarım)</div>
     <div class="option-group" id="packageGroup">
         <div class="pack-card" data-pack="starter">🚀 Başlangıç</div>
         <div class="pack-card active" data-pack="business">🏪 Küçük İşletme</div>
@@ -66,7 +66,7 @@
     </div>
     <button class="generate-button" id="buildBtn"><i class="fas fa-magic"></i> SİTEYİ OLUŞTUR & GÖR</button>
     <hr>
-    <div class="info-note">Her tasarım seviyesi: butonlar, hover, kart, animasyon, tipografi, shadow, spacing, mobil uyum tamamen farklıdır.</div>
+    <div class="info-note">Her tasarım + paket kombinasyonu: farklı kart, ikon, hover, renk detayları. Pro'da arka plan slayt gösterisi.</div>
 </div>
 
 <script>
@@ -79,6 +79,17 @@
         enterprise: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advanced: true, services: true, team: true, reviews: true, map: true, extra: false },
         prosite: { whatsapp: true, call: true, info: true, form: true, simpleGallery: false, advanced: false, services: true, team: true, reviews: true, map: true, extra: true }
     };
+
+    // Pakete özel CSS sınıfları (ekstra tasarım farkları)
+    function getPackageClass(pack) {
+        switch(pack) {
+            case 'starter': return 'pkg-starter';
+            case 'business': return 'pkg-business';
+            case 'enterprise': return 'pkg-enterprise';
+            case 'prosite': return 'pkg-prosite';
+            default: return '';
+        }
+    }
 
     function bindEvents() {
         document.querySelectorAll('.design-card').forEach(btn => {
@@ -99,11 +110,13 @@
 
     function generateFullSite() {
         const design = currentDesign;
-        const f = packConfig[currentPack];
+        const pack = currentPack;
+        const f = packConfig[pack];
+        const packageClass = getPackageClass(pack);
         
         let siteHtml = `<!DOCTYPE html>
         <html lang="tr">
-        <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><title>${design === 'basic' ? 'BasicCo' : (design === 'modern' ? 'Standart Studio' : 'AURORA Premium')}</title>
+        <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><title>${design === 'basic' ? 'BasicCo' : (design === 'modern' ? 'Standart Studio' : 'AURORA Premium')} - ${pack.toUpperCase()} Paketi</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -143,7 +156,7 @@
             @media (max-width: 480px) { .gallery-grid { grid-template-columns:1fr !important; } }
             
             ${design === 'basic' ? `
-                /* ========= BASIC ========= */
+                /* ========= BASIC TASARIM (paket farkları) ========= */
                 body { background:#f4f6fa; color:#1e293b; scroll-behavior:auto; }
                 .site-header { background:#fff; border-bottom:1px solid #e2e8f0; padding:12px 0; position:relative; }
                 .hero { background:#eef2f8; padding:50px 0; text-align:center; }
@@ -164,8 +177,13 @@
                 .footer { background:#1e293b; color:#94a3b8; padding:1rem; text-align:center; margin-top:1.5rem; font-size:0.7rem; }
                 .form-group input, .form-group textarea { background:#1e1e2f; border:1px solid #334155; color:#fff; border-radius:6px; }
                 .contact-info .phone { font-size:1.2rem; }
+                /* Paket özel stiller */
+                .pkg-starter .service-card { border-left:3px solid #3b82f6; }
+                .pkg-business .service-card { border-bottom:2px solid #3b82f6; }
+                .pkg-enterprise .service-card { background:#f8fafc; }
+                .pkg-prosite .service-card { box-shadow:0 2px 8px rgba(0,0,0,0.05); }
             ` : design === 'modern' ? `
-                /* ========= STANDART (Modern) ========= */
+                /* ========= STANDART TASARIM (Modern, pakete göre hover renkleri) ========= */
                 body { background:#0f121c; color:#eef2ff; font-family:'Space Grotesk', monospace; scroll-behavior:smooth; }
                 .site-header { background:#141a28; border-bottom:2px solid #e63946; padding:12px 0; position:sticky; top:0; z-index:100; transition:0.2s; }
                 .hero { background:radial-gradient(circle at 30% 40%, #1e2a44, #0a0f1c); padding:60px 0; text-align:center; animation: fadeInUp 0.6s ease; }
@@ -193,12 +211,22 @@
                 @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
                 .contact-info .phone { font-size:1.3rem; }
                 .contact-grid { gap:2rem; }
+                /* Paket özel stiller */
+                .pkg-starter .service-card { border-top:3px solid #e63946; }
+                .pkg-business .service-card:hover { background:#1f2a44; border-color:#ff4757; }
+                .pkg-enterprise .service-card i { color:#ff4757; }
+                .pkg-prosite .service-card { background:linear-gradient(145deg, #17202f, #1e2a3a); }
             ` : `
-                /* ========= PRO (Premium - Mouse ışığı YOK) ========= */
+                /* ========= PRO TASARIM (Premium, arka plan slayt, yüksek hero) ========= */
                 body { background:#03060c; color:#fef6e6; font-family:'Playfair Display', serif; scroll-behavior:smooth; overflow-x:hidden; }
                 .site-header { background:rgba(10,15,25,0.7); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.1); padding:12px 0; position:sticky; top:0; z-index:100; transition:0.3s; }
-                .hero { min-height:85vh; display:flex; align-items:center; text-align:center; background:radial-gradient(ellipse at 50% 30%, rgba(255,180,70,0.15), transparent); position:relative; overflow:hidden; }
-                .hero h1 { font-size:3.5rem; font-weight:800; letter-spacing:-2px; background:linear-gradient(135deg, #fff, #ffb347, #e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; }
+                .hero { min-height:95vh; display:flex; align-items:center; text-align:center; position:relative; overflow:hidden; }
+                .hero-slider { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+                .hero-slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1.2s ease-in-out; }
+                .hero-slide.active { opacity:1; }
+                .hero-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); z-index:1; }
+                .hero .container { position:relative; z-index:2; }
+                .hero h1 { font-size:4rem; font-weight:800; letter-spacing:-2px; background:linear-gradient(135deg, #fff, #ffb347, #e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; margin-bottom:1rem; }
                 .section-title { font-size:2rem; font-weight:700; margin:2.5rem 0 1rem; border-left:5px solid #ffb347; padding-left:1rem; letter-spacing:-0.5px; }
                 .services-grid { grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.8rem; }
                 .service-card { background:rgba(25,35,55,0.45); backdrop-filter:blur(12px); border-radius:32px; padding:1.5rem; border:1px solid rgba(255,255,255,0.08); transition:0.4s cubic-bezier(0.2,0.9,0.4,1.2); text-align:center; }
@@ -222,20 +250,36 @@
                 .contact-grid { gap:2rem; }
                 .contact-info .phone { font-size:1.6rem; background:linear-gradient(135deg,#ffb347,#e67e22); background-clip:text; -webkit-background-clip:text; color:transparent; }
                 .scroll-progress { position:fixed; top:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#ffb347,#e67e22); z-index:1001; transition:width 0.1s; }
+                /* Paket özel stiller */
+                .pkg-starter .service-card { border-left:4px solid #ffb347; }
+                .pkg-business .service-card i { filter:drop-shadow(0 0 12px #ffb347); }
+                .pkg-enterprise .service-card { background:rgba(35,55,80,0.6); }
+                .pkg-prosite .service-card { background:rgba(45,65,95,0.5); border-image:linear-gradient(45deg, #ffb347, #e67e22) 1; }
             `}
+            
+            /* Ortak paket wrapper sınıfı */
+            .${packageClass} { }
         </style>
         </head>
-        <body>
+        <body class="${packageClass}">
         ${design === 'pro' ? '<div class="parallax-bg" id="parallaxBg"></div><div class="scroll-progress" id="scrollProgress"></div>' : ''}
         <div class="lightbox" id="lightbox"><img id="lightboxImg" src=""></div>
         <div class="whatsapp-float"><i class="fab fa-whatsapp"></i></div>
         <header class="site-header sticky-header">
             <div class="container flex-between">
-                <div style="font-weight:800; font-size:1.2rem;">${design === 'basic' ? '📁 BasicCo' : (design === 'modern' ? '◉ Standart Studio' : '✦ AURORA PREMIUM')}</div>
+                <div style="font-weight:800; font-size:1.2rem;">${design === 'basic' ? '📁 BasicCo' : (design === 'modern' ? '◉ Standart Studio' : '✦ AURORA PREMIUM')} [${pack === 'starter' ? 'Başlangıç' : (pack === 'business' ? 'Küçük İşletme' : (pack === 'enterprise' ? 'Büyük İşletme' : 'Profesyonel'))}]</div>
                 <div style="display:flex; gap:1rem; flex-wrap:wrap;"><span>Ana Sayfa</span><span>Hizmetler</span><span>İletişim</span></div>
             </div>
         </header>
         <section class="hero">
+            ${design === 'pro' ? `
+            <div class="hero-slider" id="heroSlider">
+                <div class="hero-slide active" style="background-image: url('https://placehold.co/1920x1080/2c3e50/ffffff?text=Arka+Plan+1');"></div>
+                <div class="hero-slide" style="background-image: url('https://placehold.co/1920x1080/34495e/ffffff?text=Arka+Plan+2');"></div>
+                <div class="hero-slide" style="background-image: url('https://placehold.co/1920x1080/1a252f/ffffff?text=Arka+Plan+3');"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            ` : ''}
             <div class="container">
                 <h1>${design === 'basic' ? 'Sade ve Güvenilir' : (design === 'modern' ? 'Yaratıcı Dijital Çözümler' : 'Zirveye Ulaşın')}</h1>
                 <p style="margin:0.5rem 0;">${design === 'basic' ? 'Hızlı, hafif, klasik web sitesi.' : (design === 'modern' ? 'Modern yaklaşım, dönüşüm odaklı tasarım.' : 'Premium kalite, benzersiz dijital deneyim.')}</p>
@@ -272,7 +316,7 @@
                 </div>
             </div>
         </div>
-        <footer class="footer"><p>© 2025 ${design.toUpperCase()} Tasarım | Beykoz / İstanbul</p></footer>
+        <footer class="footer"><p>© 2025 ${design.toUpperCase()} Tasarım - ${pack === 'starter' ? 'Başlangıç' : (pack === 'business' ? 'Küçük İşletme' : (pack === 'enterprise' ? 'Büyük İşletme' : 'Profesyonel'))} Paketi | Beykoz / İstanbul</p></footer>
         <script>
             const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lightboxImg');
             document.querySelectorAll('.gallery-item').forEach(el=>{el.addEventListener('click',()=>{const u=el.getAttribute('data-img'); if(u){lbImg.src=u; lb.classList.add('active');}});});
@@ -283,6 +327,16 @@
             fadeEls.forEach(el=>{el.classList.add('fade-up'); obs.observe(el);});
             ` : ''}
             ${design === 'pro' ? `
+            // Arka plan slayt gösterisi
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentIndex = 0;
+            function nextSlide() {
+                slides[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % slides.length;
+                slides[currentIndex].classList.add('active');
+            }
+            setInterval(nextSlide, 5000);
+            // Scroll progress
             window.addEventListener('scroll',()=>{const winScroll=document.documentElement.scrollTop, height=document.documentElement.scrollHeight-document.documentElement.clientHeight, scrolled=(winScroll/height)*100; document.getElementById('scrollProgress').style.width=scrolled+'%'; const pBg=document.getElementById('parallaxBg'); if(pBg)pBg.style.transform='translateY('+window.scrollY*0.2+'px)';});
             ` : ''}
         <\/script>
